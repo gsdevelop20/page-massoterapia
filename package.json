@@ -21,10 +21,15 @@
         "vite": "^4.5.3"
     },
     "dependencies": {
+        "@popperjs/core": "^2.11.8",
+        "bootstrap": "^5.3.3",
         "chart.js": "^4.4.0",
+        "framer-motion": "^12.0.5",
         "primeflex": "^3.3.1",
         "primeicons": "^6.0.1",
         "primereact": "^10.0.9",
+        "react-icons": "^5.4.0",
+        "react-intersection-observer": "^9.15.1",
         "react-transition-group": "^4.4.5"
     }
 }
