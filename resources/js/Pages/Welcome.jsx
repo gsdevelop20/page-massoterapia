@@ -80,7 +80,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                         >
                             <div
                                 className='container flex flex-column md:flex-row justify-content-center align-items-center gap-5'>
-                                <img className='' width={400} alt='médica' src='/images/home/medica.png'/>
+                                <img className='' width={400} alt='médica' src='/images/home/medica.webp'/>
                                 <div className='d-flex flex-column justify-content-center align-items-center gap-5'>
                                     <h1 className='tile text-center font-bold text-white'>
                                         A melhor clínica da região, com qualidade excepcional e preços acessíveis.
