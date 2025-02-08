@@ -37,6 +37,7 @@
 .banner > * {
   position: relative;
   z-index: 1;
+  top: 3.7rem;
 }
 
 /* Ajuste para elementos ficarem lado a lado em telas grandes */
