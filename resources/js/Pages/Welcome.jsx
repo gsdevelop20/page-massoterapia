@@ -1,7 +1,9 @@
 import {Link, Head} from '@inertiajs/react';
 import {LayoutContext, LayoutProvider} from "@/Layouts/layout/context/layoutcontext.jsx";
 import {PrimeReactProvider} from "primereact/api";
+import './style.css'
 import React, {useContext, useState} from "react";
+import Carousel2 from "@/Components/Carousel/Carousel2.jsx";
 import {
     FaFacebookF,
     FaBullhorn,
@@ -19,7 +21,7 @@ import {
     FaPrint,
     FaPhoneAlt, FaWhatsapp, FaMapMarkerAlt
 } from "react-icons/fa";
-import HeaderComponent from "@/Components/HeaderComponent.jsx";
+import HeaderComponent from "@/Components/header/HeaderComponent.jsx";
 import {motion} from "framer-motion";
 import {useInView} from "react-intersection-observer";
 import ProductsComponent from "@/Components/ProductsComponent.jsx";
@@ -30,19 +32,19 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
 
     const plans = [
         {
-            title: 'Standard plan',
-            description: 'The standard plan is the best option for those who want to start their business.',
-            imageSrc: '/images/home/icons/box.png',
+            title: 'Atestado Admissional',
+            description: '',
+            imageSrc: '/images/home/icons/estetoscopio.png',
         },
         {
-            title: 'Standard plan',
-            description: 'The standard plan is the best option for those who want to start their business.',
-            imageSrc: '/images/home/icons/box.png',
+            title: 'Exames laboratóriais',
+            description: '',
+            imageSrc: '/images/home/icons/estetoscopio.png',
         },
         {
-            title: 'Standard plan',
-            description: 'The standard plan is the best option for those who want to start their business.',
-            imageSrc: '/images/home/icons/box.png',
+            title: 'Consultas Médicas',
+            description: '',
+            imageSrc: '/images/home/icons/estetoscopio.png',
         }
     ];
 
@@ -67,121 +69,96 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
         <>
             <PrimeReactProvider>
                 <LayoutProvider>
-                    <Head title="Welcome"/>
+                    <Head title="Clínica Amor Brasil"/>
+
                     <HeaderComponent auth={auth}/>
 
-                    <section
-                        className="w-100 flex align-items-center p-8"
-                        style={{
-                            marginTop: "2rem",
-                            backgroundImage: "url('/images/home/fundo.jpg')",
-                        }}
-                    >
-                        <div className="container mx-auto flex md:flex-row flex-column gap-6 align-items-center"
-                             style={{marginTop: "3rem"}}>
-                            {/* Texto */}
-                            <motion.div
-                                className="flex flex-column gap-6 justify-content-center align-items-center"
-                                initial={{opacity: 0, y: 50}}
-                                animate={{opacity: 1, y: 0}}
-                                transition={{duration: 0.8}}
-                            >
-                                <h1 className="text-center">Cuidando da Sua Saúde com Excelência e Humanização</h1>
-                                <motion.a
-                                    className="btn btn-warning"
-                                    whileHover={{scale: 1.1}}
-                                    whileTap={{scale: 0.9}}
-                                >
-                                    Entre em contato
-                                </motion.a>
-                            </motion.div>
+                    <section>
+                        <div
+                            className="w-full banner flex justify-content-center flex-wrap gap-8"
+                            style={{backgroundImage: `url("/images/home/banners.jpg")`}}
+                        >
+                            <div
+                                className='container flex flex-column md:flex-row justify-content-center align-items-center gap-5'>
+                                <img className='' width={400} alt='médica' src='/images/home/medica.png'/>
+                                <div className='d-flex flex-column justify-content-center align-items-center gap-5'>
+                                    <h1 className='tile text-center font-bold text-white'>
+                                        A melhor clínica da região, com qualidade excepcional e preços acessíveis.
+                                    </h1>
 
-                            {/* Imagem */}
-                            <motion.div
-                                initial={{opacity: 0, x: 50}}
-                                animate={{opacity: 1, x: 0}}
-                                transition={{duration: 0.8, delay: 0.2}}
-                            >
-                                <img
-                                    className="w-full img-fluid"
-                                    src="/images/home/medical.jpg"
-                                    alt=""
-                                    style={{maxHeight: "45rem", borderRadius: "20px"}}
-                                />
-                            </motion.div>
-                        </div>
-                    </section>
-
-                    <ProductsComponent data={plans}/>
-
-                    <section className='w-full p-5 mt-8 ' style={{background: '#00c3ea'}}>
-                        <div className=' flex justify-content-center align-items-center'>
-                            <CarouselComponent/>
-                        </div>
-                    </section>
-                    <section className="py-16 mt-8 p-5">
-                        <div className="container mx-auto px-4 flex flex-column items-center gap-8">
-                            <div className="text-center mb-10">
-                                <h2 className="text-3xl font-bold text-gray-800">Why Choose Us</h2>
-                            </div>
-
-                            <div className="flex flex-wrap justify-content-center gap-8 w-full">
-                                {cards.map((card, index) => {
-                                    const {ref, inView} = useInView({triggerOnce: true, threshold: 0.2});
-
-                                    return (
-                                        <motion.div
-                                            key={card.id}
-                                            ref={ref}
-                                            className="bg-white p-6 rounded-lg shadow-lg w-80 text-center"
-                                            variants={cardVariants}
-                                            initial="hidden"
-                                            animate={inView ? "visible" : "hidden"}
-                                        >
-                                            <div className="text-blue-500 text-5xl mb-4">{card.icon}</div>
-                                            <h4 className="text-xl font-semibold mb-2">{card.title}</h4>
-                                            <p className="text-gray-600">
-                                                Short description for the ones who look for something new
-                                            </p>
-                                        </motion.div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className='mt-8 p-7' style={{backgroundImage: "url('/images/home/fundo.jpg')"}}>
-                        <div className="container mx-auto mt-5">
-                            <div className="flex justify-content-center align-items-center flex-wrap gap-8 ">
-                                {/* Informações de Contato */}
-                                <div className="card p-4 shadow-lg">
-                                    <h2 className="mb-4">Entre em Contato</h2>
-                                    <p>
-                                        <FaMapMarkerAlt className="text-danger"/> <strong>Endereço:</strong> Rua
-                                        Exemplo, 123 - São Paulo, SP
-                                    </p>
-                                    <p>
-                                        <FaPhoneAlt className="text-primary"/> <strong>Telefone:</strong> <a
-                                        href="tel:+5511999999999">(11) 99999-9999</a>
-                                    </p>
-                                    <p>
-                                        <FaEnvelope className="text-warning"/> <strong>Email:</strong> <a
-                                        href="mailto:contato@empresa.com">contato@empresa.com</a>
-                                    </p>
-                                    <a href="https://wa.me/5511999999999" className="btn btn-success">
-                                        <FaWhatsapp/> Fale pelo WhatsApp
-                                    </a>
+                                    <a href='#contact' className='btn w-full md:w-13rem'>Entre em contato </a>
                                 </div>
+                            </div>
+                        </div>
+                    </section>
 
+                    <section className="w-full mt-8">
+                        <h2 className='font-bold text-center'>Sobre Nós</h2>
+                        <div
+                            className='container flex-column md:flex-row rounded about-us p-8 flex justify-content-center align-items-center gap-8'>
+                            <div>
+                                <img className='rounded' src='/images/home/medical.jpg' width={400} alt='medical'/>
+                            </div>
 
-                                {/* Google Maps */}
-                                <div className="ratio ratio-16x9 rounded shadow-lg " style={{width: '60%'}}>
-                                    <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509366!2d144.95373531590465!3d-37.81627974202102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d5df0f56eaf%3A0x6f34a5c8b6f9e!2sMelbourne%2C%20VIC%2C%20Austr%C3%A1lia!5e0!3m2!1spt-BR!2sbr!4v1648903832123!5m2!1spt-BR!2sbr"
-                                        allowFullScreen
-                                        loading="lazy"
-                                        title="Google Maps"
-                                    ></iframe>
+                            <div>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum.
+                                </p>
+                                <a href='#contact' className='btn w-full md:w-13rem'>Entre em contato</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className='w-full p-5 mt-5 flex justify-content-center align-items-center caroucel-slider'>
+                        <div className='flex gap-5 flex-column md:flex-row align-items-center'>
+                            <Carousel2/>
+                            <ProductsComponent data={plans}/>
+                        </div>
+                    </section>
+
+                    <section id="contact" className="contact-section mt-8">
+                        <div className="container">
+                            <h2 className="text-center section-title">Entre em Contato</h2>
+                            <div className="row">
+                                {/* Coluna dos Dados de Contato */}
+                                <div className="col-md-6 mb-4">
+                                    <div className="contact-card p-4">
+                                        <h4 className="mb-4">Dados de Contato</h4>
+                                        <p>
+                                            <i className="bi bi-geo-alt-fill me-2"></i>
+                                            <strong>Endereço:</strong> St. Res. Leste | Buritís Q 2 | - Planaltina,
+                                            Brasília - DF
+                                        </p>
+                                        <p>
+                                            <i className="bi bi-telephone-fill me-2"></i>
+                                            <strong>Telefone:</strong> (61) 99624-6801
+                                        </p>
+                                        <p>
+                                            <i className="bi bi-clock-fill me-2"></i>
+                                            <strong>Horário:</strong> Segunda a Sexta: 8h - 19h e aos Sábados: 8h - 12h
+                                        </p>
+                                        <a href='' className='btn w-full mt-3 md:w-13rem'>Entre em contato</a>
+                                    </div>
+                                </div>
+                                {/* Coluna do Mapa */}
+                                <div className="col-md-6">
+                                    <div className="map-container rounded shadow">
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.122347701234!2d-47.6478812!3d-15.6171571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a6d30aa79a461%3A0x811a9a4592f18913!2sCl%C3%ADnica%20Amor%20Brasil!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr"
+                                            title="Localização"
+                                            frameBorder="0"
+                                            style={{border: 0, width: "100%", height: "295px"}}
+                                            allowFullScreen=""
+                                            loading="lazy"
+                                        ></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -213,7 +190,6 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                     >
                         <img src="/images/home/icons/whatsapp.png" width={50} alt="WhatsApp"/>
                     </a>
-
                     <footer className="text-center mt-8 text-lg-start bg-body-tertiary text-muted">
                         <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
                             <div className="me-5 d-none d-lg-block">

@@ -1,0 +1,16 @@
+.navbar {
+    background-color: #66b5c2;
+
+    img {
+        width: 300px;
+        @media (max-width: 764px) {
+            width: 70px;
+        }
+    }
+
+    .btn {
+        background-color: #f31ca1;
+        color: white;
+        font-weight: bold;
+    }
+}

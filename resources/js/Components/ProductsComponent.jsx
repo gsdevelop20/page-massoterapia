@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+
 export default function ProductsComponent({ data }) {
     const cardVariants = {
         hidden: { opacity: 0, rotate: -10, scale: 0.8 },
@@ -18,14 +19,8 @@ export default function ProductsComponent({ data }) {
         <>
             <Head title="Nossos Serviços" />
 
-            <section className="w-full flex flex-column container align-items-center justify-content-center mt-8">
-                <div className="flex w-full justify-content-center align-items-center">
-                    <h1 className="text-center text-3xl font-bold text-gray-800 dark:text-gray-200">
-                        Conheça os nossos serviços
-                    </h1>
-                </div>
-
-                <div className="flex flex-wrap flex-row gap-6 mt-6 align-items-center justify-content-center">
+            <section className="w-full flex flex-column container align-items-center justify-content-center">
+                <div className="flex flex-wrap flex-row gap-6 mt-2 align-items-center justify-content-center">
                     {data.map((product, index) => {
                         const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
@@ -33,9 +28,10 @@ export default function ProductsComponent({ data }) {
                             <motion.div
                                 key={index}
                                 ref={ref}
-                                className="md:w-20rem w-full border-4 border-warning flex flex-column justify-content-center p-6 bg-gray-200 border-gray-300 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
+                                className="md:w-5 w-full border-4 border-warning flex flex-column justify-content-center p-6 shadow-lg bg-gray-100 border-gray-300 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
                                 variants={cardVariants}
                                 initial="hidden"
+                                style={{borderLeft: 'solid 2px', borderColor: '#66b5c2'}}
                                 animate={inView ? "visible" : "hidden"}
                             >
                                 {/* Imagem */}
@@ -59,10 +55,6 @@ export default function ProductsComponent({ data }) {
                         );
                     })}
                 </div>
-
-                <Link href="/contato" className="btn btn-warning mt-5">
-                    Entre em contato
-                </Link>
             </section>
         </>
     );
