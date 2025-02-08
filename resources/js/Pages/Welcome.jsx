@@ -11,9 +11,6 @@ const ProductsComponent = React.lazy(() => import('@/Components/ProductsComponen
 
 import {
     FaFacebookF,
-    FaBullhorn,
-    FaHandshake,
-    FaChartLine,
     FaTwitter,
     FaGoogle,
     FaInstagram,
