@@ -1,16 +1,36 @@
-import React from 'react'
-import { CCarousel, CCarouselCaption, CCarouselItem, CImage } from '@coreui/react'
-import "./style.css"
+import React, { memo } from 'react';
+import { CCarousel, CCarouselItem, CImage } from '@coreui/react';
+import "./style.css";
 
-export default function Carousel2() {
+function Carousel2() {
     return (
-        <CCarousel controls indicators style={{maxWidth: '50rem'}}>
+        <CCarousel
+            controls
+            indicators
+            style={{ maxWidth: '50rem' }}
+            aria-label="Galeria de imagens da Clínica"
+            role="region"
+            aria-roledescription="carousel"
+            aria-live="polite"
+        >
             <CCarouselItem>
-                <CImage className="d-block w-100" src="/images/home/banners.jpg" alt="slide 1" />
+                <CImage
+                    className="d-block w-100"
+                    src="/images/home/banners.jpg"
+                    alt="Banner da Clínica - slide de apresentação"
+                    loading="lazy"
+                />
             </CCarouselItem>
             <CCarouselItem>
-                <CImage className="d-block w-100" src="/images/home/medical.jpg" alt="slide 2" />
+                <CImage
+                    className="d-block w-100"
+                    src="/images/home/medical.jpg"
+                    alt="Equipe médica em ação - slide de apresentação"
+                    loading="lazy"
+                />
             </CCarouselItem>
         </CCarousel>
-    )
+    );
 }
+
+export default memo(Carousel2);
