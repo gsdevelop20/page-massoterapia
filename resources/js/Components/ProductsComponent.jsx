@@ -17,8 +17,6 @@ export default function ProductsComponent({ data }) {
 
     return (
         <>
-            <Head title="Nossos Serviços" />
-
             <section className="w-full flex flex-column container align-items-center justify-content-center">
                 <div className="flex flex-wrap flex-row gap-6 mt-2 align-items-center justify-content-center">
                     {data.map((product, index) => {
