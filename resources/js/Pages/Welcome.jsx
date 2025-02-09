@@ -11,19 +11,9 @@ const ProductsComponent = React.lazy(() => import('@/Components/ProductsComponen
 const Card = React.lazy(() => import('@/Components/card/Cards'));
 
 import {
-    FaFacebookF,
-    FaTwitter,
-    FaGoogle,
     FaInstagram,
-    FaLinkedin,
-    FaGithub,
     FaGem,
-    FaHome,
-    FaEnvelope,
-    FaPhone,
-    FaPrint,
     FaPhoneAlt,
-    FaWhatsapp,
     FaMapMarkerAlt,
     FaClock
 } from "react-icons/fa";
@@ -199,7 +189,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     <ProductsComponent data={plans} />
                                 </div>
                             </section>
-                            
+
                             <Card data={cards}/>
 
                             {/* Seção de Contato */}

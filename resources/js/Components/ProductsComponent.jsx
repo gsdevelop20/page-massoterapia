@@ -20,7 +20,7 @@ const ProductCard = memo(function ProductCard({ product }) {
     return (
         <motion.article
             ref={ref}
-            className="md:w-4 w-10 border-4 h-3 border-warning flex flex-column justify-content-center p-2 shadow-lg bg-gray-100 border-gray-300 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
+            className="md:w-4 w-10 border-4 h-3 hover:scale-50 border-warning flex flex-column justify-content-center p-2 shadow-lg bg-gray-100 border-gray-300 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
             variants={cardVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
@@ -31,9 +31,9 @@ const ProductCard = memo(function ProductCard({ product }) {
             {/* Imagem com lazy loading e alt descritivo */}
             <img
                 src={product.imageSrc}
-            
+
                 alt={`${product.title} - imagem ilustrativa`}
-                className="md:w-5 w-3 mx-auto mb-1"
+                className="md:w-4 w-4 mx-auto mb-1"
                 loading="lazy"
             />
 

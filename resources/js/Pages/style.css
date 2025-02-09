@@ -39,6 +39,11 @@
   z-index: 1;
   top: 3.7rem;
 }
+@media (max-width: 764px) {
+  .banner:not(.banner-2) > * {
+    top: 0;
+  }
+}
 
 /* Ajuste para elementos ficarem lado a lado em telas grandes */
 @media (min-width: 1024px) {

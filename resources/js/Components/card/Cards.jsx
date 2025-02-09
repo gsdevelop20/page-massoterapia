@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import './style.css'
 
 // Definido fora do componente para evitar recriação a cada render
 const cardVariants = {
@@ -20,7 +21,7 @@ const ProductCard = memo(function ProductCard({ product }) {
     return (
         <motion.article
             ref={ref}
-            className="md:w-4 w-full border-4 flex flex-column justify-content-center p-2 shadow-lg bg-gray-100 rounded-lg shadow-sm"
+            className="md:w-4 w-full border-4 card-1 flex flex-column justify-content-center p-2 shadow-lg bg-gray-100 rounded-lg shadow-sm"
             variants={cardVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
@@ -60,7 +61,7 @@ export default memo(function Card({ data }) {
             aria-labelledby="products-heading"
         >
             {/* Título para tecnologias assistivas (visualmente oculto) */}
-            <h2 id="products-heading" className="sr-only font-weight-bold mb-3 text-center">
+            <h2 id="products-heading" className="text-center section-title">
                 Conheça algumas de nossas expecialidades
             </h2>
 
