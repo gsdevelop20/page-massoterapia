@@ -20,20 +20,20 @@ const ProductCard = memo(function ProductCard({ product }) {
     return (
         <motion.article
             ref={ref}
-            className="md:w-4 w-10 border-4 h-3 border-warning flex flex-column justify-content-center p-2 shadow-lg bg-gray-100 border-gray-300 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
+            className="md:w-4 w-full border-4 flex flex-column justify-content-center p-2 shadow-lg bg-gray-100 rounded-lg shadow-sm"
             variants={cardVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            style={{ borderLeft: 'solid 2px', borderColor: '#66b5c2' }}
+            style={{ borderLeft: 'solid 2px', borderColor: '#f31ca1' }}
             role="listitem"
             aria-label={product.title}
         >
             {/* Imagem com lazy loading e alt descritivo */}
             <img
                 src={product.imageSrc}
-            
+                width={100}
                 alt={`${product.title} - imagem ilustrativa`}
-                className="md:w-5 w-3 mx-auto mb-1"
+                className="w-16 h-16 mx-auto mb-2"
                 loading="lazy"
             />
 
@@ -53,18 +53,18 @@ const ProductCard = memo(function ProductCard({ product }) {
 });
 
 // Componente principal memoizado
-export default memo(function ProductsComponent({ data }) {
+export default memo(function Card({ data }) {
     return (
         <section
-            className="w-full flex flex-column container align-items-center justify-content-center"
+            className="w-full flex flex-column mt-8 container align-items-center justify-content-center"
             aria-labelledby="products-heading"
         >
             {/* Título para tecnologias assistivas (visualmente oculto) */}
-            <h2 id="products-heading" className="sr-only hidden">
-                Serviços
+            <h2 id="products-heading" className="sr-only font-weight-bold mb-3 text-center">
+                Conheça algumas de nossas expecialidades
             </h2>
 
-            <div className="flex flex-wrap flex-row gap-6 mt-2 align-items-center justify-content-center" role="list">
+            <div className="flex flex-wrap mt-8 w-full flex-row gap-6 mt-2 align-items-center justify-content-center" role="list">
                 {data.map((product, index) => (
                     <ProductCard key={index} product={product} />
                 ))}

@@ -6,8 +6,7 @@ function Carousel2() {
     return (
         <CCarousel
             controls
-            indicators
-            style={{ maxWidth: '50rem' }}
+            style={{ maxWidth: '30rem' }}
             aria-label="Galeria de imagens da Clínica"
             role="region"
             aria-roledescription="carousel"

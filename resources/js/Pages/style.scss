@@ -33,7 +33,7 @@
 }
 
 /* Garante que o conteúdo fique acima do filtro */
-.banner > * {
+.banner:not(.banner-2) > * {
     position: relative;
     z-index: 1;
     top: 3.7rem;

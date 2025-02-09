@@ -1,13 +1,14 @@
-import {Link, Head} from '@inertiajs/react';
-import {LayoutProvider} from "@/Layouts/layout/context/layoutcontext.jsx";
-import {PrimeReactProvider} from "primereact/api";
+import { Link, Head } from '@inertiajs/react';
+import { LayoutProvider } from "@/Layouts/layout/context/layoutcontext.jsx";
+import { PrimeReactProvider } from "primereact/api";
 import './style.css';
-import React, {useState, useMemo, Suspense} from "react";
+import React, { useState, useMemo, Suspense } from "react";
 
 // Lazy load dos componentes para melhorar o carregamento inicial
 const HeaderComponent = React.lazy(() => import('@/Components/header/HeaderComponent.jsx'));
 const Carousel2 = React.lazy(() => import('@/Components/Carousel/Carousel2.jsx'));
 const ProductsComponent = React.lazy(() => import('@/Components/ProductsComponent.jsx'));
+const Card = React.lazy(() => import('@/Components/card/Cards'));
 
 import {
     FaFacebookF,
@@ -46,7 +47,25 @@ const plans = [
     }
 ];
 
-export default function Welcome({auth, laravelVersion, phpVersion}) {
+const cards = [
+    {
+        title: 'Ortopedia ',
+        description: '',
+        imageSrc: '/images/home/icons/simbolo-de-medicina.png',
+    },
+    {
+        title: 'Dermatologia',
+        description: '',
+        imageSrc: '/images/home/icons/simbolo-de-medicina.png',
+    },
+    {
+        title: 'Pediatria',
+        description: '',
+        imageSrc: '/images/home/icons/simbolo-de-medicina.png',
+    }
+];
+
+export default function Welcome({ auth, laravelVersion, phpVersion }) {
     const [scale, setScale] = useState(1);
 
     // Memoiza o objeto de estilo do botão do WhatsApp para evitar recriações a cada render
@@ -88,7 +107,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
         <>
             <PrimeReactProvider>
                 <LayoutProvider>
-                    <Head title="Clínica Amor Brasil"/>
+                    <Head title="Clínica Amor Brasil" />
 
                     {/* Link para pular a navegação para o conteúdo principal */}
                     <a href="#main-content" className="skip-link hidden">
@@ -97,7 +116,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
 
                     <Suspense fallback={<div>Carregando...</div>}>
                         <header>
-                            <HeaderComponent auth={auth}/>
+                            <HeaderComponent auth={auth} />
                         </header>
 
                         <main id="main-content">
@@ -105,7 +124,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             <section aria-labelledby="banner-heading">
                                 <div
                                     className="w-full banner flex justify-content-center flex-wrap gap-8"
-                                    style={{backgroundImage: `url("/images/home/banners.jpg")`}}
+                                    style={{ backgroundImage: `url("/images/home/banners.jpg")` }}
                                     role="img"
                                     aria-label="Banner da Clínica Amor Brasil com imagem de fundo"
                                 >
@@ -138,7 +157,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             <section className="w-full mt-8" aria-labelledby="about-us-heading">
                                 <h2 id="about-us-heading" className="font-bold text-center">Sobre Nós</h2>
                                 <div
-                                    className="container flex-column md:flex-row rounded about-us p-8 flex justify-content-center align-items-center gap-8">
+                                    className="container flex-column md:flex-row rounded about-us p-5 md:p-8 flex justify-content-center align-items-center gap-8">
                                     <div>
                                         <img
                                             className="rounded"
@@ -148,26 +167,16 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                             loading="lazy"  // Lazy load para imagens
                                         />
                                     </div>
-                                    <div>
-                                        <p>
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            Lorem
-                                            Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                                            an
-                                            unknown printer took a galley of type and scrambled it to make a type
-                                            specimen book.
-                                            It has survived not only five centuries, but also the leap into electronic
-                                            typesetting, remaining essentially unchanged. It was popularised in the
-                                            1960s with
-                                            the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                            recently
-                                            with desktop publishing software like Aldus PageMaker including versions of
-                                            Lorem
-                                            Ipsum.
+                                    <div className='w-full'>
+                                        <p className='w-full'>
+                                            Na Amor Saúde, acreditamos que o cuidado com a saúde vai além de exames e tratamentos. Nosso compromisso é com o bem-estar completo de nossos pacientes, oferecendo um atendimento humanizado, acolhedor e personalizado. Nossa missão é proporcionar uma experiência de saúde em que você se sinta valorizado, escutado e, acima de tudo, cuidado com carinho e respeito.
+                                        </p>
+                                        <p className='w-full'>
+                                            Com uma equipe de profissionais altamente qualificados e infraestrutura moderna, buscamos sempre as melhores soluções para sua saúde, com um olhar atento e dedicado a cada necessidade. Na Amor Saúde, entendemos que a saúde é um ato de amor, e estamos aqui para cuidar de você com a máxima atenção e competência.
                                         </p>
                                         <a
                                             href="#contato"
-                                            className="btn w-full md:w-13rem"
+                                            className="btn w-full"
                                             aria-label="Entre em contato"
                                         >
                                             Entre em contato
@@ -178,17 +187,20 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
 
                             {/* Seção de Serviços/Produtos */}
                             <section
-                                className="w-full p-5 mt-5 flex justify-content-center align-items-center caroucel-slider"
+                                className="w-full mt-5 banner banner-2 flex justify-content-center align-items-center caroucel-slider"
                                 aria-labelledby="services-heading"
+                                style={{ backgroundImage: 'url("/images/home/hospital.jpg")'}}
                             >
-                                <h2 id="services-heading" className="visually-hidden">
+                                <h2 id="services-heading" className="visually-hidden" style={{zIndex: 1}}>
                                     Nossos Serviços
                                 </h2>
-                                <div className="flex gap-5 flex-column md:flex-row align-items-center">
-                                    <Carousel2/>
-                                    <ProductsComponent data={plans}/>
+                                <div className="flex gap-5 flex-column md:flex-row align-items-center" style={{zIndex: 1}}>
+                                    <Carousel2 />
+                                    <ProductsComponent data={plans} />
                                 </div>
                             </section>
+                            
+                            <Card data={cards}/>
 
                             {/* Seção de Contato */}
                             <section id="contato" className="contact-section mt-8" aria-labelledby="contact-heading">
@@ -203,16 +215,16 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                                 <h4 className="mb-4">Dados de Contato</h4>
                                                 <address>
                                                     <p>
-                                                        <FaMapMarkerAlt aria-hidden="true" className="me-2"/>
+                                                        <FaMapMarkerAlt aria-hidden="true" className="me-2" />
                                                         <strong>Endereço:</strong> St. Res. Leste | Buritís Q 2 | -
                                                         Planaltina, Brasília - DF
                                                     </p>
                                                     <p>
-                                                        <FaPhoneAlt aria-hidden="true" className="me-2"/>
+                                                        <FaPhoneAlt aria-hidden="true" className="me-2" />
                                                         <strong>Telefone:</strong> (61) 99624-6801
                                                     </p>
                                                     <p>
-                                                        <FaClock aria-hidden="true" className="me-2"/>
+                                                        <FaClock aria-hidden="true" className="me-2" />
                                                         <strong>Horário:</strong> Segunda a Sexta: 8h - 19h e aos
                                                         Sábados: 8h - 12h
                                                     </p>
@@ -233,7 +245,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.122347701234!2d-47.6478812!3d-15.6171571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a6d30aa79a461%3A0x811a9a4592f18913!2sCl%C3%ADnica%20Amor%20Brasil!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr"
                                                     title="Localização da Clínica Amor Brasil"
                                                     frameBorder="0"
-                                                    style={{border: 0, width: "100%", height: "295px"}}
+                                                    style={{ border: 0, width: "100%", height: "295px" }}
                                                     allowFullScreen=""
                                                     loading="lazy"  // Lazy load para o iframe
                                                 ></iframe>
@@ -280,7 +292,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                         </a>
 
                         <footer className="text-center mt-8 text-lg-start bg-body-tertiary text-muted"
-                                role="contentinfo">
+                            role="contentinfo">
                             <section
                                 className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
                                 aria-label="Redes sociais"
@@ -290,7 +302,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 </div>
                                 <div>
                                     <a href="https://www.instagram.com/clinicaamorbrasil/" className="me-4 text-reset" aria-label="Instagram">
-                                        <FaInstagram aria-hidden="true"/>
+                                        <FaInstagram aria-hidden="true" />
                                         <span className="sr-only">Instagram</span>
                                     </a>
                                 </div>
@@ -301,7 +313,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     <div className="row mt-3">
                                         <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                                             <h6 className="text-uppercase fw-bold mb-4">
-                                                <FaGem aria-hidden="true" className="me-3"/>
+                                                <FaGem aria-hidden="true" className="me-3" />
                                                 Clínica Amor Brasil
                                             </h6>
                                             <p>
@@ -313,7 +325,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 </div>
                             </section>
 
-                            <div className="text-center p-4" style={{backgroundColor: "rgba(0, 0, 0, 0.05)"}}>
+                            <div className="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
                                 <div className="text-reset fw-bold">
                                     © 2025 Copyright: Clínica Amor Brasil
                                 </div>
