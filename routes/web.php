@@ -25,6 +25,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/politica-de-privacidade', function () {
+    return Inertia::render('PoliticaDePrivacidade');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })

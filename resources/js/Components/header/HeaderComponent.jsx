@@ -3,7 +3,7 @@ import React, {useContext} from "react";
 import {Navbar} from "flowbite-react";
 import './style.css'
 
-export default function HeaderComponent({auth}) {
+export default function HeaderComponent() {
     return (
         <>
             <nav className="navbar navbar-expand">
