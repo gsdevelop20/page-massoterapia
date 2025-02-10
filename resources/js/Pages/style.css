@@ -136,4 +136,9 @@
   right: 70rem;
 }
 
+.btn:hover {
+  background-color: #00ba1a !important;
+  color: white !important;
+}
+
 /*# sourceMappingURL=style.css.map */
