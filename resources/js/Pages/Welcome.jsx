@@ -55,6 +55,22 @@ const cards = [
     }
 ];
 
+const GoogleReviewsWidget = () => {
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        if (!loaded) {
+            const script = document.createElement("script");
+            script.src = "https://static.elfsight.com/platform/platform.js";
+            script.defer = true; // Usa defer para não bloquear a renderização
+            script.onload = () => setLoaded(true); // Marca como carregado após execução
+            document.body.appendChild(script);
+        }
+    }, [loaded]); // Evita carregamento repetitivo
+
+    return <div className="elfsight-app-24bf1727-0e42-4b5b-831c-36886639bc16" data-elfsight-app-lazy></div>;
+};
+
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     const [scale, setScale] = useState(1);
 
@@ -97,6 +113,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         const script = document.createElement("script");
         script.src = "https://static.elfsight.com/platform/platform.js";
         script.async = true;
+        script.defer = true;
         document.body.appendChild(script);
     }, []);
 
@@ -266,8 +283,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 <h2 id="services-heading" className='text-center section-title' style={{zIndex: 1}}>
                                     Avaliações
                                 </h2>
-                                <div className="elfsight-app-24bf1727-0e42-4b5b-831c-36886639bc16 container reviwer"
-                                     data-elfsight-app-lazy></div>
+                                <GoogleReviewsWidget/>
                             </section>
                         </main>
 
