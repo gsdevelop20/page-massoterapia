@@ -94,10 +94,30 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
     }), [scale]);
 
     useEffect(() => {
-        const script = document.createElement("script");
-        script.src = "https://static.elfsight.com/platform/platform.js";
-        script.async = true;
-        document.body.appendChild(script);
+        // Evita adicionar o script mais de uma vez
+        if (!document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]')) {
+            const script = document.createElement("script");
+            script.src = "https://static.elfsight.com/platform/platform.js";
+            script.async = true;
+            document.body.appendChild(script);
+        }
+
+        // Função para esconder o link do Elfsight
+        const hideElfsightLink = () => {
+            const link = document.querySelector('a[href^="https://elfsight.com"]');
+            if (link) {
+                link.style.display = "none";
+            }
+        };
+
+        // Usa MutationObserver para monitorar mudanças no DOM e esconder o link quando for inserido
+        const observer = new MutationObserver(() => hideElfsightLink());
+        observer.observe(document.body, { childList: true, subtree: true });
+
+        // Esconde caso já tenha carregado
+        hideElfsightLink();
+
+        return () => observer.disconnect();
     }, []);
 
 
