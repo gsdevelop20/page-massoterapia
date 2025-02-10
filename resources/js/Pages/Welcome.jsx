@@ -2,7 +2,7 @@ import { Link, Head } from '@inertiajs/react';
 import { LayoutProvider } from "@/Layouts/layout/context/layoutcontext.jsx";
 import { PrimeReactProvider } from "primereact/api";
 import './style.css';
-import React, { useState, useMemo, Suspense } from "react";
+import React, {useState, useMemo, Suspense, useEffect} from "react";
 
 // Lazy load dos componentes para melhorar o carregamento inicial
 const HeaderComponent = React.lazy(() => import('@/Components/header/HeaderComponent.jsx'));
@@ -93,6 +93,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         transform: `scale(${scale})`,
     }), [scale]);
 
+    useEffect(() => {
+        const script = document.createElement("script");
+        script.src = "https://static.elfsight.com/platform/platform.js";
+        script.async = true;
+        document.body.appendChild(script);
+    }, []);
+
+
     return (
         <>
             <PrimeReactProvider>
@@ -114,7 +122,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             <section aria-labelledby="banner-heading">
                                 <div
                                     className="w-full banner flex justify-content-center flex-wrap gap-8"
-                                    style={{ backgroundImage: `url("/images/home/banners.jpg")` }}
+                                    style={{backgroundImage: `url("/images/home/banners.jpg")`}}
                                     role="img"
                                     aria-label="Banner da Clínica Amor Brasil com imagem de fundo"
                                 >
@@ -159,10 +167,18 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     </div>
                                     <div className='w-full'>
                                         <p className='w-full'>
-                                            Na Amor Saúde, acreditamos que o cuidado com a saúde vai além de exames e tratamentos. Nosso compromisso é com o bem-estar completo de nossos pacientes, oferecendo um atendimento humanizado, acolhedor e personalizado. Nossa missão é proporcionar uma experiência de saúde em que você se sinta valorizado, escutado e, acima de tudo, cuidado com carinho e respeito.
+                                            Na Amor Saúde, acreditamos que o cuidado com a saúde vai além de exames e
+                                            tratamentos. Nosso compromisso é com o bem-estar completo de nossos
+                                            pacientes, oferecendo um atendimento humanizado, acolhedor e personalizado.
+                                            Nossa missão é proporcionar uma experiência de saúde em que você se sinta
+                                            valorizado, escutado e, acima de tudo, cuidado com carinho e respeito.
                                         </p>
                                         <p className='w-full'>
-                                            Com uma equipe de profissionais altamente qualificados e infraestrutura moderna, buscamos sempre as melhores soluções para sua saúde, com um olhar atento e dedicado a cada necessidade. Na Amor Saúde, entendemos que a saúde é um ato de amor, e estamos aqui para cuidar de você com a máxima atenção e competência.
+                                            Com uma equipe de profissionais altamente qualificados e infraestrutura
+                                            moderna, buscamos sempre as melhores soluções para sua saúde, com um olhar
+                                            atento e dedicado a cada necessidade. Na Amor Saúde, entendemos que a saúde
+                                            é um ato de amor, e estamos aqui para cuidar de você com a máxima atenção e
+                                            competência.
                                         </p>
                                         <a
                                             href="#contato"
@@ -179,14 +195,15 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             <section
                                 className="w-full mt-5 banner banner-2 flex justify-content-center align-items-center caroucel-slider"
                                 aria-labelledby="services-heading"
-                                style={{ backgroundImage: 'url("/images/home/hospital.jpg")'}}
+                                style={{backgroundImage: 'url("/images/home/hospital.jpg")'}}
                             >
                                 <h2 id="services-heading" className="visually-hidden" style={{zIndex: 1}}>
                                     Nossos Serviços
                                 </h2>
-                                <div className="flex gap-5 flex-column md:flex-row align-items-center" style={{zIndex: 1}}>
-                                    <Carousel2 />
-                                    <ProductsComponent data={plans} />
+                                <div className="flex gap-5 flex-column md:flex-row align-items-center"
+                                     style={{zIndex: 1}}>
+                                    <Carousel2/>
+                                    <ProductsComponent data={plans}/>
                                 </div>
                             </section>
 
@@ -205,16 +222,16 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 <h4 className="mb-4">Dados de Contato</h4>
                                                 <address>
                                                     <p>
-                                                        <FaMapMarkerAlt aria-hidden="true" className="me-2" />
+                                                        <FaMapMarkerAlt aria-hidden="true" className="me-2"/>
                                                         <strong>Endereço:</strong> St. Res. Leste | Buritís Q 2 | -
                                                         Planaltina, Brasília - DF
                                                     </p>
                                                     <p>
-                                                        <FaPhoneAlt aria-hidden="true" className="me-2" />
+                                                        <FaPhoneAlt aria-hidden="true" className="me-2"/>
                                                         <strong>Telefone:</strong> (61) 99624-6801
                                                     </p>
                                                     <p>
-                                                        <FaClock aria-hidden="true" className="me-2" />
+                                                        <FaClock aria-hidden="true" className="me-2"/>
                                                         <strong>Horário:</strong> Segunda a Sexta: 8h - 19h e aos
                                                         Sábados: 8h - 12h
                                                     </p>
@@ -235,7 +252,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.122347701234!2d-47.6478812!3d-15.6171571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a6d30aa79a461%3A0x811a9a4592f18913!2sCl%C3%ADnica%20Amor%20Brasil!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr"
                                                     title="Localização da Clínica Amor Brasil"
                                                     frameBorder="0"
-                                                    style={{ border: 0, width: "100%", height: "295px" }}
+                                                    style={{border: 0, width: "100%", height: "295px"}}
                                                     allowFullScreen=""
                                                     loading="lazy"  // Lazy load para o iframe
                                                 ></iframe>
@@ -243,6 +260,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         </div>
                                     </div>
                                 </div>
+                            </section>
+
+                            <section className='w-full mt-8'>
+                                <h2 id="services-heading" className='text-center section-title' style={{zIndex: 1}}>
+                                    Avaliações
+                                </h2>
+                                <div className="elfsight-app-24bf1727-0e42-4b5b-831c-36886639bc16 container reviwer"
+                                     data-elfsight-app-lazy></div>
                             </section>
                         </main>
 
