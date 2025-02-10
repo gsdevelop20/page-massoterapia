@@ -21,37 +21,74 @@ import {
 // Dados estáticos dos planos (definidos fora do componente para evitar recriação)
 const plans = [
     {
-        title: 'Atestado Admissional',
+        title: 'ECG',
         description: '',
-        imageSrc: '/images/home/icons/estetoscopio.png',
+        imageSrc: '/images/home/icons/eletrocardiograma.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar um exame de ECG.'
     },
     {
-        title: 'Exames laboratóriais',
+        title: 'Exame ASO',
         description: '',
-        imageSrc: '/images/home/icons/estetoscopio.png',
+        imageSrc: '/images/home/icons/exame-medico.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar um exame ASO.'
     },
     {
-        title: 'Consultas Médicas',
+        title: 'Exames Laboratoriais',
         description: '',
-        imageSrc: '/images/home/icons/estetoscopio.png',
+        imageSrc: '/images/home/icons/exame-de-saude.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar exames laboratoriais.'
     }
 ];
 
+
 const cards = [
-    {
-        title: 'Ortopedia ',
-        description: '',
-        imageSrc: '/images/home/icons/simbolo-de-medicina.png',
-    },
     {
         title: 'Dermatologia',
         description: '',
-        imageSrc: '/images/home/icons/simbolo-de-medicina.png',
+        imageSrc: '/images/home/icons/medico.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um dermatologista.'
+    },
+    {
+        title: 'Endocrinologia',
+        description: '',
+        imageSrc: '/images/home/icons/medico.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um endocrinologista.'
+    },
+    {
+        title: 'Ginecologia',
+        description: '',
+        imageSrc: '/images/home/icons/medico.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
+    },
+    {
+        title: 'Nutricionista',
+        description: '',
+        imageSrc: '/images/home/icons/medico.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um nutricionista.'
+    },
+    {
+        title: 'Ortopedia',
+        description: '',
+        imageSrc: '/images/home/icons/medico.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ortopedista.'
     },
     {
         title: 'Pediatria',
         description: '',
-        imageSrc: '/images/home/icons/simbolo-de-medicina.png',
+        imageSrc: '/images/home/icons/medico.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um pediatra.'
+    },
+    {
+        title: 'Psicologia',
+        description: '',
+        imageSrc: '/images/home/icons/medico.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um psicólogo.'
+    },
+    {
+        title: 'Psiquiatria',
+        description: '',
+        imageSrc: '/images/home/icons/medico.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um psiquiatra.'
     }
 ];
 
@@ -203,7 +240,6 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 </h2>
                                 <div className="flex gap-5 flex-column md:flex-row align-items-center"
                                      style={{zIndex: 1}}>
-                                    <Carousel2/>
                                     <ProductsComponent data={plans}/>
                                 </div>
                             </section>
