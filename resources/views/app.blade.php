@@ -6,6 +6,7 @@
         <meta name="description" content="Clínica Amor Brasil - Atendimento médico acessível e de qualidade. Agende sua consulta hoje mesmo!">
         <meta name="keywords" content="clínica, saúde, consultas médicas, exames, bem-estar, médicos, atendimento acessível">
         <meta name="author" content="Clínica Amor Brasil">
+        <meta name="facebook-domain-verification" content="zw5s42eelgldtn2fl7be75dfsnv1sf"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title inertia>{{ config('app.name', 'LaraReact') }}</title>

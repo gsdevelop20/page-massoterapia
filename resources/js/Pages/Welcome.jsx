@@ -132,6 +132,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         <img
                                             src="/images/home/medica.webp"
                                             alt="Médica sorridente representando a Clínica"
+                                            className="md:block hidden"
                                             width={400}
                                         />
                                         <div
