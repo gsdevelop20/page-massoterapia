@@ -17,7 +17,7 @@ export default function HeaderComponent({auth}) {
                                  src="/images/logo/logo.jpg"/>
                         </div>
                         <div>
-                            <a href='#contato' className='btn'>Entre em contato</a>
+                            <a href='#contato' className='btn'>ENTRE EM CONTATO</a>
                         </div>
                     </div>
                 </div>

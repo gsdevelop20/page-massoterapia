@@ -100,7 +100,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         width: "80px",
         height: "80px",
         borderRadius: "50%",
-        backgroundColor: "#ff387f",
+        backgroundColor: "#e5e5e5",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -153,15 +153,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         <div
                                             className="d-flex flex-column justify-content-center align-items-center gap-5">
                                             <h1 id="banner-heading" className="tile text-center font-bold text-white">
-                                                A melhor clínica da região, com qualidade excepcional e preços
-                                                acessíveis.
+                                                A melhor clínica de Planaltina e região, com qualidade excepcional e preços acessíveis.
                                             </h1>
                                             <a
                                                 href="#contato"
-                                                className="btn w-full md:w-13rem"
+                                                className="btn w-full md:w-17rem"
                                                 aria-label="Entre em contato"
                                             >
-                                                Entre em contato
+                                                ENTRE EM CONTATO
                                             </a>
                                         </div>
                                     </div>
@@ -202,7 +201,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                             className="btn w-full"
                                             aria-label="Entre em contato"
                                         >
-                                            Entre em contato
+                                            ENTRE EM CONTATO
                                         </a>
                                     </div>
                                 </div>
@@ -306,7 +305,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </a>
 
                         <a
-                            href="https://www.instagram.com/clinicaamorbrasil/"
+                            href="tel:61996246801"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="float-btn"
@@ -316,7 +315,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             aria-label="Instagram"
                         >
                             <img
-                                src="/images/home/icons/instagram.png"
+                                src="/images/home/icons/telefone.png"
                                 width={50}
                                 alt="Ícone do WhatsApp"
                             />
@@ -328,14 +327,9 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
                                 aria-label="Redes sociais"
                             >
-                                <div className="me-5 d-none d-lg-block">
-                                    <span>Conecte-se conosco nas redes sociais:</span>
-                                </div>
-                                <div>
-                                    <a href="https://www.instagram.com/clinicaamorbrasil/" className="me-4 text-reset" aria-label="Instagram">
-                                        <FaInstagram aria-hidden="true" />
-                                        <span className="sr-only">Instagram</span>
-                                    </a>
+                                <div className="d-none w-full d-lg-block flex justify-content-center">
+                                    <img className="hidden md:block" width={150} alt="logo clinica Amor Brasil"
+                                    src="/images/logo/logo.jpg"/>
                                 </div>
                             </section>
 
@@ -348,8 +342,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 Clínica Amor Brasil
                                             </h6>
                                             <p>
-                                                A melhor clínica da região, com qualidade excepcional e preços
-                                                acessíveis.
+                                                A melhor clínica de Planaltina e região, com qualidade excepcional e preços acessíveis.
                                             </p>
                                         </div>
                                     </div>
@@ -358,7 +351,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
                             <div className="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
                                 <div className="text-reset fw-bold">
-                                    © 2025 Copyright: Clínica Amor Brasil
+                                    © 2025 Copyright: Feito por  <a href='https://zionpublicidade.com'>Zion Publicidade.</a> Todos os direitos reservados.
                                 </div>
                             </div>
                         </footer>
