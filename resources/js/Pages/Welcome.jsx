@@ -168,7 +168,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     </div>
                                     <div className='w-full'>
                                         <p className='w-full'>
-                                            Na Amor Saúde, acreditamos que o cuidado com a saúde vai além de exames e
+                                            Na Clínica Amor Brasil, acreditamos que o cuidado com a saúde vai além de exames e
                                             tratamentos. Nosso compromisso é com o bem-estar completo de nossos
                                             pacientes, oferecendo um atendimento humanizado, acolhedor e personalizado.
                                             Nossa missão é proporcionar uma experiência de saúde em que você se sinta
@@ -177,7 +177,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         <p className='w-full'>
                                             Com uma equipe de profissionais altamente qualificados e infraestrutura
                                             moderna, buscamos sempre as melhores soluções para sua saúde, com um olhar
-                                            atento e dedicado a cada necessidade. Na Amor Saúde, entendemos que a saúde
+                                            atento e dedicado a cada necessidade. Na Clínica Amor Brasil, entendemos que a saúde
                                             é um ato de amor, e estamos aqui para cuidar de você com a máxima atenção e
                                             competência.
                                         </p>
