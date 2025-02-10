@@ -153,7 +153,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         <div
                                             className="d-flex flex-column justify-content-center align-items-center gap-5">
                                             <h1 id="banner-heading" className="tile text-center font-bold text-white">
-                                                A melhor clínica de Planaltina e região, com qualidade excepcional e preços acessíveis.
+                                                A melhor clínica, com qualidade excepcional e preços acessíveis.
                                             </h1>
                                             <a
                                                 href="#contato"
@@ -342,7 +342,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 Clínica Amor Brasil
                                             </h6>
                                             <p>
-                                                A melhor clínica de Planaltina e região, com qualidade excepcional e preços acessíveis.
+                                                A melhor clínica, com qualidade excepcional e preços acessíveis.
                                             </p>
                                         </div>
                                     </div>
