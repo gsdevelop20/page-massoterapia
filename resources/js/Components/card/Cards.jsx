@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination, Autoplay, A11y } from "swiper/modules"; // Adicionado módulo A11y
 import { useInView } from "react-intersection-observer";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -73,6 +73,7 @@ export default memo(function Carousel({ data }) {
         <section
             className="w-full flex flex-column container align-items-center justify-content-center"
             aria-labelledby="products-heading"
+            role="region"  // Define a região para tecnologias assistivas
             style={{ marginTop: '100px' }}
         >
             {/* Título para tecnologias assistivas */}
@@ -83,7 +84,7 @@ export default memo(function Carousel({ data }) {
             {/* Envolvendo Swiper em uma div com role="list" */}
             <div role="list" className="mt-4 w-full">
                 <Swiper
-                    modules={[Navigation, Pagination, Autoplay]}
+                    modules={[Navigation, Pagination, Autoplay, A11y]} // Incluindo A11y
                     spaceBetween={20}
                     slidesPerView={1}
                     breakpoints={{
@@ -93,10 +94,15 @@ export default memo(function Carousel({ data }) {
                     autoplay={{ delay: 3000, disableOnInteraction: false }}
                     pagination={{ clickable: true }}
                     navigation
+                    a11y={{
+                        prevSlideMessage: 'Slide anterior',
+                        nextSlideMessage: 'Próximo slide',
+                        slideLabelMessage: 'Slide {{index}} de {{slidesLength}}'
+                    }}
                     className="w-full"
                 >
                     {data.map((product, index) => (
-                        <SwiperSlide key={index} className="flex justify-content-center">
+                        <SwiperSlide key={index} role="listitem" className="flex justify-content-center">
                             <ProductCard product={product} />
                         </SwiperSlide>
                     ))}

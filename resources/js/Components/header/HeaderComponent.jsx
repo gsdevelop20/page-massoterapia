@@ -1,6 +1,4 @@
-import {Link, Head} from '@inertiajs/react';
-import React, {useContext} from "react";
-import {Navbar} from "flowbite-react";
+import React from "react";
 import './style.css'
 
 export default function HeaderComponent() {
