@@ -26,7 +26,7 @@ const ProductCard = memo(function ProductCard({ product }) {
     return (
         <motion.article
             ref={ref}
-            className="w-full border-4 card-1 flex flex-column justify-content-center p-5  bg-gray-100 rounded-lg shadow-sm"
+            className="w-full border-4 card-1 flex flex-column justify-content-center p-5 bg-gray-100 rounded-lg shadow-sm"
             variants={cardVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
@@ -57,7 +57,9 @@ const ProductCard = memo(function ProductCard({ product }) {
             <a
                 href={product.url}
                 className="btn w-full mt-1 text-white"
-                aria-label="Entre em contato"
+                aria-label={`Agendar consulta para ${product.title}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ background: '#00ba1a', fontWeight: 'bold', fontSize: '20px' }}
             >
                 AGENDAR
@@ -70,9 +72,9 @@ const ProductCard = memo(function ProductCard({ product }) {
 export default memo(function Carousel({ data }) {
     return (
         <section
-            className="w-full flex flex-column  container align-items-center justify-content-center"
+            className="w-full flex flex-column container align-items-center justify-content-center"
             aria-labelledby="products-heading"
-            style={{marginTop: '100px'}}
+            style={{ marginTop: '100px' }}
         >
             {/* Título para tecnologias assistivas */}
             <h2 id="products-heading" className="text-center section-title">
@@ -92,10 +94,10 @@ export default memo(function Carousel({ data }) {
                 pagination={{ clickable: true }}
                 navigation
                 className="mt-4 w-full"
-                target='_blank'
+                role="list"
             >
                 {data.map((product, index) => (
-                    <SwiperSlide key={index} className="flex justify-content-center">
+                    <SwiperSlide key={index} className="flex justify-content-center" role="listitem">
                         <ProductCard product={product} />
                     </SwiperSlide>
                 ))}

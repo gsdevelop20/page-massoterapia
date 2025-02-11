@@ -14,16 +14,16 @@ import {
     FaGem,
     FaPhoneAlt,
     FaMapMarkerAlt,
-    FaClock
+    FaClock, FaWhatsapp
 } from "react-icons/fa";
 
 // Dados estáticos dos planos (definidos fora do componente para evitar recriação)
 const plans = [
     {
-        title: 'ECG',
+        title: 'Eletrocardiograma',
         description: '',
         imageSrc: '/images/home/icons/eletrocardiograma.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar um exame de ECG.'
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar um exame de Eletrocardiograma.'
     },
     {
         title: 'Exame ASO',
@@ -38,7 +38,6 @@ const plans = [
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar exames laboratoriais.'
     }
 ];
-
 
 const cards = [
     {
@@ -88,6 +87,12 @@ const cards = [
         description: '',
         imageSrc: '/images/home/icons/medico.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um psiquiatra.'
+    },
+    {
+        title: 'Oftalmologia',
+        description: '',
+        imageSrc: '/images/home/icons/medico.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um oftalmologista.'
     }
 ];
 
@@ -269,21 +274,25 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 <address>
                                                     <p>
                                                         <FaMapMarkerAlt aria-hidden="true" className="me-2"/>
-                                                        <strong>Endereço:</strong> St. Res. Leste | Buritís Q 2 | -
-                                                        Planaltina, Brasília - DF
+                                                        <strong>Endereço:</strong> Quadra 02, Conjunto D, Loja D, Lote 40, Loja 01, Planaltina/DF
                                                     </p>
                                                     <p>
                                                         <FaPhoneAlt aria-hidden="true" className="me-2"/>
-                                                        <strong>Telefone:</strong> (61) 99624-6801
+                                                        <strong>Telefone:</strong> (61) 3489-3571
+                                                    </p>
+
+                                                    <p>
+                                                        <FaWhatsapp aria-hidden="true" className="me-2"/>
+                                                        <strong>WhatsApp:</strong> (61) 99624-6801
                                                     </p>
                                                     <p>
                                                         <FaClock aria-hidden="true" className="me-2"/>
-                                                        <strong>Horário:</strong> Segunda a Sexta: 8h - 19h e aos
-                                                        Sábados: 8h - 12h
+                                                        <strong>Horário:</strong> Segunda a Sexta: 08h às 19h
+                                                        Sábados: 08h às 12h
                                                     </p>
                                                 </address>
                                                 <a
-                                                    href="tel:5561996246801"
+                                                    href="tel:556134893571"
                                                     className="btn w-full mt-3 md:w-13rem"
                                                     aria-label="Ligar para a Clínica"
                                                 >
@@ -360,7 +369,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </a>
 
                         <a
-                            href="tel:61996246801"
+                            href="tel:556134893571"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="float-btn"
