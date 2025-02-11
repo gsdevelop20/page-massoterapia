@@ -225,7 +225,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             <section aria-labelledby="banner-heading">
                                 <div
                                     className="w-full banner flex justify-content-center flex-wrap gap-8"
-                                    style={{ backgroundImage: `url("/images/home/banners.jpg")` }}
+                                    style={{ backgroundImage: `url("/images/home/banners.webp")` }}
                                     role="img"
                                     aria-label="Banner da Clínica Amor Brasil com imagem de fundo"
                                 >
@@ -290,7 +290,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             <section
                                 className="w-full mt-5 banner banner-2 flex justify-content-center align-items-center caroucel-slider"
                                 aria-labelledby="services-heading"
-                                style={{ backgroundImage: 'url("/images/home/hospital.jpg")' }}
+                                style={{ backgroundImage: 'url("/images/home/hospital.webp")' }}
                             >
                                 <h2 id="services-heading" className="visually-hidden" style={{ zIndex: 1 }}>
                                     Nossos Serviços
