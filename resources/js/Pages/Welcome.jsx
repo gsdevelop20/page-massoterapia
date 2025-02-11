@@ -11,7 +11,6 @@ const ProductsComponent = React.lazy(() => import('@/Components/ProductsComponen
 const Card = React.lazy(() => import('@/Components/card/Cards'));
 
 import {
-    FaInstagram,
     FaGem,
     FaPhoneAlt,
     FaMapMarkerAlt,
@@ -101,8 +100,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         bottom: "20px",
         right: "20px",
         zIndex: 9999,
-        width: "80px",
-        height: "80px",
+        width: "70px",
+        height: "70px",
         borderRadius: "50%",
         backgroundColor: "#25D366",
         display: "flex",
@@ -115,11 +114,11 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
     const instagramButtonStyle = useMemo(() => ({
         position: "fixed",
-        bottom: "120px",
+        bottom: "220px",
         right: "20px",
         zIndex: 9999,
-        width: "80px",
-        height: "80px",
+        width: "70px",
+        height: "70px",
         borderRadius: "50%",
         backgroundColor: "#e5e5e5",
         display: "flex",
@@ -130,14 +129,22 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         transform: `scale(${scale})`,
     }), [scale]);
 
-    useEffect(() => {
-        const script = document.createElement("script");
-        script.src = "https://static.elfsight.com/platform/platform.js";
-        script.async = true;
-        script.defer = true;
-        document.body.appendChild(script);
-    }, []);
-
+    const instaButtonStyle = useMemo(() => ({
+        position: "fixed",
+        bottom: "120px",
+        right: "20px",
+        zIndex: 9999,
+        width: "70px",
+        height: "70px",
+        borderRadius: "50%",
+        backgroundColor: "#e5e5e5",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+        transition: "transform 0.6s ease-in-out",
+        transform: `scale(${scale})`,
+    }), [scale]);
 
     return (
         <>
@@ -152,7 +159,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
                     <Suspense fallback={<div>Carregando...</div>}>
                         <header>
-                            <HeaderComponent auth={auth} />
+                            <HeaderComponent auth={auth}/>
                         </header>
 
                         <main id="main-content">
@@ -205,7 +212,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     </div>
                                     <div className='w-full'>
                                         <p className='w-full'>
-                                            Na Clínica Amor Brasil, acreditamos que o cuidado com a saúde vai além de exames e
+                                            Na Clínica Amor Brasil, acreditamos que o cuidado com a saúde vai além de
+                                            exames e
                                             tratamentos. Nosso compromisso é com o bem-estar completo de nossos
                                             pacientes, oferecendo um atendimento humanizado, acolhedor e personalizado.
                                             Nossa missão é proporcionar uma experiência de saúde em que você se sinta
@@ -214,7 +222,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         <p className='w-full'>
                                             Com uma equipe de profissionais altamente qualificados e infraestrutura
                                             moderna, buscamos sempre as melhores soluções para sua saúde, com um olhar
-                                            atento e dedicado a cada necessidade. Na Clínica Amor Brasil, entendemos que a saúde
+                                            atento e dedicado a cada necessidade. Na Clínica Amor Brasil, entendemos que
+                                            a saúde
                                             é um ato de amor, e estamos aqui para cuidar de você com a máxima atenção e
                                             competência.
                                         </p>
@@ -334,6 +343,23 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </a>
 
                         <a
+                            href="https://www.instagram.com/clinicaamorbrasil/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="float-btn"
+                            style={instaButtonStyle}
+                            onMouseEnter={() => setScale(1.1)}
+                            onMouseLeave={() => setScale(1)}
+                            aria-label="Chat via WhatsApp"
+                        >
+                            <img
+                                src="/images/home/icons/instagram.png"
+                                width={50}
+                                alt="Ícone do WhatsApp"
+                            />
+                        </a>
+
+                        <a
                             href="tel:61996246801"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -345,20 +371,20 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         >
                             <img
                                 src="/images/home/icons/telefone.png"
-                                width={50}
+                                width={45}
                                 alt="Ícone do WhatsApp"
                             />
                         </a>
 
                         <footer className="text-center mt-8 text-lg-start bg-body-tertiary text-muted"
-                            role="contentinfo">
+                                role="contentinfo">
                             <section
                                 className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
                                 aria-label="Redes sociais"
                             >
                                 <div className="d-none w-full d-lg-block flex justify-content-center">
                                     <img className="hidden md:block" width={150} alt="logo clinica Amor Brasil"
-                                    src="/images/logo/logo.jpg"/>
+                                         src="/images/logo/logo.jpg"/>
                                 </div>
                             </section>
 
@@ -367,7 +393,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     <div className="row mt-3">
                                         <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                                             <h6 className="text-uppercase fw-bold mb-4">
-                                                <FaGem aria-hidden="true" className="me-3" />
+                                                <FaGem aria-hidden="true" className="me-3"/>
                                                 Clínica Amor Brasil
                                             </h6>
                                             <p>
@@ -378,9 +404,10 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 </div>
                             </section>
 
-                            <div className="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
+                            <div className="text-center p-4" style={{backgroundColor: "rgba(0, 0, 0, 0.05)"}}>
                                 <div className="text-reset fw-bold">
-                                    © 2025 Copyright: Feito por  <a href='https://zionpublicidade.com'>Zion Publicidade.</a> Todos os direitos reservados.
+                                    © 2025 Copyright: Feito por <a href='https://zionpublicidade.com'>Zion
+                                    Publicidade.</a> Todos os direitos reservados.
                                 </div>
                             </div>
                         </footer>
