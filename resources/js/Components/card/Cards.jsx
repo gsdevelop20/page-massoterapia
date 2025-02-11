@@ -1,8 +1,6 @@
-import React, { memo } from 'react';
-import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, A11y } from "swiper/modules"; // Adicionado módulo A11y
-import { useInView } from "react-intersection-observer";
+import React, {memo} from 'react';
+import {motion} from "framer-motion";
+import {useInView} from "react-intersection-observer";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -10,23 +8,23 @@ import './style.css';
 
 // Definido fora do componente para evitar recriação a cada render
 const cardVariants = {
-    hidden: { opacity: 0, rotate: -10, scale: 0.8 },
+    hidden: {opacity: 0, rotate: -10, scale: 0.8},
     visible: {
         opacity: 1,
         rotate: 0,
         scale: 1,
-        transition: { type: "spring", stiffness: 120, damping: 12 }
+        transition: {type: "spring", stiffness: 120, damping: 12}
     }
 };
 
 // Componente memoizado para cada cartão de produto
-const ProductCard = memo(function ProductCard({ product }) {
-    const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+const ProductCard = memo(function ProductCard({product}) {
+    const {ref, inView} = useInView({triggerOnce: true, threshold: 0.2});
 
     return (
         <motion.article
             ref={ref}
-            className="w-full border-4 card-1 flex flex-column justify-content-center p-5 bg-gray-100 rounded-lg shadow-sm"
+            className="w-full md:w-3 border-4 card-1 flex flex-column justify-content-center p-5 bg-gray-100 rounded-lg shadow-sm"
             variants={cardVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
@@ -59,7 +57,7 @@ const ProductCard = memo(function ProductCard({ product }) {
                 aria-label={`Agendar consulta para ${product.title}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ background: '#00ba1a', fontWeight: 'bold', fontSize: '20px' }}
+                style={{background: '#00ba1a', fontWeight: 'bold', fontSize: '20px'}}
             >
                 AGENDAR
             </a>
@@ -68,45 +66,24 @@ const ProductCard = memo(function ProductCard({ product }) {
 });
 
 // Componente principal memoizado
-export default memo(function Carousel({ data }) {
+export default memo(function Carousel({data}) {
     return (
         <section
             className="w-full flex flex-column container align-items-center justify-content-center"
             aria-labelledby="products-heading"
             role="region"  // Define a região para tecnologias assistivas
-            style={{ marginTop: '100px' }}
+            style={{marginTop: '100px'}}
         >
             {/* Título para tecnologias assistivas */}
-            <h2 id="products-heading" className="text-center section-title">
+            <h2 id="products-heading" className="text-center section-title" style={{fontSize: '35px'}}>
                 ESPECIALIDADES
             </h2>
 
             {/* Envolvendo Swiper em uma div com role="list" */}
-            <div role="list" className="mt-4 w-full">
-                <Swiper
-                    modules={[Navigation, Pagination, Autoplay, A11y]} // Incluindo A11y
-                    spaceBetween={20}
-                    slidesPerView={1}
-                    breakpoints={{
-                        640: { slidesPerView: 2 },
-                        1024: { slidesPerView: 3 },
-                    }}
-                    autoplay={{ delay: 3000, disableOnInteraction: false }}
-                    pagination={{ clickable: true }}
-                    navigation
-                    a11y={{
-                        prevSlideMessage: 'Slide anterior',
-                        nextSlideMessage: 'Próximo slide',
-                        slideLabelMessage: 'Slide {{index}} de {{slidesLength}}'
-                    }}
-                    className="w-full"
-                >
-                    {data.map((product, index) => (
-                        <SwiperSlide key={index} role="listitem" className="flex justify-content-center">
-                            <ProductCard product={product} />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+            <div role="list" className="flex flex-wrap flex-row gap-6 mt-2 align-items-center justify-content-center">
+                {data.map((product, index) => (
+                    <ProductCard product={product}/>
+                ))}
             </div>
         </section>
     );
