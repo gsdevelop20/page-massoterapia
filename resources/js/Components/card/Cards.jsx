@@ -30,7 +30,6 @@ const ProductCard = memo(function ProductCard({ product }) {
             variants={cardVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            role="listitem"
             aria-label={product.title}
         >
             {/* Imagem */}
@@ -81,27 +80,28 @@ export default memo(function Carousel({ data }) {
                 Conheça algumas de nossas especialidades
             </h2>
 
-            {/* Swiper Carrossel */}
-            <Swiper
-                modules={[Navigation, Pagination, Autoplay]}
-                spaceBetween={20}
-                slidesPerView={1}
-                breakpoints={{
-                    640: { slidesPerView: 2 },
-                    1024: { slidesPerView: 3 },
-                }}
-                autoplay={{ delay: 3000, disableOnInteraction: false }}
-                pagination={{ clickable: true }}
-                navigation
-                className="mt-4 w-full"
-                role="list"
-            >
-                {data.map((product, index) => (
-                    <SwiperSlide key={index} className="flex justify-content-center" role="listitem">
-                        <ProductCard product={product} />
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+            {/* Envolvendo Swiper em uma div com role="list" */}
+            <div role="list" className="mt-4 w-full">
+                <Swiper
+                    modules={[Navigation, Pagination, Autoplay]}
+                    spaceBetween={20}
+                    slidesPerView={1}
+                    breakpoints={{
+                        640: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 },
+                    }}
+                    autoplay={{ delay: 3000, disableOnInteraction: false }}
+                    pagination={{ clickable: true }}
+                    navigation
+                    className="w-full"
+                >
+                    {data.map((product, index) => (
+                        <SwiperSlide key={index} className="flex justify-content-center">
+                            <ProductCard product={product} />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
         </section>
     );
 });

@@ -2,11 +2,11 @@ import { Link, Head } from '@inertiajs/react';
 import { LayoutProvider } from "@/Layouts/layout/context/layoutcontext.jsx";
 import { PrimeReactProvider } from "primereact/api";
 import './style.css';
-import React, {useState, useMemo, Suspense, useEffect} from "react";
+import React, { useState, useMemo, Suspense } from "react";
 
 // Lazy load dos componentes para melhorar o carregamento inicial
 const HeaderComponent = React.lazy(() => import('@/Components/header/HeaderComponent.jsx'));
-const Carousel2 = React.lazy(() => import('@/Components/Carousel/Carousel2.jsx'));
+// Removido: const Carousel2 = React.lazy(() => import('@/Components/Carousel/Carousel2.jsx'));
 const ProductsComponent = React.lazy(() => import('@/Components/ProductsComponent.jsx'));
 const Card = React.lazy(() => import('@/Components/card/Cards'));
 
@@ -14,7 +14,8 @@ import {
     FaGem,
     FaPhoneAlt,
     FaMapMarkerAlt,
-    FaClock, FaWhatsapp
+    FaClock,
+    FaWhatsapp
 } from "react-icons/fa";
 
 // Dados estáticos dos planos (definidos fora do componente para evitar recriação)
@@ -212,14 +213,13 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                             src="/images/home/medical.jpg"
                                             width={400}
                                             alt="Equipe médica em ação"
-                                            loading="lazy"  // Lazy load para imagens
+                                            loading="lazy"
                                         />
                                     </div>
                                     <div className='w-full'>
                                         <p className='w-full'>
                                             Na Clínica Amor Brasil, acreditamos que o cuidado com a saúde vai além de
-                                            exames e
-                                            tratamentos. Nosso compromisso é com o bem-estar completo de nossos
+                                            exames e tratamentos. Nosso compromisso é com o bem-estar completo de nossos
                                             pacientes, oferecendo um atendimento humanizado, acolhedor e personalizado.
                                             Nossa missão é proporcionar uma experiência de saúde em que você se sinta
                                             valorizado, escutado e, acima de tudo, cuidado com carinho e respeito.
@@ -228,8 +228,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                             Com uma equipe de profissionais altamente qualificados e infraestrutura
                                             moderna, buscamos sempre as melhores soluções para sua saúde, com um olhar
                                             atento e dedicado a cada necessidade. Na Clínica Amor Brasil, entendemos que
-                                            a saúde
-                                            é um ato de amor, e estamos aqui para cuidar de você com a máxima atenção e
+                                            a saúde é um ato de amor, e estamos aqui para cuidar de você com a máxima atenção e
                                             competência.
                                         </p>
                                         <a
@@ -309,7 +308,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                     frameBorder="0"
                                                     style={{border: 0, width: "100%", height: "295px"}}
                                                     allowFullScreen=""
-                                                    loading="lazy"  // Lazy load para o iframe
+                                                    loading="lazy"
                                                 ></iframe>
                                             </div>
                                         </div>
@@ -328,7 +327,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     frameBorder="0"
                                     style={{border: 0, width: "100%", height: "340px"}}
                                     allowFullScreen=""
-                                    loading="lazy"  // Lazy load para o iframe
+                                    loading="lazy"
                                 ></iframe>
                             </section>
                         </main>
