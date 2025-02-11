@@ -120,7 +120,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
     const instagramButtonStyle = useMemo(() => ({
         position: "fixed",
-        bottom: "220px",
+        bottom: "190px",
         right: "20px",
         zIndex: 9999,
         width: "70px",
@@ -137,7 +137,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
     const instaButtonStyle = useMemo(() => ({
         position: "fixed",
-        bottom: "120px",
+        bottom: "103px",
         right: "20px",
         zIndex: 9999,
         width: "70px",
