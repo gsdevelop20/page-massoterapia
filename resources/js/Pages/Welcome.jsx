@@ -2,11 +2,10 @@ import { Link, Head } from '@inertiajs/react';
 import { LayoutProvider } from "@/Layouts/layout/context/layoutcontext.jsx";
 import { PrimeReactProvider } from "primereact/api";
 import './style.css';
-import React, { useState, useMemo, Suspense } from "react";
+import React, { useState, useMemo, Suspense, useEffect, useRef } from "react";
 
 // Lazy load dos componentes para melhorar o carregamento inicial
 const HeaderComponent = React.lazy(() => import('@/Components/header/HeaderComponent.jsx'));
-// Removido: const Carousel2 = React.lazy(() => import('@/Components/Carousel/Carousel2.jsx'));
 const ProductsComponent = React.lazy(() => import('@/Components/ProductsComponent.jsx'));
 const Card = React.lazy(() => import('@/Components/card/Cards'));
 
@@ -97,10 +96,63 @@ const cards = [
     }
 ];
 
+// Componente LazyIframe aprimorado para carregar o iframe somente quando estiver na viewport
+const LazyIframe = ({ src, title, style, ...rest }) => {
+    const [isInView, setIsInView] = useState(false);
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        // Se IntersectionObserver não for suportado, carrega imediatamente
+        if (!('IntersectionObserver' in window)) {
+            setIsInView(true);
+            return;
+        }
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsInView(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.25 }
+        );
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+
+        return () => {
+            if (containerRef.current) {
+                observer.unobserve(containerRef.current);
+            }
+        };
+    }, []);
+
+    return (
+        <div ref={containerRef} style={style}>
+            {isInView ? (
+                <iframe
+                    src={src}
+                    title={title}
+                    frameBorder="0"
+                    style={style}
+                    allowFullScreen
+                    loading="lazy"
+                    {...rest}
+                ></iframe>
+            ) : (
+                <div style={{ ...style, backgroundColor: "#f0f0f0", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <span>Carregando avaliações...</span>
+                </div>
+            )}
+        </div>
+    );
+};
+
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     const [scale, setScale] = useState(1);
 
-    // Memoiza o objeto de estilo do botão do WhatsApp para evitar recriações a cada render
+    // Memoiza os estilos dos botões para evitar recriações desnecessárias
     const whatsappButtonStyle = useMemo(() => ({
         position: "fixed",
         bottom: "20px",
@@ -158,14 +210,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 <LayoutProvider>
                     <Head title="Clínica Amor Brasil" />
 
-                    {/* Link para pular a navegação para o conteúdo principal */}
+                    {/* Skip link para navegação rápida */}
                     <a href="#main-content" className="skip-link hidden">
                         Pular para o conteúdo principal
                     </a>
 
                     <Suspense fallback={<div>Carregando...</div>}>
                         <header>
-                            <HeaderComponent auth={auth}/>
+                            <HeaderComponent auth={auth} />
                         </header>
 
                         <main id="main-content">
@@ -173,20 +225,19 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             <section aria-labelledby="banner-heading">
                                 <div
                                     className="w-full banner flex justify-content-center flex-wrap gap-8"
-                                    style={{backgroundImage: `url("/images/home/banners.jpg")`}}
+                                    style={{ backgroundImage: `url("/images/home/banners.jpg")` }}
                                     role="img"
                                     aria-label="Banner da Clínica Amor Brasil com imagem de fundo"
                                 >
-                                    <div
-                                        className="container flex flex-column md:flex-row justify-content-center align-items-center gap-5">
+                                    <div className="container flex flex-column md:flex-row justify-content-center align-items-center gap-5">
                                         <img
                                             src="/images/home/medica.webp"
                                             alt="Médica sorridente representando a Clínica"
                                             className="md:block hidden"
                                             width={400}
+                                            height="auto"
                                         />
-                                        <div
-                                            className="d-flex flex-column justify-content-center align-items-center gap-5">
+                                        <div className="d-flex flex-column justify-content-center align-items-center gap-5">
                                             <h1 id="banner-heading" className="tile text-center font-bold text-white">
                                                 A melhor clínica, com qualidade excepcional e preços acessíveis.
                                             </h1>
@@ -204,9 +255,10 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
                             {/* Seção Sobre Nós */}
                             <section className="w-full mt-8" aria-labelledby="about-us-heading">
-                                <h2 id="about-us-heading" className="font-bold text-center">Sobre Nós</h2>
-                                <div
-                                    className="container flex-column md:flex-row rounded about-us p-5 md:p-8 flex justify-content-center align-items-center gap-8">
+                                <h2 id="about-us-heading" className="font-bold text-center">
+                                    SOBRE NÓS
+                                </h2>
+                                <div className="container flex-column md:flex-row rounded about-us p-5 md:p-8 flex justify-content-center align-items-center gap-8">
                                     <div>
                                         <img
                                             className="rounded"
@@ -216,20 +268,12 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                             loading="lazy"
                                         />
                                     </div>
-                                    <div className='w-full'>
-                                        <p className='w-full'>
-                                            Na Clínica Amor Brasil, acreditamos que o cuidado com a saúde vai além de
-                                            exames e tratamentos. Nosso compromisso é com o bem-estar completo de nossos
-                                            pacientes, oferecendo um atendimento humanizado, acolhedor e personalizado.
-                                            Nossa missão é proporcionar uma experiência de saúde em que você se sinta
-                                            valorizado, escutado e, acima de tudo, cuidado com carinho e respeito.
+                                    <div className="w-full">
+                                        <p className="w-full">
+                                            Na Clínica Amor Brasil, acreditamos que o cuidado com a saúde vai além de exames e tratamentos. Nosso compromisso é com o bem-estar completo de nossos pacientes, oferecendo um atendimento humanizado, acolhedor e personalizado. Nossa missão é proporcionar uma experiência de saúde em que você se sinta valorizado, escutado e, acima de tudo, cuidado com carinho e respeito.
                                         </p>
-                                        <p className='w-full'>
-                                            Com uma equipe de profissionais altamente qualificados e infraestrutura
-                                            moderna, buscamos sempre as melhores soluções para sua saúde, com um olhar
-                                            atento e dedicado a cada necessidade. Na Clínica Amor Brasil, entendemos que
-                                            a saúde é um ato de amor, e estamos aqui para cuidar de você com a máxima atenção e
-                                            competência.
+                                        <p className="w-full">
+                                            Com uma equipe de profissionais altamente qualificados e infraestrutura moderna, buscamos sempre as melhores soluções para sua saúde, com um olhar atento e dedicado a cada necessidade. Na Clínica Amor Brasil, entendemos que a saúde é um ato de amor, e estamos aqui para cuidar de você com a máxima atenção e competência.
                                         </p>
                                         <a
                                             href="#contato"
@@ -246,18 +290,17 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             <section
                                 className="w-full mt-5 banner banner-2 flex justify-content-center align-items-center caroucel-slider"
                                 aria-labelledby="services-heading"
-                                style={{backgroundImage: 'url("/images/home/hospital.jpg")'}}
+                                style={{ backgroundImage: 'url("/images/home/hospital.jpg")' }}
                             >
-                                <h2 id="services-heading" className="visually-hidden" style={{zIndex: 1}}>
+                                <h2 id="services-heading" className="visually-hidden" style={{ zIndex: 1 }}>
                                     Nossos Serviços
                                 </h2>
-                                <div className="flex gap-5 flex-column md:flex-row align-items-center"
-                                     style={{zIndex: 1}}>
-                                    <ProductsComponent data={plans}/>
+                                <div className="flex gap-5 flex-column md:flex-row align-items-center" style={{ zIndex: 1 }}>
+                                    <ProductsComponent data={plans} />
                                 </div>
                             </section>
 
-                            <Card data={cards}/>
+                            <Card data={cards} />
 
                             {/* Seção de Contato */}
                             <section id="contato" className="contact-section mt-8" aria-labelledby="contact-heading">
@@ -269,25 +312,23 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         {/* Coluna dos Dados de Contato */}
                                         <div className="col-md-6 mb-4">
                                             <div className="contact-card p-4">
-                                                <h4 className="mb-4">Dados de Contato</h4>
+                                                <h4 className="mb-4">CONTATO</h4>
                                                 <address>
                                                     <p>
-                                                        <FaMapMarkerAlt aria-hidden="true" className="me-2"/>
-                                                        <strong>Endereço:</strong> Quadra 02, Conjunto D, Loja D, Lote 40, Loja 01, Planaltina/DF
+                                                        <FaMapMarkerAlt aria-hidden="true" className="me-2" />
+                                                        <strong>Endereço:</strong> Qd 02, Conj. D, Lote 40, Loja 01, Vila Buritis, Planaltina/DF
                                                     </p>
                                                     <p>
-                                                        <FaPhoneAlt aria-hidden="true" className="me-2"/>
+                                                        <FaPhoneAlt aria-hidden="true" className="me-2" />
                                                         <strong>Telefone:</strong> (61) 3489-3571
                                                     </p>
-
                                                     <p>
-                                                        <FaWhatsapp aria-hidden="true" className="me-2"/>
+                                                        <FaWhatsapp aria-hidden="true" className="me-2" />
                                                         <strong>WhatsApp:</strong> (61) 99624-6801
                                                     </p>
                                                     <p>
-                                                        <FaClock aria-hidden="true" className="me-2"/>
-                                                        <strong>Horário:</strong> Segunda a Sexta: 08h às 19h
-                                                        Sábados: 08h às 12h
+                                                        <FaClock aria-hidden="true" className="me-2" />
+                                                        <strong>Horário:</strong> Segunda a Sexta: 08h às 19h Sábados: 08h às 12h
                                                     </p>
                                                 </address>
                                                 <a
@@ -299,40 +340,36 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 </a>
                                             </div>
                                         </div>
-                                        {/* Coluna do Mapa */}
+                                        {/* Coluna do Mapa/Avaliações (LazyIframe) */}
                                         <div className="col-md-6">
                                             <div className="map-container rounded shadow">
-                                                <iframe
+                                                <LazyIframe
                                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.122347701234!2d-47.6478812!3d-15.6171571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a6d30aa79a461%3A0x811a9a4592f18913!2sCl%C3%ADnica%20Amor%20Brasil!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr"
-                                                    title="Localização da Clínica Amor Brasil"
-                                                    frameBorder="0"
-                                                    style={{border: 0, width: "100%", height: "295px"}}
-                                                    allowFullScreen=""
-                                                    loading="lazy"
-                                                ></iframe>
+                                                    title="Avaliações do Google"
+                                                    style={{ border: 0, width: "100%", height: "340px" }}
+                                                />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
 
-                            <section className='w-full mt-8'>
-                                <h2 id="services-heading" className='text-center section-title' style={{zIndex: 1}}>
-                                    Avaliações
+                            {/* Seção de Avaliações (LazyIframe para performance) */}
+                            <section className="w-full mt-8">
+                                <h2 id="services-heading" className="text-center section-title" style={{ zIndex: 1 }}>
+                                    AVALIAÇÕES
                                 </h2>
-
-                                <iframe
-                                    src="https://24bf17270e424b5b831c36886639bc16.elf.site"
-                                    title="Avaliações do Google"
-                                    frameBorder="0"
-                                    style={{border: 0, width: "100%", height: "340px"}}
-                                    allowFullScreen=""
-                                    loading="lazy"
-                                ></iframe>
+                                <div className="map-container rounded">
+                                    <LazyIframe
+                                        src="https://24bf17270e424b5b831c36886639bc16.elf.site"
+                                        title="Avaliações do Google"
+                                        style={{ border: 0, width: "100%", height: "340px" }}
+                                    />
+                                </div>
                             </section>
                         </main>
 
-                        {/* Botão flutuante do WhatsApp */}
+                        {/* Botões Flutuantes */}
                         <a
                             href="https://wa.me/5561996246801"
                             target="_blank"
@@ -358,12 +395,12 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             style={instaButtonStyle}
                             onMouseEnter={() => setScale(1.1)}
                             onMouseLeave={() => setScale(1)}
-                            aria-label="Chat via WhatsApp"
+                            aria-label="Perfil no Instagram"
                         >
                             <img
                                 src="/images/home/icons/instagram.png"
                                 width={50}
-                                alt="Ícone do WhatsApp"
+                                alt="Ícone do Instagram"
                             />
                         </a>
 
@@ -375,24 +412,27 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             style={instagramButtonStyle}
                             onMouseEnter={() => setScale(1.1)}
                             onMouseLeave={() => setScale(1)}
-                            aria-label="Instagram"
+                            aria-label="Ligar para a Clínica"
                         >
                             <img
                                 src="/images/home/icons/telefone.png"
                                 width={45}
-                                alt="Ícone do WhatsApp"
+                                alt="Ícone do Telefone"
                             />
                         </a>
 
-                        <footer className="text-center mt-8 text-lg-start bg-body-tertiary text-muted"
-                                role="contentinfo">
+                        <footer className="text-center mt-8 text-lg-start bg-body-tertiary text-muted" role="contentinfo">
                             <section
                                 className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
                                 aria-label="Redes sociais"
                             >
                                 <div className="d-none w-full d-lg-block flex justify-content-center">
-                                    <img className="hidden md:block" width={150} alt="logo clinica Amor Brasil"
-                                         src="/images/logo/logo.jpg"/>
+                                    <img
+                                        className="hidden md:block"
+                                        width={150}
+                                        alt="logo clinica Amor Brasil"
+                                        src="/images/logo/logo.jpg"
+                                    />
                                 </div>
                             </section>
 
@@ -401,7 +441,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     <div className="row mt-3">
                                         <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                                             <h6 className="text-uppercase fw-bold mb-4">
-                                                <FaGem aria-hidden="true" className="me-3"/>
+                                                <FaGem aria-hidden="true" className="me-3" />
                                                 Clínica Amor Brasil
                                             </h6>
                                             <p>
@@ -412,10 +452,9 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 </div>
                             </section>
 
-                            <div className="text-center p-4" style={{backgroundColor: "rgba(0, 0, 0, 0.05)"}}>
+                            <div className="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
                                 <div className="text-reset fw-bold">
-                                    © 2025 Copyright: Feito por <a href='https://zionpublicidade.com'>Zion
-                                    Publicidade.</a> Todos os direitos reservados.
+                                    © 2025 Copyright: Feito por <a href="https://zionpublicidade.com">Zion Publicidade.</a> Todos os direitos reservados.
                                 </div>
                             </div>
                         </footer>

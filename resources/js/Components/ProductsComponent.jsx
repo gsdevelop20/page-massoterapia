@@ -70,7 +70,7 @@ export default memo(function ProductsComponent({data}) {
         >
             {/* Título para tecnologias assistivas (visualmente oculto) */}
             <h2 id="products-heading" className="sr-only section-title text-white">
-                Exames
+                EXAMES
             </h2>
 
             <div className="flex flex-wrap flex-row gap-6 mt-2 align-items-center justify-content-center" role="list">

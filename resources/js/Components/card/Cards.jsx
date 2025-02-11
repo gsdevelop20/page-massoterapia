@@ -77,7 +77,7 @@ export default memo(function Carousel({ data }) {
         >
             {/* Título para tecnologias assistivas */}
             <h2 id="products-heading" className="text-center section-title">
-                Conheça algumas de nossas especialidades
+                ESPECIALIDADES
             </h2>
 
             {/* Envolvendo Swiper em uma div com role="list" */}
