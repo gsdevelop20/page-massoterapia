@@ -391,7 +391,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
 
                         {/* Botões Flutuantes */}
                         <a
-                            href="https://wa.me/5561996246801"
+                            href="https://wa.me/5561996246801?text=Olá, vim do site e gostaria de falar com o atendimento!"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="float-btn"
