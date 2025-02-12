@@ -10,12 +10,22 @@
     min-height: 300px;
     padding: 40px 20px;
 
+    @media (max-width: 764px) {
+        background-image: unset !important;
+    }
+
     img {
         top: 60px;
 
         @media (max-width: 764px) {
             width: 300px;
         }
+    }
+}
+
+.about-us-img{
+    @media (max-width: 327px) {
+        width: 300px;
     }
 }
 

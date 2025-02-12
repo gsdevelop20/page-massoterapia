@@ -270,9 +270,9 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     className="container flex-column md:flex-row rounded about-us p-5 md:p-8 flex justify-content-center align-items-center gap-8">
                                     <div>
                                         <img
-                                            className="rounded"
+                                            className="rounded about-us-img"
                                             src="/images/home/medical.jpg"
-                                            width={350}
+                                            width={390}
                                             alt="Equipe médica em ação"
                                             loading="lazy"
                                         />
