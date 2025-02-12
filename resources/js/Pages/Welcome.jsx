@@ -254,7 +254,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                                 className="btn w-full md:w-17rem"
                                                 aria-label="Entre em contato"
                                             >
-                                                ENTRE EM CONTATO
+                                                FALE CONOSCO
                                             </a>
                                         </div>
                                     </div>
@@ -297,7 +297,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                             className="btn w-full"
                                             aria-label="Entre em contato"
                                         >
-                                            ENTRE EM CONTATO
+                                            SAIBA MAIS
                                         </a>
                                     </div>
                                 </div>
