@@ -22,18 +22,21 @@ const plans = [
     {
         title: 'Eletrocardiograma',
         description: '',
+        btnClass: 'btn-eletro',
         imageSrc: '/images/home/icons/eletrocardiograma.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar um exame de Eletrocardiograma.'
     },
     {
         title: 'Exame ASO',
         description: '',
+        btnClass: 'btn-aso',
         imageSrc: '/images/home/icons/exame-medico.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar um exame ASO.'
     },
     {
         title: 'Exames Laboratoriais',
         description: '',
+        btnClass: 'btn-lab',
         imageSrc: '/images/home/icons/exame-de-saude.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar exames laboratoriais.'
     }
@@ -43,54 +46,63 @@ const cards = [
     {
         title: 'Dermatologia',
         description: '',
+        btnClass: 'btn-der',
         imageSrc: '/images/home/icons/medico.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um dermatologista.'
     },
     {
         title: 'Endocrinologia',
         description: '',
+        btnClass: 'btn-end',
         imageSrc: '/images/home/icons/medico.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um endocrinologista.'
     },
     {
         title: 'Ginecologia',
         description: '',
+        btnClass: 'btn-gin',
         imageSrc: '/images/home/icons/medico.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
     },
     {
         title: 'Nutricionista',
         description: '',
+        btnClass: 'btn-nut',
         imageSrc: '/images/home/icons/medico.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um nutricionista.'
     },
     {
         title: 'Ortopedia',
         description: '',
+        btnClass: 'btn-ort',
         imageSrc: '/images/home/icons/medico.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ortopedista.'
     },
     {
         title: 'Pediatria',
         description: '',
+        btnClass: 'btn-ped',
         imageSrc: '/images/home/icons/medico.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um pediatra.'
     },
     {
         title: 'Psicologia',
         description: '',
+        btnClass: 'btn-psic',
         imageSrc: '/images/home/icons/medico.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um psicólogo.'
     },
     {
         title: 'Psiquiatria',
         description: '',
+        btnClass: 'btn-psiq',
         imageSrc: '/images/home/icons/medico.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um psiquiatra.'
     },
     {
         title: 'Oftalmologia',
         description: '',
+        btnClass: 'btn-oft',
         imageSrc: '/images/home/icons/medico.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um oftalmologista.'
     }
@@ -250,8 +262,8 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                                 Unimos atendimento humanizado a preços que cabem no seu bolso, cuidando de você e de quem você ama
                                             </h1>
                                             <a
-                                                href="#contato"
-                                                className="btn w-full md:w-17rem"
+                                                href="https://wa.me/5561996246801?text=Olá, vim do site e gostaria de falar com o atendimento!"
+                                                className="btn w-full md:w-17rem btn-fale"
                                                 aria-label="Entre em contato"
                                             >
                                                 FALE CONOSCO
@@ -293,8 +305,8 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                             atenção e competência.
                                         </p>
                                         <a
-                                            href="#contato"
-                                            className="btn w-full"
+                                            href="https://wa.me/5561996246801?text=Olá, vim do site e gostaria de falar com o atendimento!"
+                                            className="btn w-full btn-saiba"
                                             aria-label="Entre em contato"
                                         >
                                             SAIBA MAIS
@@ -353,7 +365,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                                 </address>
                                                 <a
                                                     href="tel:556134893571"
-                                                    className="btn w-full mt-3 md:w-13rem"
+                                                    className="btn w-full mt-3 md:w-13rem btn-lig"
                                                     aria-label="Ligar para a Clínica"
                                                 >
                                                     Ligue agora
@@ -394,7 +406,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             href="https://wa.me/5561996246801?text=Olá, vim do site e gostaria de falar com o atendimento!"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="float-btn"
+                            className="float-btn btn-whats"
                             style={whatsappButtonStyle}
                             onMouseEnter={() => setScale(1.1)}
                             onMouseLeave={() => setScale(1)}
@@ -411,7 +423,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             href="https://www.instagram.com/clinicaamorbrasil/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="float-btn"
+                            className="float-btn btn-inst"
                             style={instaButtonStyle}
                             onMouseEnter={() => setScale(1.1)}
                             onMouseLeave={() => setScale(1)}
@@ -428,7 +440,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             href="tel:556134893571"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="float-btn"
+                            className="float-btn btn-cha"
                             style={instagramButtonStyle}
                             onMouseEnter={() => setScale(1.1)}
                             onMouseLeave={() => setScale(1)}

@@ -15,7 +15,7 @@ export default function HeaderComponent() {
                                  src="/images/logo/logo.jpg"/>
                         </div>
                         <div>
-                            <a href='#contato' className='btn'>ENTRE EM CONTATO</a>
+                            <a href='https://wa.me/5561996246801?text=Olá, vim do site e gostaria de falar com o atendimento!' className='btn btn-entre'>ENTRE EM CONTATO</a>
                         </div>
                     </div>
                 </div>
