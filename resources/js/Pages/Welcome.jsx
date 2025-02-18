@@ -98,13 +98,6 @@ const cards = [
         btnClass: 'btn-psiq',
         imageSrc: '/images/home/icons/medico.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um psiquiatra.'
-    },
-    {
-        title: 'Oftalmologia',
-        description: '',
-        btnClass: 'btn-oft',
-        imageSrc: '/images/home/icons/medico.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um oftalmologista.'
     }
 ];
 
