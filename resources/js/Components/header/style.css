@@ -1,19 +1,5 @@
 .navbar {
-  background-color: #66b5c2;
-}
-.navbar img {
-  width: 300px;
-}
-@media (max-width: 764px) {
-  .navbar img {
-    width: 70px;
-  }
-}
-.navbar .btn {
-  background-color: #00ba1a;
-  font-size: 20px;
-  color: white;
-  font-weight: bold;
+  background-color: #d37435;
 }
 
 /*# sourceMappingURL=style.css.map */

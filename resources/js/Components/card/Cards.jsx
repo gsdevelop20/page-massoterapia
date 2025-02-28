@@ -22,38 +22,31 @@ const ProductCard = memo(function ProductCard({product}) {
     return (
         <motion.article
             ref={ref}
-            className="w-full md:w-3 border-4 card-1 flex flex-column justify-content-center p-5 bg-gray-100 rounded-lg shadow-sm"
+            className="w-full  md:w-4 border-4 card-1 flex flex-column justify-content-center p-5 bg-orange-200 rounded-lg shadow-sm"
             variants={cardVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             role="listitem" // Adicionado para garantir acessibilidade
             aria-label={product.title}
         >
-            <img
-                src={product.imageSrc}
-                width={100}
-                alt={`${product.title} - imagem ilustrativa`}
-                className="w-16 h-16 mx-auto mb-2"
-                loading="lazy"
-            />
-            <h5 className="text-xl font-medium text-gray-700 dark:text-gray-300 text-center mb-2">
-                {product.title}
-            </h5>
-            {product.description && (
-                <p className="text-base font-normal text-gray-600 dark:text-gray-400 text-center">
-                    {product.description}
-                </p>
-            )}
-            <a
-                href={product.url}
-                className={`btn w-full mt-1 text-white ` + product.btnClass}
-                aria-label={`Agendar consulta para ${product.title}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{background: '#00ba1a', fontWeight: 'bold', fontSize: '20px'}}
-            >
-                AGENDAR
-            </a>
+            <div className='flex-column flex justify-content-center align-items-center border-green-600 p-4' style={{border: "solid 4px"}}>
+                <img
+                    src={product.imageSrc}
+                    width={110}
+                    alt={`${product.title} - imagem ilustrativa`}
+                    className="w-16 h-16 mx-auto position-absolute"
+                    style={{top: '59rem'}}
+                    loading="lazy"
+                />
+                <h5 className="text-xl font-medium text-gray-700\ dark:text-gray-300 text-center">
+                    {product.title}
+                </h5>
+                {product.description && (
+                    <p className="text-base font-normal text-gray-600 dark:text-gray-400 text-center">
+                        {product.description}
+                    </p>
+                )}
+            </div>
         </motion.article>
     );
 });
@@ -61,14 +54,17 @@ const ProductCard = memo(function ProductCard({product}) {
 export default memo(function Carousel({data}) {
     return (
         <section
-            className="w-full flex flex-column container align-items-center justify-content-center"
+            className="w-full flex flex-column  mt-5 container align-items-center justify-content-center"
             aria-labelledby="products-heading"
-            style={{marginTop: '100px'}}
+            style={{marginTop: '15px'}}
         >
-            <h2 id="products-heading" className="text-center section-title" style={{fontSize: '35px'}}>
-                ESPECIALIDADES
-            </h2>
-            <div role="list" className="flex flex-wrap flex-row gap-6 mt-2 align-items-center justify-content-center">
+
+            <di>
+                <span className='h1 text-orange-600'>
+                    MENU MASSOTERAPIA
+                </span>
+            </di>
+            <div role="list" className="flex flex-row gap-6 align-items-center justify-content-center" style={{marginTop: '8rem'}}>
                 {data.map((product, index) => (
                     <ProductCard key={index} product={product}/>
                 ))}

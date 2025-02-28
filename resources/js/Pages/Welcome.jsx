@@ -1,6 +1,7 @@
 import {Head} from '@inertiajs/react';
 import {LayoutProvider} from "@/Layouts/layout/context/layoutcontext.jsx";
 import {PrimeReactProvider} from "primereact/api";
+import { CheckCircle, ArrowDown, MessageCircle } from "lucide-react";
 import './style.css';
 import React, {useState, useMemo, Suspense, useEffect, useRef} from "react";
 
@@ -44,61 +45,33 @@ const plans = [
 
 const cards = [
     {
-        title: 'Dermatologia',
+        title: 'Liberação Miofascial',
         description: '',
         btnClass: 'btn-der',
-        imageSrc: '/images/home/icons/medico.png',
+        imageSrc: '/images/home/icons/planta-cacto.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um dermatologista.'
     },
     {
-        title: 'Endocrinologia',
+        title: 'Drenagem Linfática',
         description: '',
         btnClass: 'btn-end',
-        imageSrc: '/images/home/icons/medico.png',
+        imageSrc: '/images/home/icons/planta-cacto.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um endocrinologista.'
     },
     {
-        title: 'Ginecologia',
+        title: 'Massagem Desportiva',
         description: '',
         btnClass: 'btn-gin',
-        imageSrc: '/images/home/icons/medico.png',
+        imageSrc: '/images/home/icons/planta-cacto.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
     },
     {
-        title: 'Nutricionista',
+        title: 'Massagem Shiatsu',
         description: '',
-        btnClass: 'btn-nut',
-        imageSrc: '/images/home/icons/medico.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um nutricionista.'
+        btnClass: 'btn-gin',
+        imageSrc: '/images/home/icons/planta-cacto.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
     },
-    {
-        title: 'Ortopedia',
-        description: '',
-        btnClass: 'btn-ort',
-        imageSrc: '/images/home/icons/medico.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ortopedista.'
-    },
-    {
-        title: 'Pediatria',
-        description: '',
-        btnClass: 'btn-ped',
-        imageSrc: '/images/home/icons/medico.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um pediatra.'
-    },
-    {
-        title: 'Psicologia',
-        description: '',
-        btnClass: 'btn-psic',
-        imageSrc: '/images/home/icons/medico.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um psicólogo.'
-    },
-    {
-        title: 'Psiquiatria',
-        description: '',
-        btnClass: 'btn-psiq',
-        imageSrc: '/images/home/icons/medico.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um psiquiatra.'
-    }
 ];
 
 // Componente LazyIframe aprimorado para carregar o iframe somente quando estiver na viewport
@@ -215,11 +188,55 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
         transform: `scale(${scale})`,
     }), [scale]);
 
+    const styles = {
+        section: {
+            textAlign: "center",
+            padding: "50px",
+            backgroundColor: "#f9f5f0",
+        },
+        title: {
+            color: "#1e833d",
+            fontSize: "2em",
+            fontWeight: "bold",
+            textTransform: 'uppercase'
+        },
+        description: {
+            fontSize: "1.2em",
+            color: "#ffffff",
+            maxWidth: "800px",
+            margin: "auto",
+        },
+        list: {
+            padding: 0,
+            fontSize: "1.1em",
+            color: "#ffffff",
+        },
+        listItem: {
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            margin: "8px 0",
+        },
+        button: {
+            display: "inline-flex",
+            alignItems: "center",
+            padding: "15px 25px",
+            fontSize: "1.2em",
+            color: "white",
+            backgroundColor: "#d37435",
+            textDecoration: "none",
+            borderRadius: "5px",
+            marginTop: "20px",
+            border: "none",
+            cursor: "pointer",
+        },
+    };
+
     return (
         <>
             <PrimeReactProvider>
                 <LayoutProvider>
-                    <Head title="Clínica Amor Brasil"/>
+                    <Head title="Msssoterapia"/>
 
                     {/* Skip link para navegação rápida */}
                     <a href="#main-content" className="skip-link hidden">
@@ -231,8 +248,52 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             <HeaderComponent auth={auth}/>
                         </header>
 
-                        <main id="main-content">
-                            {/* Seção do Banner */}
+                        <section className='className'>
+                            <div className='w-full flex gap-8 align-items-center justify-content-center' style={{backgroundColor: '#d37435'}}>
+                                <div className='w-50'>
+                                    <h2 style={styles.title}>🌿 Renove Seu Corpo e Sua Mente com a Massoterapia</h2>
+                                    <p style={styles.description}>
+                                        Sinta o alívio do estresse e das tensões do dia a dia com nossas{" "}
+                                        <strong>massagens terapêuticas</strong>! Cuidar do seu bem-estar não é um luxo,
+                                        é uma necessidade.
+                                    </p>
+
+                                    <ul style={styles.list} className='mt-5'>
+                                        <li style={styles.listItem}>
+                                            <CheckCircle size={20} color="#FFFFFF"/> <strong>Alívio imediato do estresse
+                                            e ansiedade</strong>
+                                        </li>
+                                        <li style={styles.listItem}>
+                                            <CheckCircle size={20} color="#FFFFFF"/> <strong>Redução de dores musculares
+                                            e tensões</strong>
+                                        </li>
+                                        <li style={styles.listItem}>
+                                            <CheckCircle size={20} color="#FFFFFF"/> <strong>Melhora na circulação e na
+                                            qualidade do sono</strong>
+                                        </li>
+                                    </ul>
+
+                                    <button
+                                        className="bg-green-700 btn-agendar mt-3 w-5 hover:bg-green-600 text-white border-0 font-bold py-2 px-4 rounded">
+                                        AGENDAR AGORA
+                                    </button>
+                                </div>
+
+                                <div>
+                                    <img className="hidden md:block" width={500}
+                                         alt="logo w-full clinica Amor Brasil"
+                                         src="/images/home/banner.png"/>
+                                </div>
+                            </div>
+
+                            <img className="hidden md:block" alt="logo w-full clinica Amor Brasil"
+                                 src="/images/wave.svg"/>
+
+                            <Card data={cards}/>
+                        </section>
+
+                        {/*<main id="main-content">
+                             Seção do Banner
                             <section aria-labelledby="banner-heading">
                                 <div
                                     className="w-full banner flex justify-content-center flex-wrap gap-8"
@@ -266,7 +327,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 </div>
                             </section>
 
-                            {/* Seção Sobre Nós */}
+                             Seção Sobre Nós
                             <section className="w-full mt-8" aria-labelledby="about-us-heading">
                                 <h2 id="about-us-heading" className="font-bold text-center">
                                     SOBRE NÓS
@@ -308,7 +369,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 </div>
                             </section>
 
-                            {/* Seção de Serviços/Produtos */}
+                             Seção de Serviços/Produtos
                             <section
                                 className="w-full mt-5 banner banner-2 flex justify-content-center align-items-center caroucel-slider"
                                 aria-labelledby="services-heading"
@@ -325,14 +386,14 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
 
                             <Card data={cards}/>
 
-                            {/* Seção de Contato */}
+                             Seção de Contato
                             <section id="contato" className="contact-section mt-8" aria-labelledby="contact-heading">
                                 <div className="container">
                                     <h2 id="contact-heading" className="text-center section-title">
                                         Não perca tempo e agende sua consulta
                                     </h2>
                                     <div className="row">
-                                        {/* Coluna dos Dados de Contato */}
+                                         Coluna dos Dados de Contato
                                         <div className="col-md-6 mb-4">
                                             <div className="contact-card p-4">
                                                 <h4 className="mb-4">CONTATO</h4>
@@ -365,7 +426,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                                 </a>
                                             </div>
                                         </div>
-                                        {/* Coluna do Mapa/Avaliações (LazyIframe) */}
+                                         Coluna do Mapa/Avaliações (LazyIframe)
                                         <div className="col-md-6">
                                             <div className="map-container rounded shadow">
                                                 <LazyIframe
@@ -379,7 +440,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 </div>
                             </section>
 
-                            {/* Seção de Avaliações (LazyIframe para performance) */}
+                             Seção de Avaliações (LazyIframe para performance)
                             <section className="w-full mt-8">
                                 <h2 id="services-heading" className="text-center section-title" style={{zIndex: 1}}>
                                     AVALIAÇÕES
@@ -394,7 +455,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             </section>
                         </main>
 
-                        {/* Botões Flutuantes */}
+                         Botões Flutuantes
                         <a
                             href="https://wa.me/5561996246801?text=Olá, vim do site e gostaria de falar com o atendimento!"
                             target="_blank"
@@ -484,7 +545,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     Publicidade.</a> Todos os direitos reservados.
                                 </div>
                             </div>
-                        </footer>
+                        </footer>*/}
                     </Suspense>
                 </LayoutProvider>
             </PrimeReactProvider>
