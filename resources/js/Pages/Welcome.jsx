@@ -196,15 +196,14 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
         },
         title: {
             color: "#1e833d",
-            fontSize: "2em",
+            fontSize: "3em",
             fontWeight: "bold",
-            textTransform: 'uppercase'
+            textTransform: 'uppercase',
         },
         description: {
-            fontSize: "1.2em",
+            fontSize: "1.4em",
             color: "#ffffff",
             maxWidth: "800px",
-            margin: "auto",
         },
         list: {
             padding: 0,
@@ -248,9 +247,11 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             <HeaderComponent auth={auth}/>
                         </header>
 
-                        <section className='className'>
-                            <div className='w-full flex gap-8 align-items-center justify-content-center' style={{backgroundColor: '#d37435'}}>
-                                <div className='w-50'>
+                        <section className='w-full position-relative' style={{bottom: "2px"}}>
+                            <div
+                                className='w-full flex p-4 md:p-0  flex-column-reverse md:flex-row overflow-hidden gap-8 align-items-center justify-content-center'
+                                style={{backgroundColor: '#d37435', border: "solid 4px #d37435"}}>
+                                <div className='section-info'>
                                     <h2 style={styles.title}>🌿 Renove Seu Corpo e Sua Mente com a Massoterapia</h2>
                                     <p style={styles.description}>
                                         Sinta o alívio do estresse e das tensões do dia a dia com nossas{" "}
@@ -274,24 +275,90 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     </ul>
 
                                     <button
-                                        className="bg-green-700 btn-agendar mt-3 w-5 hover:bg-green-600 text-white border-0 font-bold py-2 px-4 rounded">
+                                        className="bg-green-700 btn-agendar mt-3 md:w-5 w-full hover:bg-green-600 text-white border-0 font-bold py-2 px-4 rounded">
                                         AGENDAR AGORA
                                     </button>
                                 </div>
 
-                                <div>
-                                    <img className="hidden md:block" width={500}
-                                         alt="logo w-full clinica Amor Brasil"
-                                         src="/images/home/banner.png"/>
-                                </div>
+                                <img className="" width={700}
+                                     style={{Width: "60%"}}
+                                     alt="logo w-full  clinica Amor Brasil"
+                                     src="/images/home/banner.png"/>
                             </div>
 
-                            <img className="hidden md:block" alt="logo w-full clinica Amor Brasil"
-                                 src="/images/wave.svg"/>
+                            <img
+                                className="position-relative"
+                                style={{bottom: '2px'}}
+                                alt="logo w-full clinica Amor Brasil"
+                                src="/images/wave.svg"/>
 
-                            <Card data={cards}/>
+                        </section>
+                        <Card data={cards}/>
+
+
+                        <section className="mt-2rem" style={{marginTop: "15rem"}}>
+                            <div
+                                className='w-full flex p-4 md:p-5  flex-column-reverse md:flex-row overflow-hidden gap-8 align-items-center justify-content-center'
+                                style={{backgroundColor: '#d37435', border: "solid 4px #d37435"}}>
+                                <div className='section-info'>
+                                    <h2 style={styles.title}>🌿 Transforme Seu Corpo e Sua Mente com a Massoterapia!</h2>
+                                    <p style={styles.description}>
+                                        Você merece um momento para si! A massoterapia é a solução ideal para aliviar o
+                                        estresse, reduzir dores musculares e proporcionar um profundo bem-estar físico e
+                                        mental.
+                                    </p>
+
+                                    <ul style={styles.list} className='mt-5'>
+                                        <li style={styles.listItem}>
+                                            <CheckCircle size={20} color="#FFFFFF"/> <strong>Alívio imediato do estresse
+                                            e ansiedade – Sinta-se mais leve e relaxado(a)</strong>
+                                        </li>
+                                        <li style={styles.listItem}>
+                                            <CheckCircle size={20} color="#FFFFFF"/> <strong>Diminuição de tensões e
+                                            dores musculares – Ideal para quem sofre com rotina intensa</strong>
+                                        </li>
+                                        <li style={styles.listItem}>
+                                            <CheckCircle size={20} color="#FFFFFF"/> <strong>Melhoria na circulação
+                                            sanguínea e qualidade do sono – Desperte mais revigorado(a)</strong>
+                                        </li>
+                                        <li style={styles.listItem}>
+                                            <CheckCircle size={20} color="#FFFFFF"/> <strong>Aumento da disposição e
+                                            equilíbrio emocional – Mais energia para o seu dia a dia
+                                        </strong>
+                                        </li>
+                                    </ul>
+
+                                    <p style={styles.description}>
+                                        Não espere mais para sentir essa transformação. Agende agora sua sessão de
+                                        massoterapia e renove suas energias!
+                                    </p>
+
+                                    <button
+                                        className="bg-green-700 btn-agendar-2 mt-3 md:w-5 w-full hover:bg-green-600 text-white border-0 font-bold py-2 px-4 rounded">
+                                        AGENDAR AGORA
+                                    </button>
+                                </div>
+
+                                <video
+                                    src="/images/home/135151-761273523_tiny.mp4"
+                                    style={{maxWidth: "40%", borderRadius: "20px"}}
+                                    autoPlay
+                                    muted
+                                    loop
+                                ></video>
+                            </div>
                         </section>
 
+                        <footer className="text-center text-lg-start bg-body-tertiary text-muted \"
+                                role="contentinfo"
+                        style={{marginTop: "15rem"}}>
+                            <div className="text-center p-4" style={{backgroundColor: "#d37435"}}>
+                                <div className="text-reset fw-bold text-white">
+                                    © 2025 Copyright: Feito por <a className="text-green-800" href="https://zionpublicidade.com">Zion
+                                    Publicidade.</a> Todos os direitos reservados.
+                                </div>
+                            </div>
+                        </footer>
                         {/*<main id="main-content">
                              Seção do Banner
                             <section aria-labelledby="banner-heading">

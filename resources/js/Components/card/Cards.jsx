@@ -32,10 +32,10 @@ const ProductCard = memo(function ProductCard({product}) {
             <div className='flex-column flex justify-content-center align-items-center border-green-600 p-4' style={{border: "solid 4px"}}>
                 <img
                     src={product.imageSrc}
-                    width={110}
+                    width={120}
                     alt={`${product.title} - imagem ilustrativa`}
-                    className="w-16 h-16 mx-auto position-absolute"
-                    style={{top: '59rem'}}
+                    className="w-16 h-16 mx-auto position-relative"
+                    style={{bottom: '0'}}
                     loading="lazy"
                 />
                 <h5 className="text-xl font-medium text-gray-700\ dark:text-gray-300 text-center">
@@ -54,7 +54,7 @@ const ProductCard = memo(function ProductCard({product}) {
 export default memo(function Carousel({data}) {
     return (
         <section
-            className="w-full flex flex-column  mt-5 container align-items-center justify-content-center"
+            className="w-full flex flex-column  mt-4 container align-items-center justify-content-center"
             aria-labelledby="products-heading"
             style={{marginTop: '15px'}}
         >
@@ -64,7 +64,7 @@ export default memo(function Carousel({data}) {
                     MENU MASSOTERAPIA
                 </span>
             </di>
-            <div role="list" className="flex flex-row gap-6 align-items-center justify-content-center" style={{marginTop: '8rem'}}>
+            <div role="list" className="flex flex-column-reverse md:flex-row gap-6 align-items-center justify-content-center" style={{marginTop: '8rem'}}>
                 {data.map((product, index) => (
                     <ProductCard key={index} product={product}/>
                 ))}
