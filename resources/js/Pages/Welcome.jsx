@@ -21,22 +21,30 @@ import {
 // Dados estáticos dos planos (definidos fora do componente para evitar recriação)
 const plans = [
     {
-        title: 'Eletrocardiograma',
-        description: '',
+        title: '⭐⭐⭐⭐⭐ Incrível! Me senti renovado(a)!',
+        description: '"Fiz minha primeira sessão de massoterapia e foi simplesmente transformador! Saí completamente relaxado(a) e com as dores musculares muito reduzidas. Já agendei minha próxima sessão! Super recomendo!" — Rodrigo S.',
         btnClass: 'btn-eletro',
-        imageSrc: '/images/home/icons/eletrocardiograma.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar um exame de Eletrocardiograma.'
+        imageSrc: '/images/home/icons/exame-de-saude.png',
     },
     {
-        title: 'Exame ASO',
-        description: '',
+        title: '⭐⭐⭐⭐⭐ Alívio imediato das tensões!',
+        description: '"Tenho uma rotina muito estressante e sempre senti dores nas costas. Depois da massagem, senti um alívio imediato! Meu sono também melhorou muito. Experiência maravilhosa!" — Lucas T.',
         btnClass: 'btn-aso',
-        imageSrc: '/images/home/icons/exame-medico.png',
+        imageSrc: '/images/home/icons/exame-de-saude.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar um exame ASO.'
     },
     {
-        title: 'Exames Laboratoriais',
-        description: '',
+        title: '⭐⭐⭐⭐⭐ Atendimento impecável e muito relaxante!',
+        description: '"Além do ambiente ser super aconchegante, a massoterapeuta foi extremamente profissional e cuidadosa. Me senti completamente à vontade e relaxada durante a sessão. Vale cada minuto!" — Carla M.' +
+            '— Fernanda L.',
+        btnClass: 'btn-lab',
+        imageSrc: '/images/home/icons/exame-de-saude.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar exames laboratoriais.'
+    },
+    {
+        title: '⭐⭐⭐⭐⭐ Melhor escolha para cuidar de mim!',
+        description: '"Achei que massagem era só um luxo, mas percebi que é essencial para minha saúde e bem-estar. Depois da primeira sessão, já senti menos estresse e muito mais disposição. Excelente atendimento!"\n' +
+            '— Juliana P.',
         btnClass: 'btn-lab',
         imageSrc: '/images/home/icons/exame-de-saude.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar exames laboratoriais.'
@@ -252,11 +260,9 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 className='w-full flex p-4 md:p-0  flex-column-reverse md:flex-row overflow-hidden gap-8 align-items-center justify-content-center'
                                 style={{backgroundColor: '#d37435', border: "solid 4px #d37435"}}>
                                 <div className='section-info'>
-                                    <h2 style={styles.title}>🌿 Renove Seu Corpo e Sua Mente com a Massoterapia</h2>
+                                    <h2 style={styles.title}>🌿 Renove Seu Corpo e Sua Mente com a Massoterapia!</h2>
                                     <p style={styles.description}>
-                                        Sinta o alívio do estresse e das tensões do dia a dia com nossas{" "}
-                                        <strong>massagens terapêuticas</strong>! Cuidar do seu bem-estar não é um luxo,
-                                        é uma necessidade.
+                                        Você sente o peso do estresse e das tensões do dia a dia? Seu corpo e sua mente merecem um descanso! Com nossas massagens terapêuticas, você experimenta um profundo estado de relaxamento e bem-estar, melhorando sua qualidade de vida de forma natural e revigorante.
                                     </p>
 
                                     <ul style={styles.list} className='mt-5'>
@@ -293,19 +299,17 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 src="/images/wave.svg"/>
 
                         </section>
-                        <Card data={cards}/>
 
+                        <Card data={cards}/>
 
                         <section className="mt-2rem" style={{marginTop: "15rem"}}>
                             <div
                                 className='w-full flex p-4 md:p-5  flex-column-reverse md:flex-row overflow-hidden gap-8 align-items-center justify-content-center'
                                 style={{backgroundColor: '#d37435', border: "solid 4px #d37435"}}>
                                 <div className='section-info'>
-                                    <h2 style={styles.title}>🌿 Transforme Seu Corpo e Sua Mente com a Massoterapia!</h2>
+                                    <h2 style={styles.title}>🌿 Restaure Seu Bem-Estar!!</h2>
                                     <p style={styles.description}>
-                                        Você merece um momento para si! A massoterapia é a solução ideal para aliviar o
-                                        estresse, reduzir dores musculares e proporcionar um profundo bem-estar físico e
-                                        mental.
+                                        Com a massoterapia, você não apenas alivia desconfortos físicos, mas também promove um estado profundo de relaxamento e equilíbrio emocional.
                                     </p>
 
                                     <ul style={styles.list} className='mt-5'>
@@ -349,10 +353,12 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             </div>
                         </section>
 
+                        <ProductsComponent data={plans}/>
+
                         <footer className="text-center text-lg-start bg-body-tertiary text-muted \"
                                 role="contentinfo"
                         style={{marginTop: "15rem"}}>
-                            <div className="text-center p-4" style={{backgroundColor: "#d37435"}}>
+                            <div className="text-center p-4" style={{backgroundColor: "#c1c1c1"}}>
                                 <div className="text-reset fw-bold text-white">
                                     © 2025 Copyright: Feito por <a className="text-green-800" href="https://zionpublicidade.com">Zion
                                     Publicidade.</a> Todos os direitos reservados.

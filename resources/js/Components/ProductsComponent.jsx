@@ -18,11 +18,11 @@ const ProductCard = memo(function ProductCard({ product }) {
     return (
         <motion.div
             ref={ref}
-            className="md:w-3 w-full border-4 h-3 hover:scale-50 border-warning flex flex-column justify-content-center p-3 shadow-lg bg-gray-100 border-gray-300 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
+            className="md:w-3 w-full border-4 h-5 hover:scale-50 flex flex-column justify-content-center p-3 shadow-lg bg-gray-100 h1 text-orange-600 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
             variants={cardVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            style={{ borderLeft: 'solid 2px', borderColor: '#66b5c2' }}
+            style={{ borderLeft: 'solid 2px', borderColor: '#188a43', height: '500px' }}
             as="article" // Garantindo que seja um <article> correto
             role="listitem"
             aria-label={product.title}
@@ -41,16 +41,6 @@ const ProductCard = memo(function ProductCard({ product }) {
                     {product.description}
                 </p>
             )}
-            <a
-                href={product.url}
-                className={`btn w-full ` + product.btnClass}
-                aria-label={`Agendar consulta para ${product.title}`}
-                title={`Agendar consulta para ${product.title}`}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                AGENDAR
-            </a>
         </motion.div>
     );
 });
@@ -58,13 +48,14 @@ const ProductCard = memo(function ProductCard({ product }) {
 export default memo(function ProductsComponent({ data }) {
     return (
         <section
-            className="w-full flex flex-column container align-items-center justify-content-center"
+            className="w-full flex flex-column mt-8 container align-items-center justify-content-center"
             aria-labelledby="products-heading"
+            style={{marginTop: '15px'}}
         >
-            <h2 id="products-heading" className="sr-only section-title text-white">
-                EXAMES
+            <h2 id="products-heading" className="h1 text-orange-600">
+                AVALIAÇÕES
             </h2>
-            <div className="flex flex-wrap flex-row gap-6 mt-2 align-items-center justify-content-center" role="list">
+            <div className="flex  flex flex-column-reverse md:flex-row gap-6 mt-8 align-items-center justify-content-center" role="list">
                 {data.map((product, index) => (
                     <ProductCard key={index} product={product} />
                 ))}
