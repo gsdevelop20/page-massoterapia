@@ -234,7 +234,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
 
                                     <button
                                         onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
-                                        style={{fontSize: '25px'}}
+                                        style={{fontSize: '22px'}}
                                         className="bg-green-700 btn-agendar mt-5 md:w-5 w-full hover:bg-green-600 text-white border-0 font-bold py-2 px-4 rounded">
                                         AGENDAR AGORA
                                     </button>
