@@ -59,12 +59,12 @@ export default memo(function Carousel({data}) {
             style={{marginTop: '15px'}}
         >
 
-            <di>
+            <div>
                 <span className='h1 text-orange-600'>
                     MENU MASSOTERAPIA
                 </span>
-            </di>
-            <div role="list" className="flex flex-column-reverse md:flex-row gap-6 align-items-center justify-content-center" style={{marginTop: '8rem'}}>
+            </div>
+            <div role="list" className="flex flex-column-reverse md:flex-row gap-6 align-items-center justify-content-center" style={{marginTop: '5rem'}}>
                 {data.map((product, index) => (
                     <ProductCard key={index} product={product}/>
                 ))}

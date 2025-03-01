@@ -4,4 +4,31 @@
   }
 }
 
+.video {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .video {
+    width: 40%;
+  }
+}
+
+.section-1-img-mobile {
+  display: block;
+}
+@media (min-width: 768px) {
+  .section-1-img-mobile {
+    display: none;
+  }
+}
+
+.section-1-img {
+  display: none;
+}
+@media (min-width: 768px) {
+  .section-1-img {
+    display: block;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -3,3 +3,22 @@
         width: 70rem; // Equivalente a `w-48` do Tailwind
     }
 }
+
+.video{
+    width: 100%;
+    @media (min-width: 768px) {
+        width: 40%; // Equivalente a `w-48` do Tailwind
+    }
+}
+.section-1-img-mobile{
+    display: block;
+    @media (min-width: 768px) {
+        display: none;
+    }
+}
+.section-1-img{
+    display: none;
+    @media (min-width: 768px) {
+        display: block;
+    }
+}
