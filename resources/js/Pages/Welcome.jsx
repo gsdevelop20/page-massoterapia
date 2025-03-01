@@ -1,7 +1,7 @@
-import {Head} from '@inertiajs/react';
+import {Head, Link} from '@inertiajs/react';
 import {LayoutProvider} from "@/Layouts/layout/context/layoutcontext.jsx";
 import {PrimeReactProvider} from "primereact/api";
-import { CheckCircle } from "lucide-react";
+import {CheckCircle} from "lucide-react";
 import './style.css';
 import React, {useState, useMemo, Suspense, useEffect, useRef} from "react";
 
@@ -233,7 +233,9 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     </ul>
 
                                     <button
-                                        className="bg-green-700 btn-agendar mt-3 md:w-5 w-full hover:bg-green-600 text-white border-0 font-bold py-2 px-4 rounded">
+                                        onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
+                                        style={{fontSize: '25px'}}
+                                        className="bg-green-700 btn-agendar mt-5 md:w-5 w-full hover:bg-green-600 text-white border-0 font-bold py-2 px-4 rounded">
                                         AGENDAR AGORA
                                     </button>
                                 </div>
@@ -261,7 +263,8 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 <div className='section-info'>
                                     <h2 style={styles.title}>🌿 Restaure Seu Bem-Estar!!</h2>
                                     <p style={styles.description}>
-                                        Com a massoterapia, você não apenas alivia desconfortos físicos, mas também promove um estado profundo de relaxamento e equilíbrio emocional.
+                                        Com a massoterapia, você não apenas alivia desconfortos físicos, mas também
+                                        promove um estado profundo de relaxamento e equilíbrio emocional.
                                     </p>
 
                                     <ul style={styles.list} className='mt-5'>
@@ -290,7 +293,10 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     </p>
 
                                     <button
-                                        className="bg-green-700 btn-agendar-2 mt-3 md:w-5 w-full hover:bg-green-600 text-white border-0 font-bold py-2 px-4 rounded">
+                                        onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
+                                        className="bg-green-700 btn-agendar-2 mt-3 md:w-5 w-full hover:bg-green-600 text-white border-0 font-bold py-2 px-4 rounded"
+                                        style={{fontSize: '25px'}}
+                                    >
                                         AGENDAR AGORA
                                     </button>
                                 </div>
@@ -310,10 +316,11 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
 
                         <footer className="text-center text-lg-start bg-body-tertiary text-muted \"
                                 role="contentinfo"
-                        style={{marginTop: "15rem"}}>
+                                style={{marginTop: "15rem"}}>
                             <div className="text-center p-4" style={{backgroundColor: "#c1c1c1"}}>
                                 <div className="text-reset fw-bold text-white">
-                                    © 2025 Copyright: Feito por <a className="text-green-800" href="https://zionpublicidade.com">Zion
+                                    © 2025 Copyright: Feito por <a className="text-green-800"
+                                                                   href="https://zionpublicidade.com">Zion
                                     Publicidade.</a> Todos os direitos reservados.
                                 </div>
                             </div>
