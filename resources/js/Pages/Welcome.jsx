@@ -7,8 +7,8 @@ import React, {useState, useMemo, Suspense, useEffect, useRef} from "react";
 
 // Lazy load dos componentes para melhorar o carregamento inicial
 const HeaderComponent = React.lazy(() => import('@/Components/header/HeaderComponent.jsx'));
-const ProductsComponent = React.lazy(() => import('@/Components/ProductsComponent.jsx'));
 const Card = React.lazy(() => import('@/Components/card/Cards'));
+const Carousel = React.lazy(() => import('@/Components/Carousel/Carousel'));
 const CardAboutUs = React.lazy(() => import('@/Components/card-about-us/Cards'));
 
 import {
@@ -57,28 +57,63 @@ const cards = [
         title: 'Liberação Miofascial',
         description: '',
         btnClass: 'btn-der',
-        imageSrc: '/images/home/icons/planta-cacto.png',
+        imageSrc: '/images/home/icons/massagem-facial.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um dermatologista.'
     },
     {
         title: 'Drenagem Linfática',
         description: '',
         btnClass: 'btn-end',
-        imageSrc: '/images/home/icons/planta-cacto.png',
+        imageSrc: '/images/home/icons/massagem-facial.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um endocrinologista.'
     },
     {
         title: 'Massagem Desportiva',
         description: '',
         btnClass: 'btn-gin',
-        imageSrc: '/images/home/icons/planta-cacto.png',
+        imageSrc: '/images/home/icons/massagem-facial.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
     },
     {
         title: 'Massagem Shiatsu',
         description: '',
         btnClass: 'btn-gin',
-        imageSrc: '/images/home/icons/planta-cacto.png',
+        imageSrc: '/images/home/icons/massagem-facial.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
+    },
+    {
+        title: 'Auriculoterapia',
+        description: '',
+        btnClass: 'btn-gin',
+        imageSrc: '/images/home/icons/massagem-facial.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
+    },
+    {
+        title: 'Massagem Relaxante',
+        description: '',
+        btnClass: 'btn-gin',
+        imageSrc: '/images/home/icons/massagem-facial.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
+    },
+    {
+        title: 'Acupuntura',
+        description: '',
+        btnClass: 'btn-gin',
+        imageSrc: '/images/home/icons/massagem-facial.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
+    },
+    {
+        title: 'Massagem Terapeutica',
+        description: '',
+        btnClass: 'btn-gin',
+        imageSrc: '/images/home/icons/massagem-facial.png',
+        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
+    },
+    {
+        title: 'Pedras Quentes',
+        description: '',
+        btnClass: 'btn-gin',
+        imageSrc: '/images/home/icons/massagem-facial.png',
         url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
     },
 ];
@@ -256,9 +291,9 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
 
                         </section>
 
-                        <Card data={cards}/>
+                        <Carousel data={cards}/>
 
-                        <section className="mt-2rem" style={{marginTop: "15rem"}}>
+                        <section className="mt-2rem" style={{marginTop: "7rem"}}>
                             <div
                                 className='w-full flex p-4 md:p-5 flex-column-reverse md:flex-row overflow-hidden gap-8 align-items-center justify-content-center'
                                 style={{backgroundColor: '#537859', border: "solid 4px #537859"}}>

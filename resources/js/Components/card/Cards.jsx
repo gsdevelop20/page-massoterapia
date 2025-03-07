@@ -29,7 +29,7 @@ const ProductCard = memo(function ProductCard({product}) {
             role="listitem" // Adicionado para garantir acessibilidade
             aria-label={product.title}
         >
-            <div className='flex-column flex justify-content-center gap-2 align-items-center p-4'>
+            <div className='flex-column flex justify-content-center gap-4 align-items-center p-4'>
                 <img
                     src={product.imageSrc}
                     width={120}
@@ -55,7 +55,7 @@ const ProductCard = memo(function ProductCard({product}) {
 export default memo(function Carousel({data}) {
     return (
         <section
-            className="w-full flex flex-column  mt-4 container align-items-center justify-content-center"
+            className="w-full flex flex-column container align-items-center justify-content-center"
             aria-labelledby="products-heading"
             style={{marginTop: '15px'}}
         >
