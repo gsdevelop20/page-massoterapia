@@ -7,115 +7,73 @@ import React, {useState, useMemo, Suspense, useEffect, useRef} from "react";
 
 // Lazy load dos componentes para melhorar o carregamento inicial
 const HeaderComponent = React.lazy(() => import('@/Components/header/HeaderComponent.jsx'));
-const Card = React.lazy(() => import('@/Components/card/Cards'));
 const Carousel = React.lazy(() => import('@/Components/Carousel/Carousel'));
 const CardAboutUs = React.lazy(() => import('@/Components/card-about-us/Cards'));
 
-import {
-    FaGem,
-    FaPhoneAlt,
-    FaMapMarkerAlt,
-    FaClock,
-    FaWhatsapp
-} from "react-icons/fa";
-
-// Dados estáticos dos planos (definidos fora do componente para evitar recriação)
-const plans = [
-    {
-        title: '⭐⭐⭐⭐⭐ Incrível! Me senti renovado(a)!',
-        description: '"Fiz minha primeira sessão de massoterapia e foi simplesmente transformador! Saí completamente relaxado(a) e com as dores musculares muito reduzidas. Já agendei minha próxima sessão! Super recomendo!" — Rodrigo S.',
-        btnClass: 'btn-eletro',
-        imageSrc: '/images/home/icons/exame-de-saude.png',
-    },
-    {
-        title: '⭐⭐⭐⭐⭐ Alívio imediato das tensões!',
-        description: '"Tenho uma rotina muito estressante e sempre senti dores nas costas. Depois da massagem, senti um alívio imediato! Meu sono também melhorou muito. Experiência maravilhosa!" — Lucas T.',
-        btnClass: 'btn-aso',
-        imageSrc: '/images/home/icons/exame-de-saude.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar um exame ASO.'
-    },
-    {
-        title: '⭐⭐⭐⭐⭐ Atendimento impecável e muito relaxante!',
-        description: '"Além do ambiente ser super aconchegante, a massoterapeuta foi extremamente profissional e cuidadosa. Me senti completamente à vontade e relaxada durante a sessão. Vale cada minuto!" — Carla M.' +
-            '— Fernanda L.',
-        btnClass: 'btn-lab',
-        imageSrc: '/images/home/icons/exame-de-saude.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar exames laboratoriais.'
-    },
-    {
-        title: '⭐⭐⭐⭐⭐ Melhor escolha para cuidar de mim!',
-        description: '"Achei que massagem era só um luxo, mas percebi que é essencial para minha saúde e bem-estar. Depois da primeira sessão, já senti menos estresse e muito mais disposição. Excelente atendimento!"\n' +
-            '— Juliana P.',
-        btnClass: 'btn-lab',
-        imageSrc: '/images/home/icons/exame-de-saude.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar exames laboratoriais.'
-    }
-];
-
 const cards = [
     {
-        title: 'Liberação Miofascial',
-        description: '',
-        btnClass: 'btn-der',
-        imageSrc: '/images/home/icons/massagem-facial.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um dermatologista.'
+        "title": "Liberação Miofascial",
+        "description": "",
+        "btnClass": "btn-mio",
+        "imageSrc": "/images/home/icons/massagem-facial.png",
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Liberação Miofascial."
     },
     {
-        title: 'Drenagem Linfática',
-        description: '',
-        btnClass: 'btn-end',
-        imageSrc: '/images/home/icons/massagem-facial.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um endocrinologista.'
+        "title": "Drenagem Linfática",
+        "description": "",
+        "btnClass": "btn-dren",
+        "imageSrc": "/images/home/icons/massagem-facial.png",
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Drenagem Linfática."
     },
     {
-        title: 'Massagem Desportiva',
-        description: '',
-        btnClass: 'btn-gin',
-        imageSrc: '/images/home/icons/massagem-facial.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
+        "title": "Massagem Desportiva",
+        "description": "",
+        "btnClass": "btn-desp",
+        "imageSrc": "/images/home/icons/massagem-facial.png",
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Desportiva."
     },
     {
-        title: 'Massagem Shiatsu',
-        description: '',
-        btnClass: 'btn-gin',
-        imageSrc: '/images/home/icons/massagem-facial.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
+        "title": "Massagem Shiatsu",
+        "description": "",
+        "btnClass": "btn-shi",
+        "imageSrc": "/images/home/icons/massagem-facial.png",
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Shiatsu."
     },
     {
-        title: 'Auriculoterapia',
-        description: '',
-        btnClass: 'btn-gin',
-        imageSrc: '/images/home/icons/massagem-facial.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
+        "title": "Auriculoterapia",
+        "description": "",
+        "btnClass": "btn-aur",
+        "imageSrc": "/images/home/icons/massagem-facial.png",
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Auriculoterapia."
     },
     {
-        title: 'Massagem Relaxante',
-        description: '',
-        btnClass: 'btn-gin',
-        imageSrc: '/images/home/icons/massagem-facial.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
+        "title": "Massagem Relaxante",
+        "description": "",
+        "btnClass": "btn-relax",
+        "imageSrc": "/images/home/icons/massagem-facial.png",
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Relaxante."
     },
     {
-        title: 'Acupuntura',
-        description: '',
-        btnClass: 'btn-gin',
-        imageSrc: '/images/home/icons/massagem-facial.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
+        "title": "Acupuntura",
+        "description": "",
+        "btnClass": "btn-acu",
+        "imageSrc": "/images/home/icons/massagem-facial.png",
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Acupuntura."
     },
     {
-        title: 'Massagem Terapeutica',
-        description: '',
-        btnClass: 'btn-gin',
-        imageSrc: '/images/home/icons/massagem-facial.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
+        "title": "Massagem Terapêutica",
+        "description": "",
+        "btnClass": "btn-terap",
+        "imageSrc": "/images/home/icons/massagem-facial.png",
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Terapêutica."
     },
     {
-        title: 'Pedras Quentes',
-        description: '',
-        btnClass: 'btn-gin',
-        imageSrc: '/images/home/icons/massagem-facial.png',
-        url: 'https://wa.me/5561996246801?text=Olá, gostaria de agendar uma consulta com um ginecologista.'
-    },
+        "title": "Pedras Quentes",
+        "description": "",
+        "btnClass": "btn-pedras",
+        "imageSrc": "/images/home/icons/massagem-facial.png",
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Pedras Quentes."
+    }
 ];
 
 const cardAboutUsData = [
@@ -205,9 +163,8 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
         },
         title: {
             color: "#ffffff",
-            fontSize: "2.6em",
-            fontWeight: "bold",
-            textTransform: 'uppercase',
+            fontSize: "2em",
+            fontWeight: "800",
         },
         description: {
             fontSize: "1.4em",
@@ -261,10 +218,13 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 className='w-full flex p-4 md:p-5  flex-column-reverse md:flex-row overflow-hidden gap-8 align-items-center justify-content-center'
                                 style={{backgroundColor: '#537859', border: "solid 4px #537859"}}>
                                 <div
-                                    className='section-info d-flex align-items-center justify-content-center flex-column'>
-                                    <h2 style={styles.title} className='text-center'>Renove Seu Corpo e Sua Mente com a
-                                        Massoterapia!</h2>
-                                    <img className="section-1-img-mobile hidden w-100 mb-3"
+                                    className='section-info d-flex flex-column'>
+                                    <h2 style={styles.title} className=''>Renove seu corpo e sua mente! <br/>
+                                        Relaxe, alivie o estresse e recarregue suas energias com a massoterapia.</h2>
+                                    <p className='text-white'>
+                                        Na Lévi, auxiliamos e direcionamos pacientes, em uma jornada leve pela busca do melhor potencial cognitivo, emocional e físico de cada indivíduo bem como da família.
+                                    </p>
+                                    <img className="section-1-img-mobile w-100 mt-3 mb-3"
                                          style={{Width: "60%"}}
                                          alt=" imagem de massagem"
                                          src="/images/home/banner.png"/>
@@ -272,12 +232,12 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     <button
                                         onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
                                         style={{fontSize: '22px', backgroundColor: '#d37435'}}
-                                        className="btn-agendar mt-5 md:w-5 w-full text-white border-0 font-bold py-2 px-4 rounded">
+                                        className="btn-agendar mt-5 md:w-6 btn-pulse w-full text-white border-0 font-bold py-2 px-4 rounded">
                                         AGENDAR AGORA
                                     </button>
                                 </div>
 
-                                <img className="section-1-img hidden" width={700}
+                                <img className="section-1-img " width={700}
                                      style={{Width: "60%"}}
                                      alt="logo w-full  clinica Amor Brasil"
                                      src="/images/home/banner.png"/>
@@ -322,8 +282,8 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
 
                                     <button
                                         onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
-                                        className="btn-agendar-2 mt-3 md:w-4 w-full text-white border-0 font-bold py-2 px-4 rounded"
-                                        style={{fontSize: '15px', backgroundColor: '#d37435'}}
+                                        className="btn-agendar-2 mt-3 md:w-6 w-full text-white border-0 font-bold py-2 px-4 rounded"
+                                        style={{fontSize: '22px', backgroundColor: '#d37435'}}
                                     >
                                         AGENDAR AGORA
                                     </button>
@@ -350,7 +310,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             >
                                 <CardAboutUs data={cardAboutUsData} />
 
-                                <div className='abount-us-info  gap-2 flex flex-column w-75'>
+                                <div className='abount-us-info  gap-1 flex flex-column w-75'>
                                     <span
                                         className='h3 font-bold'
                                         style={{color: '#537859'}}
@@ -363,8 +323,8 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     </p>
                                     <button
                                         onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
-                                        className="btn-agendar-3 mt-3 md:w-4 w-full hover:bg-green-600 text-white border-0 font-bold py-2 px-4 rounded"
-                                        style={{fontSize: '15px', backgroundColor: '#d37435'}}
+                                        className="btn-agendar-3 btn-pulse animate-pulse mt-3 md:w-6 w-full hover:bg-green-600 text-white border-0 font-bold py-2 px-4 rounded"
+                                        style={{fontSize: '20px', backgroundColor: '#d37435'}}
                                     >
                                         AGENDAR AGORA
                                     </button>

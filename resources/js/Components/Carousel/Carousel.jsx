@@ -50,16 +50,26 @@ const ProductCard = memo(({ product }) => {
                         {product.description}
                     </p>
                 )}
+                <a
+                    href={product.url}
+                    className={`btn w-full mt-1 text-white ` + product.btnClass}
+                    aria-label={`Agendar consulta para ${product.title}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{background: '#00ba1a', fontWeight: 'bold', fontSize: '20px'}}
+                >
+                    AGENDAR
+                </a>
             </div>
         </motion.article>
     );
 });
 
-const Carousel = memo(({ data }) => {
+const Carousel = memo(({data}) => {
     // useCallback evita recriação desnecessária da função
     const renderSlide = useCallback((product, index) => (
         <SwiperSlide key={index} className="flex justify-content-center">
-            <ProductCard product={product} />
+            <ProductCard product={product}/>
         </SwiperSlide>
     ), []);
 
