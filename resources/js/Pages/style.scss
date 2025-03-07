@@ -1,22 +1,24 @@
-.section-info{
+.section-info {
     @media (min-width: 768px) {
         width: 70rem; // Equivalente a `w-48` do Tailwind
     }
 }
 
-.video{
+.video {
     width: 100%;
     @media (min-width: 768px) {
         width: 40%; // Equivalente a `w-48` do Tailwind
     }
 }
-.section-1-img-mobile{
+
+.section-1-img-mobile {
     display: block;
     @media (min-width: 768px) {
         display: none;
     }
 }
-.section-1-img{
+
+.section-1-img {
     display: none;
     @media (min-width: 768px) {
         display: block;
@@ -57,3 +59,45 @@
     background-color: #0056b3; /* Azul mais escuro */
     animation: none; /* Para parar a animação ao passar o mouse */
 }
+
+.section-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #537859;
+    opacity: 0.8;
+    z-index: 0;
+}
+
+.section-header {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    padding: 40px 20px;
+
+    @media (max-width: 764px) {
+        background-image: unset !important;
+        height: 60rem !important;
+    }
+}
+
+.logo{
+    width: 160px;
+}
+
+
+/* Garante que o conteúdo fique acima do filtro */
+.section-header > * {
+    position: relative;
+    z-index: 1;
+    bottom: 30px;
+    @media (max-width: 764px) {
+        top: 0;
+    }
+}
+
+

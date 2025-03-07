@@ -66,4 +66,46 @@
   animation: none; /* Para parar a animação ao passar o mouse */
 }
 
+.section-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #537859;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.section-header {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+  padding: 40px 20px;
+}
+@media (max-width: 764px) {
+  .section-header {
+    background-image: unset !important;
+    height: 60rem !important;
+  }
+}
+
+.logo {
+  width: 160px;
+}
+
+/* Garante que o conteúdo fique acima do filtro */
+.section-header > * {
+  position: relative;
+  z-index: 1;
+  bottom: 30px;
+}
+@media (max-width: 764px) {
+  .section-header > * {
+    top: 0;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

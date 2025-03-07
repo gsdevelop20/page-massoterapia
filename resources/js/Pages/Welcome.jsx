@@ -155,6 +155,7 @@ const LazyIframe = ({src, title, style, ...rest}) => {
 };
 
 export default function Welcome({auth, laravelVersion, phpVersion}) {
+    const [scale, setScale] = useState(1);
     const styles = {
         section: {
             textAlign: "center",
@@ -197,6 +198,57 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
         },
     };
 
+    const whatsappButtonStyle = useMemo(() => ({
+        position: "fixed",
+        bottom: "20px",
+        right: "20px",
+        zIndex: 9999,
+        width: "70px",
+        height: "70px",
+        borderRadius: "50%",
+        backgroundColor: "#25D366",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+        transition: "transform 0.6s ease-in-out",
+        transform: `scale(${scale})`,
+    }), [scale]);
+
+    const instagramButtonStyle = useMemo(() => ({
+        position: "fixed",
+        bottom: "190px",
+        right: "20px",
+        zIndex: 9999,
+        width: "70px",
+        height: "70px",
+        borderRadius: "50%",
+        backgroundColor: "#e5e5e5",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+        transition: "transform 0.6s ease-in-out",
+        transform: `scale(${scale})`,
+    }), [scale]);
+
+    const instaButtonStyle = useMemo(() => ({
+        position: "fixed",
+        bottom: "103px",
+        right: "20px",
+        zIndex: 9999,
+        width: "70px",
+        height: "70px",
+        borderRadius: "50%",
+        backgroundColor: "#e5e5e5",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+        transition: "transform 0.6s ease-in-out",
+        transform: `scale(${scale})`,
+    }), [scale]);
+
     return (
         <>
             <PrimeReactProvider>
@@ -209,20 +261,40 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                     </a>
 
                     <Suspense fallback={<div>Carregando...</div>}>
-                        <header>
+                        {/*  <header>
                             <HeaderComponent auth={auth}/>
-                        </header>
+                        </header>*/}
 
-                        <section className='w-full position-relative' style={{bottom: "2px"}}>
+                        <section className='w-full position-relative section-header'
+                                 style={{
+                                     bottom: "2px",
+                                     backgroundColor: '#537859',
+                                     height: '45rem',
+                                     backgroundImage: 'url(/images/home/banner.jpg)'
+                                 }}>
+                            <div className="overlay"></div>
+                            <div className='w-full mx-auto d-flexalign-items-center content'
+                                 style={{background: 'transparent'}}>
+                                <div className='w-full flex mb-1 md:mb-4 justify-content-between align-items-center'>
+                                    <div>
+                                        <img className="p-5 logo" alt="logo clinica Amor Brasil"
+                                             src="/images/logo/logo.webp"/>
+                                    </div>
+
+                                    <div className='bg-white w-full ml-4 mr-4' style={{height: '0.2rem'}}>
+                                    </div>
+                                </div>
+                            </div>
                             <div
-                                className='w-full flex p-4 md:p-5  flex-column-reverse md:flex-row overflow-hidden gap-8 align-items-center justify-content-center'
-                                style={{backgroundColor: '#537859', border: "solid 4px #537859"}}>
+                                className='w-full flex p-4 md:p-5 flex-column-reverse md:flex-row overflow-hidden gap-8 align-items-center justify-content-center'>
                                 <div
                                     className='section-info d-flex flex-column'>
                                     <h2 style={styles.title} className=''>Renove seu corpo e sua mente! <br/>
                                         Relaxe, alivie o estresse e recarregue suas energias com a massoterapia.</h2>
                                     <p className='text-white'>
-                                        Na Lévi, auxiliamos e direcionamos pacientes, em uma jornada leve pela busca do melhor potencial cognitivo, emocional e físico de cada indivíduo bem como da família.
+                                        Na Lévi, auxiliamos e direcionamos pacientes, em uma jornada leve pela busca do
+                                        melhor potencial cognitivo, emocional e físico de cada indivíduo bem como da
+                                        família.
                                     </p>
                                     <img className="section-1-img-mobile w-100 mt-3 mb-3"
                                          style={{Width: "60%"}}
@@ -231,7 +303,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
 
                                     <button
                                         onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
-                                        style={{fontSize: '22px', backgroundColor: '#d37435'}}
+                                        style={{fontSize: '22px', backgroundColor: '#01d758'}}
                                         className="btn-agendar mt-5 md:w-6 btn-pulse w-full text-white border-0 font-bold py-2 px-4 rounded">
                                         AGENDAR AGORA
                                     </button>
@@ -242,13 +314,6 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                      alt="logo w-full  clinica Amor Brasil"
                                      src="/images/home/banner.png"/>
                             </div>
-
-                            <img
-                                className="position-relative"
-                                style={{bottom: '2px'}}
-                                alt="logo w-full clinica Amor Brasil"
-                                src="/images/wave.svg"/>
-
                         </section>
 
                         <Carousel data={cards}/>
@@ -283,7 +348,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     <button
                                         onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
                                         className="btn-agendar-2 mt-3 md:w-6 w-full text-white border-0 font-bold py-2 px-4 rounded"
-                                        style={{fontSize: '22px', backgroundColor: '#d37435'}}
+                                        style={{fontSize: '22px', backgroundColor: '#01d758'}}
                                     >
                                         AGENDAR AGORA
                                     </button>
@@ -308,7 +373,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             <div
                                 className='flex flex-column gap-8 md:gap-0 md:flex-row align-items-center container mt-8 mb-8'
                             >
-                                <CardAboutUs data={cardAboutUsData} />
+                                <CardAboutUs data={cardAboutUsData}/>
 
                                 <div className='abount-us-info  gap-1 flex flex-column w-75'>
                                     <span
@@ -324,7 +389,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     <button
                                         onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
                                         className="btn-agendar-3 btn-pulse animate-pulse mt-3 md:w-6 w-full hover:bg-green-600 text-white border-0 font-bold py-2 px-4 rounded"
-                                        style={{fontSize: '20px', backgroundColor: '#d37435'}}
+                                        style={{fontSize: '20px', backgroundColor: '#01d758'}}
                                     >
                                         AGENDAR AGORA
                                     </button>
@@ -338,6 +403,57 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             <iframe src='https://widgets.sociablekit.com/google-reviews/iframe/25531714' frameBorder='0'
                                     width='100%' height='400'></iframe>
                         </section>
+
+                        <a
+                            href="https://wa.me/5561996246801?text=Olá, vim do site e gostaria de falar com o atendimento!"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="float-btn btn-whats"
+                            style={whatsappButtonStyle}
+                            onMouseEnter={() => setScale(1.1)}
+                            onMouseLeave={() => setScale(1)}
+                            aria-label="Chat via WhatsApp"
+                        >
+                            <img
+                                src="/images/home/icons/whatsapp.png"
+                                width={50}
+                                alt="Ícone do WhatsApp"
+                            />
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/levisaudeintegrada/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="float-btn btn-inst"
+                            style={instaButtonStyle}
+                            onMouseEnter={() => setScale(1.1)}
+                            onMouseLeave={() => setScale(1)}
+                            aria-label="Perfil no Instagram"
+                        >
+                            <img
+                                src="/images/home/icons/instagram.png"
+                                width={50}
+                                alt="Ícone do Instagram"
+                            />
+                        </a>
+
+                        <a
+                            href="tel:5561996246801"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="float-btn btn-cha"
+                            style={instagramButtonStyle}
+                            onMouseEnter={() => setScale(1.1)}
+                            onMouseLeave={() => setScale(1)}
+                            aria-label="Ligar para a Clínica"
+                        >
+                            <img
+                                src="/images/home/icons/telefone.png"
+                                width={45}
+                                alt="Ícone do Telefone"
+                            />
+                        </a>
 
                         <footer className="text-center text-lg-start bg-body-tertiary text-muted \"
                                 role="contentinfo"

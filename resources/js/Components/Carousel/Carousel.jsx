@@ -56,7 +56,7 @@ const ProductCard = memo(({ product }) => {
                     aria-label={`Agendar consulta para ${product.title}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{background: '#00ba1a', fontWeight: 'bold', fontSize: '20px'}}
+                    style={{background: '#01d758', fontWeight: 'bold', fontSize: '20px'}}
                 >
                     AGENDAR
                 </a>
@@ -77,7 +77,7 @@ const Carousel = memo(({data}) => {
         <section
             className="w-full flex flex-column container align-items-center justify-content-center"
             aria-labelledby="products-heading"
-            style={{ marginTop: '15px' }}
+            style={{ marginTop: '75px' }}
         >
             <div>
                 <span className='h1 font-bold text-orange-600'>
