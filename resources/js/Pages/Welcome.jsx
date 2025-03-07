@@ -6,7 +6,6 @@ import './style.css';
 import React, {useState, useMemo, Suspense, useEffect, useRef} from "react";
 
 // Lazy load dos componentes para melhorar o carregamento inicial
-const HeaderComponent = React.lazy(() => import('@/Components/header/HeaderComponent.jsx'));
 const Carousel = React.lazy(() => import('@/Components/Carousel/Carousel'));
 const CardAboutUs = React.lazy(() => import('@/Components/card-about-us/Cards'));
 
