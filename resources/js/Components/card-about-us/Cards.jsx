@@ -22,24 +22,15 @@ const ProductCard = memo(function ProductCard({product}) {
     return (
         <motion.article
             ref={ref}
-            className="w-full md:w-4 border-4 card-1 flex flex-column justify-content-center p-5 rounded-xl shadow-sm"
+            className="w-full md:w-5 border-4 card-1 flex flex-column justify-content-center rounded-xl shadow-sm"
             variants={cardVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             role="listitem" // Adicionado para garantir acessibilidade
             aria-label={product.title}
         >
-            <div className='flex-column flex justify-content-center gap-2 align-items-center p-4'>
-                <img
-                    src={product.imageSrc}
-                    width={120}
-                    alt={`${product.title} - imagem ilustrativa`}
-                    className="w-16 h-16 mx-auto position-relative"
-                    style={{
-                    }}
-                    loading="lazy"
-                />
-                <h5 className="h4 font-medium text-gray-700\ dark:text-gray-300 text-center">
+            <div className='flex-column flex justify-content-center gap-1 align-items-center p-4'>
+                <h5 className="h2 font-bold text-green-800 dark:text-gray-300 text-center">
                     {product.title}
                 </h5>
                 {product.description && (
@@ -54,18 +45,12 @@ const ProductCard = memo(function ProductCard({product}) {
 
 export default memo(function Carousel({data}) {
     return (
-        <section
-            className="w-full flex flex-column  mt-4 container align-items-center justify-content-center"
+        <section className="w-full md:w-0"
             aria-labelledby="products-heading"
-            style={{marginTop: '15px'}}
-        >
+            >
 
-            <div>
-                <span className='h1 font-bold text-orange-600'>
-                    MENU MASSOTERAPIA
-                </span>
-            </div>
-            <div role="list" className="flex flex-column-reverse md:flex-row md:gap-6 align-items-center justify-content-center" style={{marginTop: '5rem', gap: '7rem'}}>
+            <div role="list"
+                 className="flex flex-wrap flex-column-reverse md:flex-row gap-6 align-items-center justify-content-center">
                 {data.map((product, index) => (
                     <ProductCard key={index} product={product}/>
                 ))}

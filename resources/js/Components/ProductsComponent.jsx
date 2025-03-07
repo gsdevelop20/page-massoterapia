@@ -18,11 +18,17 @@ const ProductCard = memo(function ProductCard({ product }) {
     return (
         <motion.div
             ref={ref}
-            className="md:w-3 w-full border-4 h-5 hover:scale-50 flex flex-column justify-content-center p-3 shadow-lg bg-gray-100 h1 text-orange-600 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
+            className="md:w-2 w-full border-4  hover:scale-50 flex flex-column justify-content-center p-3 shadow-lg h1 text-orange-600 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
             variants={cardVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            style={{ borderLeft: 'solid 2px', borderColor: '#188a43', height: '500px' }}
+            style={{
+                borderLeft: 'solid 2px',
+                borderColor: '#188a43',
+                height: '500px',
+                boxShadow: '0px 0px 40px 0px rgba(0, 0, 0, .2)',
+                borderRadius: '10px'
+            }}
             as="article" // Garantindo que seja um <article> correto
             role="listitem"
             aria-label={product.title}
@@ -48,11 +54,11 @@ const ProductCard = memo(function ProductCard({ product }) {
 export default memo(function ProductsComponent({ data }) {
     return (
         <section
-            className="w-full flex flex-column mt-8 container align-items-center justify-content-center"
+            className="w-full flex flex-column mt-8  align-items-center justify-content-center"
             aria-labelledby="products-heading"
             style={{marginTop: '15px'}}
         >
-            <h2 id="products-heading" className="h1 text-orange-600">
+            <h2 id="products-heading" className="h1 font-bold text-orange-600">
                 AVALIAÇÕES
             </h2>
             <div className="flex  flex flex-column-reverse md:flex-row gap-6 mt-8 align-items-center justify-content-center" role="list">
