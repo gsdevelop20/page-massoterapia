@@ -336,10 +336,10 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             <div
                                 className='w-full flex p-4 md:p-5 flex-column-reverse md:flex-row overflow-hidden gap-8 align-items-center justify-content-center'
                                 style={{backgroundColor: '#537859', border: "solid 4px #537859"}}>
-                                <div className='section-info d-flex flex-column gap-3'>
+                                <div className='section-info d-flex flex-column gap-'>
                                     <h2 style={styles.title} className='md:text-left text-center'>Pacotes Especiais</h2>
 
-                                    <ul style={styles.list} className='mt-5'>
+                                    <ul style={styles.list} className='mt-5 d-flex flex-column gap-3'>
                                         <li style={styles.listItem}>
                                             <div>
                                                 <CheckCircle size={20} color="#FFFFFF"/>
