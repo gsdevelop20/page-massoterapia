@@ -8,90 +8,107 @@ import React, {useState, useMemo, Suspense, useEffect, useRef} from "react";
 // Lazy load dos componentes para melhorar o carregamento inicial
 const Carousel = React.lazy(() => import('@/Components/Carousel/Carousel'));
 const CardAboutUs = React.lazy(() => import('@/Components/card-about-us/Cards'));
+const CarouselImg = React.lazy(() => import('@/Components/CarouselImg/CarouselImg'));
 
 const cards = [
     {
         "title": "Liberação Miofascial",
-        "description": "",
+        "description": "É uma técnica preventiva de lesões e alívio de dores musculares, Que aplica pressão em alguns pontos do corpo a fim de liberar a fáscia do músculo. É feita de maneira manual, com a manipulação de" +
+            "tecidos por meio de deslizamento, apoios e pressões.",
+        "price": "R$110.00* - 30 min",
         "btnClass": "btn-mio",
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Liberação Miofascial."
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Liberação Miofascial.",
+        "modalImage" : '/images/home/massagem/man-being-given-back-massage-by-physiotherapist-compressed.webp'
     },
     {
         "title": "Drenagem Linfática",
-        "description": "",
+        "description": "A função da drenagem linfática é mobilizar a linfa que fica acumulada entre as células e encaminhá-la de volta aos gânglios, melhorando o transporte pelos vasos linfáticos, favorecendo a eliminação de toxinas e metabólitos, diminuindo o inchaço, edemas e celulite." ,
+        "price": "R$220.00* - 50 min",
         "btnClass": "btn-dren",
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Drenagem Linfática."
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Drenagem Linfática.",
+        "modalImage" : '/images/home/massagem/woman-receiving-belly-massage-spa-salon-_1_-compressed.webp'
+    },
+
+    {
+        "title": "Ventosaterapia",
+        "description": "É uma técnica alternativa que melhorar a circulação sanguínea, elimina as contraturas musculares promovendo assim o relaxamento do corpo e da mente." ,
+        "price": "R$100.00* - 10 a 15 min",
+        "btnClass": "btn-vent",
+        "imageSrc": "/images/home/icons/massagem-facial.png",
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão Ventosaterapia.",
+        "modalImage" : '/images/home/massagem/client-with-suction-cup-process-compressed.webp'
     },
     {
         "title": "Massagem Desportiva",
-        "description": "",
+        "description": "A massagem desportiva é uma importante forma para tratar a tensão muscular de atletas ou praticantes de exercícios, podendo ser utilizada com regularidade para ajudar a prevenir lesões por esgotamento.",
         "btnClass": "btn-desp",
+        "price": 'R$ 170,00* - 50min',
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Desportiva."
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Desportiva.",
+        "modalImage" : '/images/home/massagem/man-being-given-back-massage-by-physiotherapist-compressed.webp'
     },
     {
         "title": "Massagem Shiatsu",
-        "description": "",
+        "description": "É uma massagem de origem oriental energética que trata doenças e distúrbios de forma natural e segura. São feitas pressões em pontos específicos do corpo que traz benefícios incríveis",
         "btnClass": "btn-shi",
+        "price": 'R$ 150,00* - 50 min',
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Shiatsu."
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Shiatsu.",
+        "modalImage" : '/images/home/massagem/woman-receiving-belly-massage-spa-salon-_1_-compressed.webp'
     },
     {
         "title": "Auriculoterapia",
-        "description": "",
+        "description": "É uma técnica que consiste na aplicação de pressão em pontos específicos da orelha para auxiliar no tratamento de enxaqueca, insônia, ansiedade, depressão, dores crônicas, entre outros.",
         "btnClass": "btn-aur",
+        "price": 'R$ 80,00*',
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Auriculoterapia."
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Auriculoterapia.",
+        "modalImage" : '/images/home/massagem/man-being-given-back-massage-by-physiotherapist-compressed.webp'
     },
     {
         "title": "Massagem Relaxante",
-        "description": "",
+        "description": "Massagem que tem como objetivo o relaxamento do corpo, com movimentos suaves e toque leve e firme.",
+        "price": 'R$ 80,00*',
         "btnClass": "btn-relax",
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Relaxante."
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Relaxante.",
+        "modalImage" : '/images/home/massagem/woman-receiving-belly-massage-spa-salon-_1_-compressed.webp'
     },
     {
-        "title": "Acupuntura",
-        "description": "",
+        "title": "Acupuntura/ Auriculoterapia",
+        "description": "É a estimulação de pontos específicos do corpo de origem Chinesa a fim de atingir um efeito terapêutico, proporcionando equilíbrio e bem-estar. Podem ser utilizadas agulhas, auriculoterapia, moxabustão, stiper e cromoterapia.",
+        "price": 'R$ 170,00* - 40 min',
         "btnClass": "btn-acu",
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Acupuntura."
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Acupuntura.",
+        "modalImage" : '/images/home/massagem/acupuncture-process-compressed.webp'
     },
     {
         "title": "Massagem Terapêutica",
-        "description": "",
+        "description": "Massagem com objetivo diminuir tensões no corpo provocadas por stress, contratura muscular,  má  postura ou esforço repetitivo. O profissional irá realizar uma massagem especializada na sua demanda pessoal.",
+        "price": 'R$ 150,00* - 50 min (Quick Massagem - R$ 85,00* - 30 min)',
         "btnClass": "btn-terap",
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Terapêutica."
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Terapêutica.",
+        "modalImage" : '/images/home/massagem/man-being-given-back-massage-by-physiotherapist-compressed.webp'
     },
     {
         "title": "Pedras Quentes",
-        "description": "",
+        "description": "Uma das melhores massagens para proporcionar relaxamento e bem estar , fazendo uso de pedras quentes vulcanizadas (basalto) que são colocadas em pontos estratégicos do corpo. Contudo, seus benefícios vão muito além da promoção de bem-estar.",
+        "price": 'R$220.00* - 50 min*',
         "btnClass": "btn-pedras",
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Pedras Quentes."
+        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Pedras Quentes.",
+        "modalImage" : '/images/home/massagem/woman-getting-massage-back-by-hot-stones-_1_-compressed.webp'
     }
 ];
 
-const cardAboutUsData = [
-    {
-        title: '1,000+',
-        description: 'Pacientes Atendidos',
-    },
-    {
-        title: '100+',
-        description: 'Planos de Saúde',
-    },
-    {
-        title: '28+',
-        description: 'Anos de Experiência',
-    },
-    {
-        title: '97%',
-        description: 'Pacientes Satisfeitos',
-    },
+const images = [
+    { src: "/images/home/carouselImg/Espaço_Begonia_-_Método_Padovan.jpg", alt: "Espaço Begonia" },
+    { src: "/images/home/carouselImg/Espaço_Calathea_-_Método Padovan.jpg", alt: "Espaço Calathea" },
+    { src: "/images/home/carouselImg/Espaço_Ficus_Lyrata_-_Fisioterapia.jpg", alt: "Espaço Ficus Lyrata" },
 ];
 
 // Componente LazyIframe aprimorado para carregar o iframe somente quando estiver na viewport
@@ -289,11 +306,9 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 <div
                                     className='section-info d-flex flex-column'>
                                     <h2 style={styles.title} className=''>Renove seu corpo e sua mente! <br/>
-                                        Relaxe, alivie o estresse e recarregue suas energias com a massoterapia.</h2>
+                                        Relaxe, alivie o estresse e recarregue suas energias com o poder massoterapia.</h2>
                                     <p className='text-white'>
-                                        Na Lévi, auxiliamos e direcionamos pacientes, em uma jornada leve pela busca do
-                                        melhor potencial cognitivo, emocional e físico de cada indivíduo bem como da
-                                        família.
+                                        Os benefícios da massagem vão além do simples relaxamento, sendo uma excelente opção para a sua saúde física e mental.
                                     </p>
                                     <img className="section-1-img-mobile w-100 mt-3 mb-3"
                                          style={{Width: "60%"}}
@@ -303,7 +318,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     <button
                                         onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
                                         style={{fontSize: '22px', backgroundColor: '#01d758'}}
-                                        className="btn-agendar mt-5 md:w-6 btn-pulse w-full text-white border-0 font-bold py-2 px-4 rounded">
+                                        className="btn-agendar mt-5 md:w-7 btn-pulse w-full text-white border-0 font-bold py-2 px-4 rounded">
                                         AGENDAR AGORA
                                     </button>
                                 </div>
@@ -322,27 +337,36 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 className='w-full flex p-4 md:p-5 flex-column-reverse md:flex-row overflow-hidden gap-8 align-items-center justify-content-center'
                                 style={{backgroundColor: '#537859', border: "solid 4px #537859"}}>
                                 <div className='section-info d-flex flex-column gap-3'>
-                                    <h2 style={styles.title}>Restaure Seu Bem-Estar!!</h2>
+                                    <h2 style={styles.title} className='md:text-left text-center'>Pacotes Especiais</h2>
 
                                     <ul style={styles.list} className='mt-5'>
                                         <li style={styles.listItem}>
-                                            <CheckCircle size={20} color="#FFFFFF"/> <strong>Alívio do estresse
-                                            e ansiedade – Sinta-se mais leve e relaxado(a)</strong>
+                                            <div>
+                                                <CheckCircle size={20} color="#FFFFFF"/>
+                                            </div>
+                                            <strong>Pacote de 10 Massagens
+                                            (qualquer tipo): R$ 1.200,00*</strong>
                                         </li>
                                         <li style={styles.listItem}>
-                                            <CheckCircle size={20} color="#FFFFFF"/> <strong>Diminuição de tensões e
-                                            dores musculares – Ideal para quem sofre com rotina intensa</strong>
+                                            <div>
+                                            <CheckCircle size={20} color="#FFFFFF"/>
+                                            </div>
+                                            <strong>Revigoração Profunda: 2
+                                            massagens terapêuticas de 50 min - R$ 200,00*</strong>
                                         </li>
                                         <li style={styles.listItem}>
-                                            <CheckCircle size={20} color="#FFFFFF"/> <strong>Melhoria na circulação
-                                            sanguínea e qualidade do sono – Desperte mais revigorado(a)</strong>
-                                        </li>
-                                        <li style={styles.listItem}>
-                                            <CheckCircle size={20} color="#FFFFFF"/> <strong>Aumento da disposição e
-                                            equilíbrio emocional – Mais energia para o seu dia a dia
-                                        </strong>
+                                            <div>
+                                            <CheckCircle size={20} color="#FFFFFF"/>
+                                            </div>
+                                            <strong>Relaxamento Total: 2 massagens terapêuticas + 1 massagem Ayurvédica
+                                                + 1 sessão de acupuntura e auriculoterapia + 1 Quick Massagem com
+                                                Ventosoterapia - R$ 400,00*</strong>
                                         </li>
                                     </ul>
+
+                                    <p className='text-white'>
+                                        Vamos agendar sua sessão e aproveitar os benefícios da massagem?
+                                    </p>
 
                                     <button
                                         onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
@@ -370,11 +394,11 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                  }}
                         >
                             <div
-                                className='flex flex-column gap-8 md:gap-0 md:flex-row align-items-center container mt-8 mb-8'
+                                className='flex flex-column gap-8 md:flex-row align-items-center container mt-8 mb-8'
                             >
-                                <CardAboutUs data={cardAboutUsData}/>
+                                <CarouselImg images={images} />
 
-                                <div className='abount-us-info  gap-1 flex flex-column w-75'>
+                                <div className='abount-us-info  gap-4 flex flex-column md:75 w-100'>
                                     <span
                                         className='h3 font-bold'
                                         style={{color: '#537859'}}
@@ -386,11 +410,11 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                         realidade.
                                     </p>
                                     <button
-                                        onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
-                                        className="btn-agendar-3 btn-pulse animate-pulse mt-3 md:w-6 w-full hover:bg-green-600 text-white border-0 font-bold py-2 px-4 rounded"
-                                        style={{fontSize: '20px', backgroundColor: '#01d758'}}
+                                        onClick={(e) => window.open('https://levisaudeintegrada.com.br/', '_blank')}
+                                        className="btn-site animate-pulse mt-3 md:w-8 w-full text-white border-0 font-bold py-2 px-4 rounded"
+                                        style={{fontSize: '20px', backgroundColor: '#d37435'}}
                                     >
-                                        AGENDAR AGORA
+                                        SAIBA MAIS SOBRE A LÉVI
                                     </button>
                                 </div>
                             </div>
