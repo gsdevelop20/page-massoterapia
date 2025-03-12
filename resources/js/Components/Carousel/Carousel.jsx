@@ -181,8 +181,8 @@ const Carousel = memo(({ data }) => {
                             alt={selectedProduct.title}
                             className="w-full max-h-40 object-cover rounded"
                         />
+                        <div className='w-100 mt-5 flex justify-content-start'><span className='h4 font-bold text-orange-700 text-left'>VALOR: {selectedProduct.price}</span></div>
                         <p className='text-left mt-3'>{selectedProduct.description}</p>
-                        <div className='w-100 flex justify-content-start'><span className='h4 font-bold text-orange-700 text-left'>VALOR: {selectedProduct.price}</span></div>
                     </div>
                 )}
                 <div className="flex justify-content-between mt-4">
