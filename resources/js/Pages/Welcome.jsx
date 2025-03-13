@@ -7,7 +7,6 @@ import React, {useState, useMemo, Suspense, useEffect, useRef} from "react";
 
 // Lazy load dos componentes para melhorar o carregamento inicial
 const Carousel = React.lazy(() => import('@/Components/Carousel/Carousel'));
-const CardAboutUs = React.lazy(() => import('@/Components/card-about-us/Cards'));
 const CarouselImg = React.lazy(() => import('@/Components/CarouselImg/CarouselImg'));
 
 const cards = [
@@ -294,10 +293,10 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 <div className='w-full flex mb-1 md:mb-4 justify-content-between align-items-center'>
                                     <div>
                                         <img className="p-5 logo" alt="logo clinica Amor Brasil"
-                                             src="/images/logo/logo.webp"/>
+                                             src="/images/home/icons/Lévi6_png.png"/>
                                     </div>
 
-                                    <div className='bg-white w-full ml-4 mr-4' style={{height: '0.2rem'}}>
+                                    <div className='bg-white w-full ml-4 mr-4 mt-4' style={{height: '0.2rem'}}>
                                     </div>
                                 </div>
                             </div>
@@ -337,28 +336,28 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 className='w-full flex p-4 md:p-5 flex-column-reverse md:flex-row overflow-hidden gap-8 align-items-center justify-content-center'
                                 style={{backgroundColor: '#537859', border: "solid 4px #537859"}}>
                                 <div className='section-info d-flex flex-column gap-'>
-                                    <h2 style={styles.title} className='md:text-left text-center'>Pacotes Especiais</h2>
+                                    <h2 style={styles.title} className='md:text-left text-center'>PACOTES ESPECIAIS</h2>
 
                                     <ul style={styles.list} className='mt-5 d-flex flex-column gap-3'>
                                         <li style={styles.listItem}>
                                             <div>
                                                 <CheckCircle size={20} color="#FFFFFF"/>
                                             </div>
-                                            <strong>Pacote de 10 Massagens
+                                            <strong>PACOTE: 10 Massagens
                                             (qualquer tipo): R$ 1.200,00*</strong>
                                         </li>
                                         <li style={styles.listItem}>
                                             <div>
                                             <CheckCircle size={20} color="#FFFFFF"/>
                                             </div>
-                                            <strong>Revigoração Profunda: 2
+                                            <strong>PACOTE: Revigoração Profunda: 2
                                             massagens terapêuticas de 50 min - R$ 200,00*</strong>
                                         </li>
                                         <li style={styles.listItem}>
                                             <div>
                                             <CheckCircle size={20} color="#FFFFFF"/>
                                             </div>
-                                            <strong>Relaxamento Total: 2 massagens terapêuticas + 1 massagem Ayurvédica
+                                            <strong>PACOTE: Relaxamento Total: 2 massagens terapêuticas + 1 massagem Ayurvédica
                                                 + 1 sessão de acupuntura e auriculoterapia + 1 Quick Massagem com
                                                 Ventosoterapia - R$ 400,00*</strong>
                                         </li>

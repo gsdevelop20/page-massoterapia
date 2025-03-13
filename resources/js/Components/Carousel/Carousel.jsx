@@ -1,9 +1,9 @@
-import React, { memo, useCallback, useState, useEffect } from 'react';
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { FaTimes } from "react-icons/fa";
+import React, {memo, useCallback, useState, useEffect} from 'react';
+import {motion} from "framer-motion";
+import {useInView} from "react-intersection-observer";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Navigation, Pagination, Autoplay} from "swiper/modules";
+import {FaTimes} from "react-icons/fa";
 import Modal from 'react-modal';
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,20 +12,20 @@ import './style.css';
 
 // Definição de animação do card
 const cardVariants = {
-    hidden: { opacity: 0, rotate: -10, scale: 0.8 },
+    hidden: {opacity: 0, rotate: -10, scale: 0.8},
     visible: {
         opacity: 1,
         rotate: 0,
         scale: 1,
-        transition: { type: "spring", stiffness: 120, damping: 12 }
+        transition: {type: "spring", stiffness: 120, damping: 12}
     }
 };
 
 // Define o modal para acessibilidade
 Modal.setAppElement('#app');
 
-const ProductCard = memo(({ product, onOpenModal }) => {
-    const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+const ProductCard = memo(({product, onOpenModal}) => {
+    const {ref, inView} = useInView({triggerOnce: true, threshold: 0.2});
 
     return (
         <motion.article
@@ -33,7 +33,7 @@ const ProductCard = memo(({ product, onOpenModal }) => {
             className="w-full md:w-10 z-40 border-4 card-1 flex flex-column justify-content-center p-5 rounded-xl shadow-sm"
             variants={cardVariants}
             initial="hidden"
-            style={{ height: '20rem' }}
+            style={{height: '20rem'}}
             animate={inView ? "visible" : "hidden"}
             role="listitem"
             aria-label={product.title}
@@ -54,7 +54,7 @@ const ProductCard = memo(({ product, onOpenModal }) => {
                     className="btn w-full mt-1 text-white"
                     aria-label={`Agendar consulta para ${product.title}`}
                     onClick={() => onOpenModal(product)}
-                    style={{ background: '#d37435', fontWeight: 'bold', fontSize: '18px' }}
+                    style={{background: '#d37435', fontWeight: 'bold', fontSize: '18px'}}
                 >
                     SAIBA MAIS
                 </button>
@@ -63,7 +63,7 @@ const ProductCard = memo(({ product, onOpenModal }) => {
     );
 });
 
-const Carousel = memo(({ data }) => {
+const Carousel = memo(({data}) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [modalIsOpen, setIsOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -97,7 +97,7 @@ const Carousel = memo(({ data }) => {
 
     const renderSlide = useCallback((product, index) => (
         <SwiperSlide key={index} className="flex justify-content-center">
-            <ProductCard product={product} onOpenModal={openModal} />
+            <ProductCard product={product} onOpenModal={openModal}/>
         </SwiperSlide>
     ), []);
 
@@ -106,7 +106,7 @@ const Carousel = memo(({ data }) => {
             <section
                 className="w-full flex flex-column container align-items-center justify-content-center"
                 aria-labelledby="products-heading"
-                style={{ marginTop: '75px' }}
+                style={{marginTop: '75px'}}
             >
                 <div>
                     <span className='h1 font-bold text-orange-600'>
@@ -120,15 +120,15 @@ const Carousel = memo(({ data }) => {
                     spaceBetween={50}
                     slidesPerView={1}
                     navigation
-                    pagination={{ clickable: false }}
-                    autoplay={{ delay: 5000, disableOnInteraction: false }}
+                    pagination={{clickable: false}}
+                    autoplay={{delay: 5000, disableOnInteraction: false}}
                     lazyPreloadPrevNext={2}
                     breakpoints={{
-                        768: { slidesPerView: 2 },
-                        1024: { slidesPerView: 3 },
+                        768: {slidesPerView: 2},
+                        1024: {slidesPerView: 3},
                     }}
                     className="w-full"
-                    style={{ marginTop: '3rem', padding: '3rem' }}
+                    style={{marginTop: '3rem', padding: '3rem'}}
                 >
                     {data.map(renderSlide)}
                 </Swiper>
@@ -170,7 +170,7 @@ const Carousel = memo(({ data }) => {
                         className=" bg-transparent border-0 w-1"
                         onClick={closeModal}
                     >
-                        <FaTimes color='#f21313' size={20} />
+                        <FaTimes color='#f21313' size={20}/>
                     </button>
                 </div>
                 <h2>{selectedProduct ? selectedProduct.title : "Agendamento"}</h2>
@@ -181,21 +181,26 @@ const Carousel = memo(({ data }) => {
                             alt={selectedProduct.title}
                             className="w-full max-h-40 object-cover rounded"
                         />
-                        <div className='w-100 mt-5 flex justify-content-start'><span className='h4 font-bold text-orange-700 text-left'>VALOR: {selectedProduct.price}</span></div>
+                        <div className='w-100 mt-5 flex justify-content-start'><span
+                            className='h4 font-bold text-orange-700 text-left'>VALOR: {selectedProduct.price}</span>
+                        </div>
                         <p className='text-left mt-3'>{selectedProduct.description}</p>
                     </div>
+
                 )}
-                <div className="flex justify-content-between mt-4">
-                    <a
-                        href={selectedProduct ? selectedProduct.url : "#"}
-                        className={"btn w-full mt-1 text-white "}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ background: '#01d758', fontWeight: 'bold', fontSize: '20px' }}
-                    >
-                        AGENDAR
-                    </a>
-                </div>
+                {selectedProduct && (
+                    <div className="flex justify-content-between mt-4">
+                        <a
+                            href={selectedProduct ? selectedProduct.url : "#"}
+                            className={"btn w-full mt-1 text-white " + selectedProduct.btnClass}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{background: '#01d758', fontWeight: 'bold', fontSize: '20px'}}
+                        >
+                            AGENDAR
+                        </a>
+                    </div>
+                )}
             </Modal>
         </>
     );
