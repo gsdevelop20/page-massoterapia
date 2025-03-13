@@ -30,22 +30,24 @@ const ProductCard = memo(({product, onOpenModal}) => {
     return (
         <motion.article
             ref={ref}
-            className="w-full md:w-10 z-40 border-4 card-1 flex flex-column justify-content-center p-5 rounded-xl shadow-sm"
+            className="w-full md:w-10 z-40 border-4 card-1 flex card-carousel justify-content-between flex-column rounded-xl shadow-sm"
             variants={cardVariants}
             initial="hidden"
-            style={{height: '20rem'}}
+            style={{height: '25rem'}}
             animate={inView ? "visible" : "hidden"}
             role="listitem"
             aria-label={product.title}
         >
-            <div className='flex-column flex justify-content-between gap-4 align-items-center p-4'>
-                <img
+            <div className='card-img-2 w-100' style={{backgroundImage: 'url(' + product.modalImage + ')', maxHeight: 'max-height: 100vh'}}>
+                {/*<img
                     src={product.modalImage}
                     width={170}
                     alt={`${product.title} - imagem ilustrativa`}
                     className="h-16 position-relative"
                     loading="lazy"
-                />
+                />*/}
+            </div>
+            <div className='flex-column flex justify-content-between gap-4 align-items-center p-4'>
                 <h5 className="h4 font-medium text-gray-700 dark:text-gray-300 text-center">
                     {product.title}
                 </h5>
@@ -181,10 +183,11 @@ const Carousel = memo(({data}) => {
                             alt={selectedProduct.title}
                             className="w-full max-h-40 object-cover rounded"
                         />
-                        <div className='w-100 mt-5 flex justify-content-start'><span
-                            className='h4 font-bold text-orange-700 text-left'>VALOR: {selectedProduct.price}</span>
+                        <div className='w-100 mt-5 flex flex-column justify-content-start'>
+                            <span className='h4 font-bold text-orange-700 text-left'>VALOR: {selectedProduct.price}</span>
+                            <span className='text-start'>*Os valores estão sujeitos a alterações.</span>
                         </div>
-                        <p className='text-left mt-3'>{selectedProduct.description}</p>
+                        <p className='text-left mt-4'>{selectedProduct.description}</p>
                     </div>
 
                 )}

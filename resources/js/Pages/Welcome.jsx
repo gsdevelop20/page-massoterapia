@@ -4,6 +4,7 @@ import {PrimeReactProvider} from "primereact/api";
 import {CheckCircle} from "lucide-react";
 import './style.css';
 import React, {useState, useMemo, Suspense, useEffect, useRef} from "react";
+import {FaClock, FaMapMarkerAlt, FaPhoneAlt, FaWhatsapp} from "react-icons/fa";
 
 // Lazy load dos componentes para melhorar o carregamento inicial
 const Carousel = React.lazy(() => import('@/Components/Carousel/Carousel'));
@@ -305,9 +306,11 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 <div
                                     className='section-info d-flex flex-column'>
                                     <h2 style={styles.title} className=''>Renove seu corpo e sua mente! <br/>
-                                        Relaxe, alivie o estresse e recarregue suas energias com o poder massoterapia.</h2>
+                                        Relaxe, alivie o estresse e recarregue suas energias com o poder massoterapia.
+                                    </h2>
                                     <p className='text-white'>
-                                        Os benefícios da massagem vão além do simples relaxamento, sendo uma excelente opção para a sua saúde física e mental.
+                                        Os benefícios da massagem vão além do simples relaxamento, sendo uma excelente
+                                        opção para a sua saúde física e mental.
                                     </p>
                                     <img className="section-1-img-mobile w-100 mt-3 mb-3"
                                          style={{Width: "60%"}}
@@ -344,27 +347,28 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                                 <CheckCircle size={20} color="#FFFFFF"/>
                                             </div>
                                             <strong>PACOTE: 10 Massagens
-                                            (qualquer tipo): R$ 1.200,00*</strong>
+                                                (qualquer tipo): R$ 1.200,00*</strong>
                                         </li>
                                         <li style={styles.listItem}>
                                             <div>
-                                            <CheckCircle size={20} color="#FFFFFF"/>
+                                                <CheckCircle size={20} color="#FFFFFF"/>
                                             </div>
                                             <strong>PACOTE: Revigoração Profunda: 2
-                                            massagens terapêuticas de 50 min - R$ 200,00*</strong>
+                                                massagens terapêuticas de 50 min - R$ 200,00*</strong>
                                         </li>
                                         <li style={styles.listItem}>
                                             <div>
-                                            <CheckCircle size={20} color="#FFFFFF"/>
+                                                <CheckCircle size={20} color="#FFFFFF"/>
                                             </div>
-                                            <strong>PACOTE: Relaxamento Total: 2 massagens terapêuticas + 1 massagem Ayurvédica
+                                            <strong>PACOTE: Relaxamento Total: 2 massagens terapêuticas + 1 massagem
+                                                Ayurvédica
                                                 + 1 sessão de acupuntura e auriculoterapia + 1 Quick Massagem com
                                                 Ventosoterapia - R$ 400,00*</strong>
                                         </li>
                                     </ul>
 
-                                    <p className='text-white'>
-                                        Vamos agendar sua sessão e aproveitar os benefícios da massagem?
+                                    <p className='text-white' style={{fontSize: '12px'}}>
+                                        *Os valores estão sujeitos a alterações
                                     </p>
 
                                     <button
@@ -395,7 +399,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             <div
                                 className='flex flex-column gap-8 md:flex-row align-items-center container mt-8 mb-8'
                             >
-                                <CarouselImg images={images} />
+                                <CarouselImg images={images}/>
 
                                 <div className='abount-us-info  gap-4 flex flex-column md:75 w-100'>
                                     <span
@@ -424,6 +428,40 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             </h2>
                             <iframe src='https://widgets.sociablekit.com/google-reviews/iframe/25531714' frameBorder='0'
                                     width='100%' height='400'></iframe>
+                        </section>
+
+                        <section id="contato" className="contact-section mt-8" aria-labelledby="contact-heading">
+                            <div className="container">
+                                <div className="d-flex justify-content-center w-100">
+                                    {/* Coluna dos Dados de Contato */}
+                                    <div className="col-md-6 mb-4">
+                                        <div className="contact-card shadow p-4">
+                                            <h4 className="mb-4">CONTATO</h4>
+                                            <address>
+                                                <p>
+                                                    <FaMapMarkerAlt aria-hidden="true" className="me-2"/>
+                                                    <strong>Endereço:</strong> SCN Quadra 01 Bloco F, Ed. America Office Tower,
+                                                    Salas 512 a 514 - Asa Norte, Brasília DF
+                                                </p>
+                                                <p>
+                                                    <FaPhoneAlt aria-hidden="true" className="me-2"/>
+                                                    <strong>Telefone:</strong> 61 3328-9566
+                                                    61 99384-5772 / 61 98275-0333
+                                                </p>
+                                                <p>
+                                                    <FaWhatsapp aria-hidden="true" className="me-2"/>
+                                                    <strong>WhatsApp:</strong> (61) 99624-6801
+                                                </p>
+                                                <p>
+                                                    <FaClock aria-hidden="true" className="me-2"/>
+                                                    <strong>Horário:</strong> Segunda a Sexta-feira das 8h às 20h.
+                                                    Sábado e Domingo Fechado
+                                                </p>
+                                            </address>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
 
                         <a
