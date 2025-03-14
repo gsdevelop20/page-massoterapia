@@ -423,10 +423,10 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             </div>
                         </section>
                         <section className='mt-8'>
-                            <h2 id="products-heading" className="h1 font-bold text-center text-orange-600">
+                            <h2 id="products-heading" className="h1 font-bold text-center mb-8 text-orange-600">
                                 AVALIAÇÕES
                             </h2>
-                            <iframe src='https://widgets.sociablekit.com/google-reviews/iframe/25531714' frameBorder='0'
+                            <iframe src='https://5a07bed189ae46e099d1b681e961c665.elf.site' frameBorder='0'
                                     width='100%' height='400'></iframe>
                         </section>
 
@@ -439,18 +439,26 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                             <h4 className="mb-4">CONTATO</h4>
                                             <address>
                                                 <p>
-                                                    <FaMapMarkerAlt aria-hidden="true" className="me-2"/>
-                                                    <strong>Endereço:</strong> SCN Quadra 01 Bloco F, Ed. America Office Tower,
-                                                    Salas 512 a 514 - Asa Norte, Brasília DF
+                                                    <a className='text-black contact-address' href='https://www.google.com.br/maps/place/L%C3%A9vi+Sa%C3%BAde+Integrada/@-15.7873444,-47.8850211,17z/data=!3m1!4b1!4m6!3m5!1s0x935a3afdd4d1d22f:0x393e9b2d86b2f435!8m2!3d-15.7873444!4d-47.8824462!16s%2Fg%2F11bwf795cd?hl=pt-BR&entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoASAFQAw%3D%3D'>
+                                                        <FaMapMarkerAlt aria-hidden="true" className="me-2"/>
+                                                        <strong>Endereço:</strong> SCN Quadra 01 Bloco F, Ed. America Office Tower,
+                                                        Salas 512 a 514 - Asa Norte, Brasília DF
+                                                    </a>
                                                 </p>
                                                 <p>
                                                     <FaPhoneAlt aria-hidden="true" className="me-2"/>
-                                                    <strong>Telefone:</strong> 61 3328-9566
-                                                    61 99384-5772 / 61 98275-0333
+                                                    <strong>Telefone:</strong> (61) 3328-9566
+                                                    (61) 99384-5772 / (61) 98275-0333
                                                 </p>
                                                 <p>
-                                                    <FaWhatsapp aria-hidden="true" className="me-2"/>
-                                                    <strong>WhatsApp:</strong> (61) 99624-6801
+                                                    <a
+                                                        href="https://wa.me/5561996246801?text=Olá, vim do site e gostaria de falar com o atendimento!"
+                                                        className="contact-btn-whats text-black"
+                                                        aria-label="Chat via WhatsApp"
+                                                    >
+                                                        <FaWhatsapp aria-hidden="true" className="me-2"/>
+                                                        <strong>WhatsApp:</strong> (61) 99624-6801
+                                                        </a>
                                                 </p>
                                                 <p>
                                                     <FaClock aria-hidden="true" className="me-2"/>
@@ -515,9 +523,12 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             />
                         </a>
 
-                        <footer className="text-center text-lg-start bg-body-tertiary text-muted \"
+                        <footer className="text-center text-lg-start bg-body-tertiary text-muted"
                                 role="contentinfo"
-                                style={{marginTop: "15rem"}}>
+                                style={{marginTop: "10rem"}}>
+                            <div className='w-100 p-3 bg-gray-60 d-flex justify-content-center'>
+                                <span className='font-bold'>Lévi Saúde Integrada - 00.931.670/0001-21</span>
+                            </div>
                             <div className="text-center p-4" style={{backgroundColor: "#c1c1c1"}}>
                                 <div className="text-reset fw-bold text-white">
                                     © 2025 Copyright: Feito por <a className="text-green-800"
