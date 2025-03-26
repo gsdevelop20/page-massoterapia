@@ -18,7 +18,7 @@ const cards = [
         "price": "R$110.00* - 30 min",
         "btnClass": "btn-mio",
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Liberação Miofascial.",
+        "url": "https://wa.me/+556193845772?text=Olá, gostaria de agendar uma sessão de Liberação Miofascial.",
         "modalImage" : '/images/home/massagem/man-being-given-back-massage-by-physiotherapist-compressed.webp'
     },
     {
@@ -27,7 +27,7 @@ const cards = [
         "price": "R$220.00* - 50 min",
         "btnClass": "btn-dren",
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Drenagem Linfática.",
+        "url": "https://wa.me/+556193845772?text=Olá, gostaria de agendar uma sessão de Drenagem Linfática.",
         "modalImage" : '/images/home/massagem/woman-receiving-belly-massage-spa-salon-_1_-compressed.webp'
     },
 
@@ -37,7 +37,7 @@ const cards = [
         "price": "R$100.00* - 10 a 15 min",
         "btnClass": "btn-vent",
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão Ventosaterapia.",
+        "url": "https://wa.me/+556193845772?text=Olá, gostaria de agendar uma sessão Ventosaterapia.",
         "modalImage" : '/images/home/massagem/client-with-suction-cup-process-compressed.webp'
     },
     {
@@ -46,7 +46,7 @@ const cards = [
         "btnClass": "btn-desp",
         "price": 'R$ 170,00* - 50min',
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Desportiva.",
+        "url": "https://wa.me/+556193845772?text=Olá, gostaria de agendar uma sessão de Massagem Desportiva.",
         "modalImage" : '/images/home/massagem/man-being-given-back-massage-by-physiotherapist-compressed.webp'
     },
     {
@@ -55,7 +55,7 @@ const cards = [
         "btnClass": "btn-shi",
         "price": 'R$ 150,00* - 50 min',
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Shiatsu.",
+        "url": "https://wa.me/+556193845772?text=Olá, gostaria de agendar uma sessão de Massagem Shiatsu.",
         "modalImage" : '/images/home/massagem/woman-receiving-belly-massage-spa-salon-_1_-compressed.webp'
     },
     {
@@ -64,7 +64,7 @@ const cards = [
         "btnClass": "btn-aur",
         "price": 'R$ 80,00*',
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Auriculoterapia.",
+        "url": "https://wa.me/+556193845772?text=Olá, gostaria de agendar uma sessão de Auriculoterapia.",
         "modalImage" : '/images/home/massagem/man-being-given-back-massage-by-physiotherapist-compressed.webp'
     },
     {
@@ -73,7 +73,7 @@ const cards = [
         "price": 'R$ 80,00*',
         "btnClass": "btn-relax",
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Relaxante.",
+        "url": "https://wa.me/+556193845772?text=Olá, gostaria de agendar uma sessão de Massagem Relaxante.",
         "modalImage" : '/images/home/massagem/woman-receiving-belly-massage-spa-salon-_1_-compressed.webp'
     },
     {
@@ -82,7 +82,7 @@ const cards = [
         "price": 'R$ 170,00* - 40 min',
         "btnClass": "btn-acu",
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Acupuntura.",
+        "url": "https://wa.me/+556193845772?text=Olá, gostaria de agendar uma sessão de Acupuntura.",
         "modalImage" : '/images/home/massagem/acupuncture-process-compressed.webp'
     },
     {
@@ -91,7 +91,7 @@ const cards = [
         "price": 'R$ 150,00* - 50 min (Quick Massagem - R$ 85,00* - 30 min)',
         "btnClass": "btn-terap",
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Massagem Terapêutica.",
+        "url": "https://wa.me/+556193845772?text=Olá, gostaria de agendar uma sessão de Massagem Terapêutica.",
         "modalImage" : '/images/home/massagem/man-being-given-back-massage-by-physiotherapist-compressed.webp'
     },
     {
@@ -100,7 +100,7 @@ const cards = [
         "price": 'R$220.00* - 50 min*',
         "btnClass": "btn-pedras",
         "imageSrc": "/images/home/icons/massagem-facial.png",
-        "url": "https://wa.me/5561996246801?text=Olá, gostaria de agendar uma sessão de Pedras Quentes.",
+        "url": "https://wa.me/+556193845772?text=Olá, gostaria de agendar uma sessão de Pedras Quentes.",
         "modalImage" : '/images/home/massagem/woman-getting-massage-back-by-hot-stones-_1_-compressed.webp'
     }
 ];
@@ -318,7 +318,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                          src="/images/home/banner.png"/>
 
                                     <button
-                                        onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
+                                        onClick={(e) => window.open('https://wa.me/+556193845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
                                         style={{fontSize: '22px', backgroundColor: '#01d758'}}
                                         className="btn-agendar mt-5 md:w-7 btn-pulse w-full text-white border-0 font-bold py-2 px-4 rounded">
                                         AGENDAR AGORA
@@ -372,7 +372,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     </p>
 
                                     <button
-                                        onClick={(e) => window.open('https://wa.me/55993845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
+                                        onClick={(e) => window.open('https://wa.me/+556193845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
                                         className="btn-agendar-2 mt-3 md:w-6 w-full text-white border-0 font-bold py-2 px-4 rounded"
                                         style={{fontSize: '22px', backgroundColor: '#01d758'}}
                                     >
@@ -452,13 +452,13 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                                 </p>
                                                 <p>
                                                     <a
-                                                        href="https://wa.me/5561996246801?text=Olá, vim do site e gostaria de falar com o atendimento!"
+                                                        href="https://wa.me/+556193845772?text=Olá, vim do site e gostaria de falar com o atendimento!"
                                                         className="contact-btn-whats text-black"
                                                         aria-label="Chat via WhatsApp"
                                                     >
                                                         <FaWhatsapp aria-hidden="true" className="me-2"/>
-                                                        <strong>WhatsApp:</strong> (61) 99624-6801
-                                                        </a>
+                                                        <strong>WhatsApp:</strong> (61) 9384-5772
+                                                    </a>
                                                 </p>
                                                 <p>
                                                     <FaClock aria-hidden="true" className="me-2"/>
@@ -473,7 +473,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                         </section>
 
                         <a
-                            href="https://wa.me/5561996246801?text=Olá, vim do site e gostaria de falar com o atendimento!"
+                            href="https://wa.me/+5561993845772?text=Olá, vim do site e gostaria de falar com o atendimento!"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="float-btn btn-whats"
@@ -507,7 +507,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                         </a>
 
                         <a
-                            href="tel:5561996246801"
+                            href="tel:+556133289566"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="float-btn btn-cha"
