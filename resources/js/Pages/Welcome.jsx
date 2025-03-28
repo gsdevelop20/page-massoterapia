@@ -277,10 +277,6 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                     </a>
 
                     <Suspense fallback={<div>Carregando...</div>}>
-                        {/*  <header>
-                            <HeaderComponent auth={auth}/>
-                        </header>*/}
-
                         <section className='w-full position-relative section-header'
                                  style={{
                                      bottom: "2px",
@@ -293,7 +289,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                  style={{background: 'transparent'}}>
                                 <div className='w-full flex mb-1 md:mb-4 justify-content-between align-items-center'>
                                     <div>
-                                        <img className="p-5 logo" alt="logo clinica Amor Brasil"
+                                        <img className="p-5 logo" alt="logo Leví Saúde integrada"
                                              src="/images/home/icons/Lévi6_png.png"/>
                                     </div>
 
@@ -315,7 +311,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     <img className="section-1-img-mobile w-100 mt-3 mb-3"
                                          style={{Width: "60%"}}
                                          alt=" imagem de massagem"
-                                         src="/images/home/banner.png"/>
+                                         src="/images/home/banner.webp"/>
 
                                     <button
                                         onClick={(e) => window.open('https://wa.me/+556193845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
@@ -327,8 +323,8 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
 
                                 <img className="section-1-img " width={700}
                                      style={{Width: "60%"}}
-                                     alt="logo w-full  clinica Amor Brasil"
-                                     src="/images/home/banner.png"/>
+                                     alt="logo w-full Leví Saúde integrada"
+                                     src="/images/home/banner.webp"/>
                             </div>
                         </section>
 
@@ -426,8 +422,11 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             <h2 id="products-heading" className="h1 font-bold text-center mb-8 text-orange-600">
                                 AVALIAÇÕES
                             </h2>
-                            <iframe src='https://5a07bed189ae46e099d1b681e961c665.elf.site' frameBorder='0'
-                                    width='100%' height='400'></iframe>
+                            <LazyIframe
+                                src="https://5a07bed189ae46e099d1b681e961c665.elf.site"
+                                title="Avaliações do Google"
+                                style={{border: 0, width: "100%", height: "340px"}}
+                            />
                         </section>
 
                         <section id="contato" className="contact-section mt-8" aria-labelledby="contact-heading">
