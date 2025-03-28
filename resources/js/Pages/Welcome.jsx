@@ -180,7 +180,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
         },
         title: {
             color: "#ffffff",
-            fontSize: "2em",
+            fontSize: "1.5em",
             fontWeight: "800",
         },
         list: {
@@ -290,7 +290,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                         Os benefícios da massagem vão além do simples relaxamento, sendo uma excelente
                                         opção para a sua saúde física e mental.
                                     </p>
-                                    <img className="section-1-img-mobile w-100 mt-3 mb-3"
+                                    <img className="section-1-img-mobile w-100 mt-7 mb-5"
                                          style={{Width: "60%"}}
                                          alt=" imagem de massagem"
                                          src="/images/home/banner.webp"/>
