@@ -183,11 +183,6 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
             fontSize: "2em",
             fontWeight: "800",
         },
-        description: {
-            fontSize: "1.4em",
-            color: "#ffffff",
-            maxWidth: "800px",
-        },
         list: {
             padding: 0,
             fontSize: "1.1em",
@@ -198,19 +193,6 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
             alignItems: "center",
             gap: "10px",
             margin: "8px 0",
-        },
-        button: {
-            display: "inline-flex",
-            alignItems: "center",
-            padding: "15px 25px",
-            fontSize: "1.2em",
-            color: "white",
-            backgroundColor: "#d37435",
-            textDecoration: "none",
-            borderRadius: "5px",
-            marginTop: "20px",
-            border: "none",
-            cursor: "pointer",
         },
     };
 
@@ -383,6 +365,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     autoPlay
                                     muted
                                     loop
+                                    tabIndex="0"
                                 ></video>
                             </div>
                         </section>

@@ -38,14 +38,7 @@ const ProductCard = memo(({product, onOpenModal}) => {
             role="listitem"
             aria-label={product.title}
         >
-            <div className='card-img-2 w-100' style={{backgroundImage: 'url(' + product.modalImage + ')', maxHeight: 'max-height: 100vh'}}>
-                {/*<img
-                    src={product.modalImage}
-                    width={170}
-                    alt={`${product.title} - imagem ilustrativa`}
-                    className="h-16 position-relative"
-                    loading="lazy"
-                />*/}
+            <div className='card-img-2 w-100' aria-label={product.title} style={{backgroundImage: 'url(' + product.modalImage + ')', maxHeight: 'max-height: 100vh'}}>
             </div>
             <div className='flex-column flex justify-content-between gap-4 align-items-center p-4'>
                 <h5 className="h4 font-medium text-gray-700 dark:text-gray-300 text-center">
@@ -56,7 +49,7 @@ const ProductCard = memo(({product, onOpenModal}) => {
                     className="btn w-full mt-1 text-white"
                     aria-label={`Agendar consulta para ${product.title}`}
                     onClick={() => onOpenModal(product)}
-                    style={{background: '#d37435', fontWeight: 'bold', fontSize: '18px'}}
+                    style={{background: 'rgb(1, 215, 88)', fontWeight: 'bold', fontSize: '18px'}}
                 >
                     SAIBA MAIS
                 </button>
