@@ -251,7 +251,14 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
         <>
             <PrimeReactProvider>
                 <LayoutProvider>
-                    <Head title="Massoterapia"/>
+                    <Head title="Massoterapia">
+                        <link
+                            rel="preload"
+                            as="image"
+                            href="/images/home/banner.webp"
+                            type="image/webp"
+                        />
+                    </Head>
 
                     {/* Skip link para navegação rápida */}
                     <a href="#main-content" className="skip-link hidden">
@@ -272,7 +279,10 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 <div className='w-full flex mb-1 md:mb-4 justify-content-between align-items-center'>
                                     <div>
                                         <img className="p-5 logo" alt="logo Leví Saúde integrada"
-                                             src="/images/home/icons/Lévi6_png.png"/>
+                                             src="/images/home/icons/Lévi6_png.png"
+                                             loading="eager"
+                                             decoding="async"
+                                             fetchPriority="high"/>
                                     </div>
 
                                     <div className='bg-white w-full ml-4 mr-4 mt-4' style={{height: '0.2rem'}}>
@@ -306,7 +316,10 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 <img className="section-1-img " width={500}
                                      style={{Width: "60%"}}
                                      alt="logo w-full Leví Saúde integrada"
-                                     src="/images/home/banner.webp"/>
+                                     src="/images/home/banner.webp"
+                                     loading="eager"
+                                     decoding="async"
+                                     fetchPriority="high"/>
                             </div>
                         </section>
 

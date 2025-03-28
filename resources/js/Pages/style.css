@@ -100,7 +100,7 @@
 .section-header > * {
   position: relative;
   z-index: 1;
-  bottom: 30px;
+  bottom: 10px;
 }
 @media (max-width: 764px) {
   .section-header > * {
