@@ -1,4 +1,4 @@
-import {Head, Link} from '@inertiajs/react';
+import {Head} from '@inertiajs/react';
 import {LayoutProvider} from "@/Layouts/layout/context/layoutcontext.jsx";
 import {PrimeReactProvider} from "primereact/api";
 import {CheckCircle} from "lucide-react";
@@ -282,7 +282,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                      bottom: "2px",
                                      backgroundColor: '#537859',
                                      height: '45rem',
-                                     backgroundImage: 'url(/images/home/banner.jpg)'
+                                     backgroundImage: 'url(/images/home/bannerr.webp)'
                                  }}>
                             <div className="overlay"></div>
                             <div className='w-full mx-auto d-flexalign-items-center content'
