@@ -106,9 +106,9 @@ const cards = [
 ];
 
 const images = [
-    { src: "/images/home/carouselImg/Espaço_Begonia_-_Método_Padovan.jpg", alt: "Espaço Begonia" },
-    { src: "/images/home/carouselImg/Espaço_Calathea_-_Método Padovan.jpg", alt: "Espaço Calathea" },
-    { src: "/images/home/carouselImg/Espaço_Ficus_Lyrata_-_Fisioterapia.jpg", alt: "Espaço Ficus Lyrata" },
+    { src: "/images/home/carouselImg/Espaço_Begonia_-_Método_Padovan.webp", alt: "Espaço Begonia" },
+    { src: "/images/home/carouselImg/Espaço_Calathea_-_Método-Padovan.webp", alt: "Espaço Calathea" },
+    { src: "/images/home/carouselImg/Espaço_Ficus_Lyrata_-_Fisioterapia.webp", alt: "Espaço Ficus Lyrata" },
 ];
 
 // Componente LazyIframe aprimorado para carregar o iframe somente quando estiver na viewport
@@ -321,7 +321,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     </button>
                                 </div>
 
-                                <img className="section-1-img " width={700}
+                                <img className="section-1-img " width={500}
                                      style={{Width: "60%"}}
                                      alt="logo w-full Leví Saúde integrada"
                                      src="/images/home/banner.webp"/>
