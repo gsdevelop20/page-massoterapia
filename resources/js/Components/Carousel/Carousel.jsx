@@ -38,7 +38,7 @@ const ProductCard = memo(({product, onOpenModal}) => {
             role="listitem"
             aria-label={product.title}
         >
-            <div className='card-img-2 w-100' aria-label={product.title} style={{backgroundImage: 'url(' + product.modalImage + ')', maxHeight: 'max-height: 100vh'}}>
+            <div className='card-img-2 w-100' style={{backgroundImage: 'url(' + product.modalImage + ')', maxHeight: 'max-height: 100vh'}}>
             </div>
             <div className='flex-column flex justify-content-between gap-4 align-items-center p-4'>
                 <h5 className="h4 font-medium text-gray-700 dark:text-gray-300 text-center">
