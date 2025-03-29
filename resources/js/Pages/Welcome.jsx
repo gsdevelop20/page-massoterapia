@@ -302,7 +302,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     </p>
                                     <img className="section-1-img-mobile w-100 mt-7 mb-5"
                                          style={{Width: "60%"}}
-                                         alt=" imagem de massagem"
+                                         alt="Banner promocional Lévi Saúde Integrada desktop"
                                          src="/images/home/banner_Easy-Resize.com.jpg"/>
 
                                     <button
@@ -315,9 +315,9 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
 
                                 <img className="section-1-img " width={500}
                                      style={{Width: "60%"}}
-                                     alt="logo w-full Leví Saúde integrada"
                                      src="/images/home/banner_Easy-Resize.com.jpg"
                                      loading="eager"
+                                     alt="Banner promocional Lévi Saúde Integrada mobile"
                                      decoding="async"
                                      fetchPriority="high"/>
                             </div>
@@ -365,6 +365,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     <button
                                         onClick={(e) => window.open('https://wa.me/+556193845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
                                         className="btn-agendar-2 mt-3 md:w-6 w-full text-white border-0 font-bold py-2 px-4 rounded"
+                                        aria-label="Agendar uma sessão de massoterapia pelo WhatsApp"
                                         style={{fontSize: '22px', backgroundColor: '#01d758'}}
                                     >
                                         AGENDAR AGORA
@@ -434,7 +435,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                             <h4 className="mb-4">CONTATO</h4>
                                             <address>
                                                 <p>
-                                                    <a className='text-black contact-address' href='https://www.google.com.br/maps/place/L%C3%A9vi+Sa%C3%BAde+Integrada/@-15.7873444,-47.8850211,17z/data=!3m1!4b1!4m6!3m5!1s0x935a3afdd4d1d22f:0x393e9b2d86b2f435!8m2!3d-15.7873444!4d-47.8824462!16s%2Fg%2F11bwf795cd?hl=pt-BR&entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoASAFQAw%3D%3D'>
+                                                    <a  aria-label="Ver localização da clínica no Google Maps" className='text-black contact-address' href='https://www.google.com.br/maps/place/L%C3%A9vi+Sa%C3%BAde+Integrada/@-15.7873444,-47.8850211,17z/data=!3m1!4b1!4m6!3m5!1s0x935a3afdd4d1d22f:0x393e9b2d86b2f435!8m2!3d-15.7873444!4d-47.8824462!16s%2Fg%2F11bwf795cd?hl=pt-BR&entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoASAFQAw%3D%3D'>
                                                         <FaMapMarkerAlt aria-hidden="true" className="me-2"/>
                                                         <strong>Endereço:</strong> SCN Quadra 01 Bloco F, Ed. America Office Tower,
                                                         Salas 512 a 514 - Asa Norte, Brasília DF
@@ -507,9 +508,9 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                             rel="noopener noreferrer"
                             className="float-btn btn-cha"
                             style={instagramButtonStyle}
+                            aria-label="Clique para ligar para a clínica Lévi"
                             onMouseEnter={() => setScale(1.1)}
                             onMouseLeave={() => setScale(1)}
-                            aria-label="Ligar para a Clínica"
                         >
                             <img
                                 src="/images/home/icons/telefone.png"
