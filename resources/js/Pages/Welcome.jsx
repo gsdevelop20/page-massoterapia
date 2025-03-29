@@ -271,7 +271,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                      bottom: "2px",
                                      backgroundColor: '#537859',
                                      height: '45rem',
-                                     backgroundImage: 'url(/images/home/bannerr.webp)'
+                                     backgroundImage: 'url(/images/home/bannerr_Easy-Resize.com.jpg)'
                                  }}>
                             <div className="overlay"></div>
                             <div className='w-full mx-auto d-flexalign-items-center content'
@@ -303,7 +303,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                     <img className="section-1-img-mobile w-100 mt-7 mb-5"
                                          style={{Width: "60%"}}
                                          alt=" imagem de massagem"
-                                         src="/images/home/banner.webp"/>
+                                         src="/images/home/banner_Easy-Resize.com.jpg"/>
 
                                     <button
                                         onClick={(e) => window.open('https://wa.me/+556193845772?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20massoterapia.%20Poderia%20me%20informar%20os%20horários%20disponíveis?', '_blank')}
@@ -316,7 +316,7 @@ export default function Welcome({auth, laravelVersion, phpVersion}) {
                                 <img className="section-1-img " width={500}
                                      style={{Width: "60%"}}
                                      alt="logo w-full Leví Saúde integrada"
-                                     src="/images/home/banner.webp"
+                                     src="/images/home/banner_Easy-Resize.com.jpg"
                                      loading="eager"
                                      decoding="async"
                                      fetchPriority="high"/>
